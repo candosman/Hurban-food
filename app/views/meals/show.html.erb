@@ -1,0 +1,7 @@
+<h2><%= @meal.name %></h2>
+<p><%= @meal.phone %></p>
+
+<%= link_to "Delete",
+  meal_path(@meal),
+  data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
+%>

@@ -1,4 +1,6 @@
 class MealsController < ApplicationController
+  skip_before_action :authenticate_user!, only: %i[index show]
+
   def index
     @meals = Meal.all
 
@@ -14,7 +16,7 @@ class MealsController < ApplicationController
   end
 
   def create
-    @meal = Meal.new(params[:meal])
+    @meal = Meal.new(meal_params)
     @meal.save
     redirect_to meal_path(@meal)
 

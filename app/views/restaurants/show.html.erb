@@ -1,7 +1,17 @@
-<h2><%= @restaurant.name %></h2>
-<p><%= @restaurant.phone %></p>
-<p><%= @restaurant.address %></p>
-<%= link_to "Delete",
-  restaurant_path(@restaurant),
-  data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
-%>
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= image_path('meat-skewer-with-vegetables-black-backgroundai-generative.jpg') %>);">
+  <div class="container">
+    <h1>Hurban Food <strong>your food lover's companion</strong> designed to simplify <strong>your culinary adventures</strong>!</h1>
+  </div>
+</div>
+<div class="footer">
+  <div class="footer-links">
+    <a href="#"><i class="fab fa-github"></i></a>
+    <a href="#"><i class="fab fa-instagram"></i></a>
+    <a href="#"><i class="fab fa-facebook"></i></a>
+    <a href="#"><i class="fab fa-twitter"></i></a>
+    <a href="#"><i class="fab fa-linkedin"></i></a>
+  </div>
+  <div class="footer-copyright">
+     Batch 1669 <i class="fas fa-heart"></i> at Le Wagon
+  </div>
+</div>

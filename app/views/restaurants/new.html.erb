@@ -1,9 +1,15 @@
-<%= form_with model: @restaurant do |f| %>
-  <%= f.label :name %>
-  <%= f.text_field :name %>
-  <%= f.label :address %>
-  <%= f.text_field :address %>
-  <%= f.label :phone %>
-  <%= f.number_field :phone %>
-  <%= f.submit %>
-<% end %>
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('https://fnsharp.com/cdn/shop/articles/backyard-bbq-meat-grilling-guide-850x600_850x.jpg?v=1617738809');">
+  <div class="container">
+    <h1 class=" restaurant-title text-center">Create <strong>your new restaurant</strong> <strong>below !</strong></h1>
+  </div>
+
+</div>
+
+  <div class="container mb-5 mt-4 form-restaurant">
+    <%= simple_form_for @restaurant do |f| %>
+      <%= f.input :name, placeholder:"Enter name" %>
+      <%= f.input :address, placeholder: "Enter address" %>
+      <%= f.input :phone, placeholder: "Enter phone number" %>
+      <%= f.submit class: 'btn btn-primary' %>
+    <% end %>
+  </div>

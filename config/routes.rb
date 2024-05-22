@@ -14,11 +14,11 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "posts#index"
   resources :restaurants, only: %i[index new show create] do
-    resources :meal, only: %i[index new show create edit update]
+    resources :meals, only: %i[index new show create edit update]
     resources :users, only: %i[index new show create]
   end
   resources :orders, only: %i[index new show create edit update]
   resources :restaurants, only: %i[destroy]
-  resources :meal, only: %i[destroy]
+  resources :meals, only: %i[index destroy]
   resources :users, only: %i[destroy]
 end

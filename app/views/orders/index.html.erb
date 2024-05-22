@@ -2,4 +2,5 @@
   <% @orders.each do |order| %>
     <li><%= order.amount %></li>
   <% end %>
+  <%= link_to "Add a new order", new_order_path %>
 </ul>

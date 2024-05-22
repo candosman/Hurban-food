@@ -11,11 +11,11 @@ Rails.application.routes.draw do
   # root "posts#index"
   resources :restaurants, only: %i[index new show create] do
     resources :orders, only: %i[index new show create edit update]
-    resources :meal, only: %i[index new show create edit update]
+    resources :meals, only: %i[index new show create edit update]
     resources :users, only: %i[index new show create]
   end
   resources :restaurants, only: %i[destroy]
   resources :orders, only: %i[destroy]
-  resources :meal, only: %i[destroy]
+  resources :meals, only: %i[index show destroy]
   resources :users, only: %i[destroy]
 end

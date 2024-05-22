@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'order_lists/new'
+  get 'order_lists/create'
+  get 'order_lists/edit'
+  get 'order_lists/update'
   devise_for :users
   root to: "restaurants#index"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html

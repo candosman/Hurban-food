@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'order_lists/new'
+  get 'order_lists/create'
+  get 'order_lists/edit'
+  get 'order_lists/update'
   devise_for :users
   root to: "restaurants#index"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
@@ -10,12 +14,11 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "posts#index"
   resources :restaurants, only: %i[index new show create] do
-    resources :orders, only: %i[index new show create edit update]
     resources :meals, only: %i[index new show create edit update]
     resources :users, only: %i[index new show create]
   end
+  resources :orders, only: %i[index new show create edit update]
   resources :restaurants, only: %i[destroy]
   resources :orders, only: %i[destroy]
   resources :meals, only: %i[index show destroy]
-  resources :users, only: %i[destroy]
 end

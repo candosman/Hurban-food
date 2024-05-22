@@ -4,7 +4,6 @@ class MealsController < ApplicationController
 
   def index
     @meals = Meal.all
-
   end
 
   def show
@@ -18,7 +17,6 @@ class MealsController < ApplicationController
 
   def create
     @meal = Meal.new(meal_params)
-
     if @meal.save
       redirect_to @meal, notice: 'meal was successfully created.'
     else

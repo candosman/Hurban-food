@@ -1,7 +1,28 @@
-<h2><%= @restaurant.name %></h2>
-<p><%= @restaurant.phone %></p>
-<p><%= @restaurant.address %></p>
-<%= link_to "Delete",
-  restaurant_path(@restaurant),
-  data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
-%>
+
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0),rgba(0,0,0,0)), url(<%= image_path('bover.png') %>);">
+  <div class="container">
+  </div>
+</div>
+<div class="card-product">
+   <%= image_tag "reto.png"%>
+  <div class="card-product-infos">
+    <h2><%= @restaurant.name %></h2>
+    <p><%= @restaurant.phone %></p>
+    <p><%= @restaurant.address %></p>
+    <p>⭐⭐⭐</p>
+    <a class="btn btn-gradient" href="#">Menu</a>
+  </div>
+</div>
+
+<div class="footer">
+  <div class="footer-links">
+    <a href="#"><i class="fab fa-github"></i></a>
+    <a href="#"><i class="fab fa-instagram"></i></a>
+    <a href="#"><i class="fab fa-facebook"></i></a>
+    <a href="#"><i class="fab fa-twitter"></i></a>
+    <a href="#"><i class="fab fa-linkedin"></i></a>
+  </div>
+  <div class="footer-copyright">
+     Batch 1669 <i class="fas fa-heart"></i> at Le Wagon
+  </div>
+</div>

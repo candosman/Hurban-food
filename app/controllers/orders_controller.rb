@@ -14,7 +14,7 @@ class OrdersController < ApplicationController
   end
 
   def create
-    @order = Order.new(order_params)
+    @order = Order.new
     @order.save
     redirect_to orders_path(@order)
   end

@@ -1,6 +1,17 @@
-<%= simple_form_for @order do |f| %>
-  <%= f.input :name %>
-  <%= f.input :amount %>
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('https://source.unsplash.com/random/?restaurant');">
+  <div class="container">
+    <h1 class=" order-title text-center">Create <strong>your new order</strong> <strong>below !</strong></h1>
+  </div>
 
-  <%= f.submit %>
-<% end %>
+</div>
+
+<div class="container mb-5 mt-4 px-5 col-4 form-order">
+  <div class="mb-6">
+    <%= simple_form_for @order do |f| %>
+      <%= f.input :amount, placeholder:"Enter amount" %>
+      <%= f.input :delivered_status %>
+
+      <%= f.submit class: 'btn btn-primary' %>
+    <% end %>
+  </div>
+</div>

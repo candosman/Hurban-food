@@ -7,6 +7,8 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
-Restaurant.create!(name: "KFC", address: "Moka", phone: "0602650362")
-Restaurant.create!(name: "Buger King", address: "Port Louis", phone: "0583756082")
-Restaurant.create!(name: "subway", address: "Vacoas Phoenix", phone: "0184729685")
+User.create!(name: "john", email: "john@test.com", password: "123456789")
+Restaurant.create!(name: "KFC", address: "Moka", phone: "0602650362", user_id: "1")
+Restaurant.create!(name: "Buger King", address: "Port Louis", phone: "0583756082", user_id: "1")
+Restaurant.create!(name: "subway", address: "Vacoas Phoenix", phone: "0184729685", user_id: "1")
+Meal.create!(name: "buger", price: "50", restaurant_id: "1")

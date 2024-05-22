@@ -1,4 +1,5 @@
 class MealsController < ApplicationController
+  before_action :set_meal, only: [:show, :edit, :update, :destroy]
   skip_before_action :authenticate_user!, only: %i[index show]
 
   def index
@@ -16,13 +17,15 @@ class MealsController < ApplicationController
 
   def create
     @meal = Meal.new(meal_params)
-    @meal.save
-    redirect_to meal_path(@meal)
+    if @meal.save
+      redirect_to @meal, notice: 'meal was successfully created.'
+    else
+      render :new
+    end
   end
 
   def edit
     @meal = Meal.find(params[:id])
-
   end
 
   def update
@@ -41,5 +44,9 @@ class MealsController < ApplicationController
 
   def meal_params
     params.require(:meal).permit(:name, :price)
+  end
+
+  def set_meal
+    @meal = Meal.find(params[:id])
   end
 end

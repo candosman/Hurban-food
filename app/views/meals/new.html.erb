@@ -1,8 +1,15 @@
-<%= form_with model: @restaurant do |f| %>
-  <%= f.label :name %>
-  <%= f.text_field :name %>
-  <%= f.label :price %>
-  <%= f.text_field :price %>
-
-  <%= f.submit %>
+<div class="container mb-5 mt-4 form-restaurant">
+<h1 class='text-center meal'><%= action_name.capitalize %> Meal</h1>
+<%= simple_form_for @meal do |f| %>
+  <div class="form-group">
+    <%= f.input :name, label: "Name", input_html: { class: 'form-control' } %>
+  </div>
+  <div class="form-group">
+    <%= f.input :price, label: "Price", input_html: { class: 'form-control' } %>
+  </div>
+  <div class="form-group d-flex justify-content-around">
+    <%= f.button :submit, class: "btn btn-primary" %>
+<%= link_to 'Back', meals_path, class: 'btn btn-info' %>
+  </div>
 <% end %>
+</div>

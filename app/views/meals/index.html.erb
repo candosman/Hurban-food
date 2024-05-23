@@ -7,11 +7,11 @@
   <% @meals.each do |meal| %>
       <div class="col-md-4 mt-5">
         <div class="card h-100-ml-3" style="width: 20rem"; >
-           <%= image_tag "reto.png"%>
+           <%= meal.photo.attached? ? cl_image_tag(meal.photo.key, height: 212) : image_tag('reto.png') %>
           <div class="card-body">
-            <h5 class="card-title"> <%= meal.name %></h5>
-            <h6 class="card-price"> <%= meal.price %></h6>
-            <p> <%= meal.description %> </p>
+            <h5 class="card-title"> <%= meal.name.upcase %></h5>
+            <h6 class="card-price"><i class="fa-solid fa-tag"></i> Rs <%= meal.price %></h6>
+            <p><i class="fa-solid fa-bowl-food"></i> <%= meal.description %> </p>
             <a class="btn btn-gradient" href="#">Order</a>
           </div>
         </div>

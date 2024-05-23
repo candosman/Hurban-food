@@ -1,14 +1,15 @@
 
 <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0),rgba(0,0,0,0)), url(<%= image_path('bover.png') %>);">
-
 </div>
-<div class="card-product">
-   <%= image_tag "reto.png"%>
-  <div class="card-product-infos">
-    <h2><%= @restaurant.name %></h2>
-    <p><%= @restaurant.phone %></p>
-    <p><%= @restaurant.address %></p>
-    <p>⭐⭐⭐</p>
-    <a class="btn btn-gradient" href="#">Menu</a>
+  <div class="container mt-3 mb-3">
+    <div class="d-flex justify-content-center card-product mb-5 mx-5">
+      <%= image_tag "reto.png"%>
+      <div class="card-product-infos">
+        <h2 class="mt-4"><%= @restaurant.name %></h2>
+        <p><%= @restaurant.phone %></p>
+        <p><%= @restaurant.address %></p>
+        <p>⭐⭐⭐</p>
+        <a class="btn btn-gradient mt-3" href="#">Menu</a>
+      </div>
+    </div>
   </div>
-</div>

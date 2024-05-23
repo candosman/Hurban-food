@@ -1,6 +1,6 @@
 <div class="container mb-5 mt-4 form-restaurant">
 <h1 class='text-center meal'><%= action_name.capitalize %> Meal</h1>
-<%= simple_form_for @meal do |f| %>
+<%= simple_form_for [@restaurant, @meal] do |f| %>
   <div class="form-group">
     <%= f.input :name, label: "Name", input_html: { class: 'form-control' } %>
   </div>
@@ -9,7 +9,7 @@
   </div>
   <div class="form-group d-flex justify-content-around">
     <%= f.button :submit, class: "btn btn-primary" %>
-<%= link_to 'Back', meals_path, class: 'btn btn-info' %>
+<%= link_to 'Back', restaurant_meals_path(@restaurant), class: 'btn btn-info' %>
   </div>
 <% end %>
 </div>

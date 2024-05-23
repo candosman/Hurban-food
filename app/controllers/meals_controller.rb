@@ -6,21 +6,19 @@ class MealsController < ApplicationController
     @meals = Meal.all
   end
 
-  def show
-    @meal = Meal.find(params[:id])
-  end
-
   def new
+    @restaurant = Restaurant.find(params[:restaurant_id])
     @meal = Meal.new
-
   end
 
   def create
+    @restaurant = Restaurant.find(params[:restaurant_id])
     @meal = Meal.new(meal_params)
+    @meal.restaurant = @restaurant
     if @meal.save
-      redirect_to @meal, notice: 'meal was successfully created.'
+      redirect_to restaurant_meals_path(@restaurant), notice: 'meal was successfully created.'
     else
-      render :new
+      render :new, status: :unprocessable_entity
     end
   end
 

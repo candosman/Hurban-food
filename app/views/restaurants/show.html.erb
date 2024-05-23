@@ -9,7 +9,7 @@
         <p><%= @restaurant.phone %></p>
         <p><%= @restaurant.address %></p>
         <p>⭐⭐⭐</p>
-        <a class="btn btn-gradient mt-3" href="#">Menu</a>
+        <%= link_to "Menu", restaurant_meals_path(@restaurant), class:"btn btn-primary mt-3" %>
       </div>
     </div>
   </div>

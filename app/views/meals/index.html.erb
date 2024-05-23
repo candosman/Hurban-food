@@ -1,2 +1,12 @@
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0),rgba(0,0,0,0)), url(<%= image_path('tcover.png') %>);">
 
-<h1>hello</h1>
+</div>
+
+<div class="cards mt-5 container shadow p-3 mb-5 bg-body rounded">
+  <% @meals.each do |meal| %>
+    <li><%= meal.name %></li>
+    <p><%=   meal.price %></p>
+    <a class="btn btn-gradient" href="#">Order</a>
+  <% end %>
+
+</div>

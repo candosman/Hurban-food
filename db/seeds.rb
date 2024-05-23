@@ -48,14 +48,57 @@ restaurant6.photo.attach(io: file6, filename: "Mine St Pierre.png", content_type
 restaurant6.save!
 
 # MEALS
-Meal.create(name: "burger", price: "90", restaurant: restaurant1, description: "bun, beef, lettuce, bacon, mayonnaise")
-Meal.create(name: "pizza", price: "150", restaurant: restaurant1, description: "dough, Pepperoni, Olives, Bacon")
-Meal.create(name: "mine frite", price: "250", restaurant: restaurant1, description: "Fried Noodles, chicken, onion")
-Meal.create(name: "riz frite", price: "450", restaurant: restaurant1, description: "rice, eggs, soy sauce, chopped carrots")
-Meal.create(name: "burrito", price: "250", restaurant: restaurant1, description: "chicken, rice, lettuce, cheese, guacamole")
-Meal.create(name: "mine bouille", price: "50", restaurant: restaurant1, description: "Egg Noodle, Chicken, Fish sauce, Spring Onions")
-Meal.create(name: "kebab", price: "100", restaurant: restaurant1, description: "beef, vegetables")
-Meal.create(name: "beef steak", price: "550", restaurant: restaurant1, description: "beef, buter")
-Meal.create(name: "fried chicken", price: "75", restaurant: restaurant1, description: "chicken, salt, pepper")
-Meal.create(name: "chicken wrap", price: "125", restaurant: restaurant1, description: "lettuce, chicken, rice, and tomatoes,")
-Meal.create(name: "sushi", price: "80", restaurant: restaurant1, description: "vegetables, seafood, sushi rice")
+mealfile1 = URI.open("https://hips.hearstapps.com/hmg-prod/images/banh-mi-turkey-burger-secondary-6578982fea00a.jpg?")
+meal1= Meal.create(name: "burger", price: "90", restaurant: restaurant1, description: "bun, beef, lettuce, bacon, mayonnaise")
+meal1.photo.attach(io: mealfile1, filename: "burger.png", content_type: "image/png")
+meal1.save!
+
+mealfile2 = URI.open("https://www.cicis.com/content/images/cicis/Jalapeno%20pizza.png")
+meal2 = Meal.create(name: "pizza", price: "150", restaurant: restaurant1, description: "dough, Pepperoni, Olives, Bacon")
+meal2.photo.attach(io: mealfile2, filename: "pizza.png", content_type: "image/png")
+meal2.save!
+
+mealfile3 = URI.open("https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhOcPBBUWdDfIfAR9Kw1V2-LbF6szGsKmBuC0s6beyyYfvXc4RtoizGTRKLN9tciI06lEM-hKTqkI2WCvoCIN6HDb4kP93gp_IIFfuwG0bI4ZuNX4zqxI3ipkOLhnwm2SyID17wfLKM8jU/s1600/DSC_0651.jpg")
+meal3 = Meal.create(name: "mine frite", price: "250", restaurant: restaurant1, description: "Fried Noodles, chicken, onion")
+meal3.photo.attach(io: mealfile3, filename: "mine frite.png", content_type: "image/png")
+meal3.save!
+
+mealfile4 = URI.open("https://www.business-magazine.mu/wp-content/uploads/2021/05/IMG-20210506-WA0006-01.jpeg?v=1620299823")
+meal4 = Meal.create(name: "riz frite", price: "450", restaurant: restaurant1, description: "rice, eggs, soy sauce, chopped carrots")
+meal4.photo.attach(io: mealfile4, filename: "riz frite.png", content_type: "image/png")
+meal4.save!
+
+mealfile5 = URI.open("https://static01.nyt.com/images/2024/01/10/multimedia/AS-Burrito-vzhk/AS-Burrito-vzhk-master768.jpg?width=1280&quality=75&auto=webp")
+meal5 = Meal.create(name: "burrito", price: "250", restaurant: restaurant1, description: "chicken, rice, lettuce, cheese, guacamole")
+meal5.photo.attach(io: mealfile5, filename: "burrito.png", content_type: "image/png")
+meal5.save!
+
+mealfile6 = URI.open("https://mauritianfoodrecipes.com/wp-content/uploads/2021/08/Boiled-Noodles-Mine-Bouille-1536x1117.jpg")
+meal6 = Meal.create(name: "mine bouille", price: "50", restaurant: restaurant1, description: "Egg Noodle, Chicken, Fish sauce, Spring Onions")
+meal6.photo.attach(io: mealfile6, filename: "mine bouille.png", content_type: "image/png")
+meal6.save!
+
+mealfile7 = URI.open("https://cookingorgeous.com/wp-content/uploads/2021/06/lamb-shish-kebab-19.jpg")
+meal7 = Meal.create(name: "kebab", price: "100", restaurant: restaurant1, description: "beef, vegetables")
+meal7.photo.attach(io: mealfile7, filename: "kebab.png", content_type: "image/png")
+meal7.save!
+
+mealfile8 = URI.open("https://kitchenconfidante.com/wp-content/uploads/2022/05/Angus-Beef-Steak-Recipe-with-Garlic-Herb-Compound-Butter-kitchenconfidante.com-2745-FEATURED-IMAGE.jpg")
+meal8 = Meal.create(name: "beef steak", price: "550", restaurant: restaurant1, description: "beef, buter")
+meal8.photo.attach(io: mealfile8, filename: "beef steak.png", content_type: "image/png")
+meal8.save!
+
+mealfile9 = URI.open("https://static01.nyt.com/images/2024/01/10/multimedia/10Korean-Fried-Chicken-lfcg/10Korean-Fried-Chicken-lfcg-master768.jpg?width=1280&quality=75&auto=webp")
+meal9 = Meal.create(name: "fried chicken", price: "75", restaurant: restaurant1, description: "chicken, salt, pepper")
+meal9.photo.attach(io: mealfile9, filename: "fried chicken.png", content_type: "image/png")
+meal9.save!
+
+mealfile10 = URI.open("https://sailorbailey.com/wp-content/uploads/2023/04/Cajun-Chicken-Wrap.jpg")
+meal10 = Meal.create(name: "chicken wrap", price: "125", restaurant: restaurant1, description: "lettuce, chicken, rice, and tomatoes,")
+meal10.photo.attach(io: mealfile10, filename: "chicken wrap.png", content_type: "image/png")
+meal10.save!
+
+mealfile11 = URI.open("https://popmenucloud.com/rilwatzf/c2b948b5-8105-4b14-86f1-a56f56b1a1ab.jpg")
+meal11 = Meal.create(name: "sushi", price: "80", restaurant: restaurant1, description: "vegetables, seafood, sushi rice")
+meal11.photo.attach(io: mealfile11, filename: "sushi.png", content_type: "image/png")
+meal11.save!

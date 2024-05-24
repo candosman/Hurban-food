@@ -1,2 +1,10 @@
-<h2><%= @cart. %></h2>
-<p><%= @cart. %></p>
+<div class="container py-4 col-4">
+  <div class="text-center ">
+    <h2>CART</h2>
+    <% @order_lists.each do |order_list| %>
+      <p><%= order_list.meal.name %></p>
+      <p><%= order_list.meal.price %></p>
+      <hr>
+    <% end %>
+  </div>
+</div>

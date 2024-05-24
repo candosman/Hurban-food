@@ -1,5 +1,5 @@
 class CartController < ApplicationController
   def show
-    @cart = Cart.find(params[:id])
+    @order_lists = OrderList.where(cart_id: @cart.id)
   end
 end

@@ -1,15 +1,12 @@
 class OrderListsController < ApplicationController
-  def new
-    @order_lists = OrderList.new
-  end
+  skip_before_action :authenticate_user!, only: %i[create]
 
   def create
     @order_list = OrderList.new(order_list_params)
-
     if @order_list.save
-      redirect_to @order_list, notice: 'Order was successfully created.'
+      redirect_to restaurant_meals_path(@order_list.meal.restaurant), notice: 'Order was successfully created.'
     else
-      render :new
+      render restaurant_meals_path(@order_list.meal.restaurant), status: :unprocessable_entity
     end
   end
 
@@ -26,6 +23,6 @@ class OrderListsController < ApplicationController
   private
 
   def order_list_params
-    params.require(:order).permit(:meal_id, :order_id)
+    params.require(:order_list).permit(:meal_id, :cart_id)
   end
 end

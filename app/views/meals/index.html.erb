@@ -3,18 +3,24 @@
 
 
 
-<div class="row row-cols-1 row-cols-mt-5 conatiner shadow p-3 mb-5 bg-body rounded mx-auto">
+<div class="container d-grid grid-3 gap-3 my-5">
   <% @meals.each do |meal| %>
-      <div class="col-md-4 mt-5">
-        <div class="card h-100-ml-3" style="width: 20rem"; >
-           <%= meal.photo.attached? ? cl_image_tag(meal.photo.key, height: 212) : image_tag('reto.png') %>
-          <div class="card-body">
-            <h5 class="card-title"> <%= meal.name.upcase %></h5>
-            <h6 class="card-price"><i class="fa-solid fa-tag"></i> Rs <%= meal.price %></h6>
-            <p><i class="fa-solid fa-bowl-food"></i> <%= meal.description %> </p>
-            <a class="btn btn-gradient" href="#">Order</a>
-          </div>
-        </div>
+    <div class="card card-meal">
+      <div class="card-image" style="background-image: url( <%= cl_image_path(meal.photo.key) %>); height:212px;">
       </div>
+
+      <div class="card-body card-meal-body">
+        <div class='d-flex justify-content-between'>
+          <h5 class="card-title"> <%= meal.name.upcase %></h5>
+          <h6 class="card-price"><i class="fa-solid fa-tag"></i> Rs <%= meal.price %></h6>
+        </div>
+        <p><i class="fa-solid fa-bowl-food"></i> <%= meal.description %> </p>
+        <%= simple_form_for(@order_list) do |f| %>
+          <%= f.association :meal, as: :hidden, input_html: {value: meal.id}  %>
+          <%= f.association :cart, as: :hidden, input_html: {value: @cart.id}  %>
+          <%= f.button :submit,  'Add to Cart', class: 'add-to-cart-btn' %>
+        <% end %>
+      </div>
+    </div>
   <% end %>
 </div>

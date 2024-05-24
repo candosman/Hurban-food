@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'cart/show'
   get 'order_lists/new'
   get 'order_lists/create'
   get 'order_lists/edit'
@@ -21,4 +22,5 @@ Rails.application.routes.draw do
   resources :restaurants, only: %i[destroy]
   resources :orders, only: %i[destroy]
   resources :meals, only: %i[show destroy]
+  resources :carts, only: %i[show]
 end

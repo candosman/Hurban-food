@@ -13,9 +13,8 @@ Rails.application.routes.draw do
   resources :restaurants, only: %i[index show new create] do
     resources :meals, only: %i[index new create edit update]
   end
-  resources :orders, only: %i[index new show create edit update]
   resources :restaurants, only: %i[destroy]
-  resources :orders, only: %i[destroy]
+  resources :orders, only: %i[index]
   resources :meals, only: %i[show destroy]
   resources :carts, only: %i[show]
   resources :order_lists, only: %i[create]

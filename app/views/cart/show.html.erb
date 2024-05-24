@@ -1,10 +1,24 @@
-<div class="container py-4 col-4">
-  <div class="text-center ">
-    <h2>CART</h2>
-    <% @order_lists.each do |order_list| %>
-      <p><%= order_list.meal.name %></p>
-      <p><%= order_list.meal.price %></p>
-      <hr>
-    <% end %>
+<div class="container py-4">
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      <div class="card border-0 shadow-sm">
+        <div class="card-body">
+          <h2 class="card-title text-center mb-4">Your Cart</h2>
+          <% @order_lists.each do |order_list| %>
+            <div class="card mb-3 border-0">
+              <div class="card-body">
+                <h5 class="card-title mb-2"><strong><%= order_list.meal.name %></strong></h5>
+                <p class="card-text text-muted">$<%= order_list.meal.price %></p>
+              </div>
+            </div>
+          <% end %>
+          <div class="text-center">
+            <a href="#" class="btn btn-primary btn-lg">Proceed to Checkout</a>
+          </div>
+          <p class="text-center mt-3 mb-0"><small><a href="#">Continue Shopping</a></small></p>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
+

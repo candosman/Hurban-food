@@ -1,0 +1,5 @@
+<h1><%= @meal.name %>'s Reviews</h1>
+ <%= simple_form_for [@meal, @review] do |f| %>
+   <%= f.input :rating %>
+    <%= f.submit %>
+    <% end %>

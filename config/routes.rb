@@ -13,10 +13,12 @@ Rails.application.routes.draw do
   resources :restaurants, only: %i[index show new create] do
     resources :meals, only: %i[index new create edit update]
     resources :meal_reviews, only: %i[create]
+    resources :restaurant_reviews, only: %i[create]
   end
   resources :restaurants, only: %i[destroy]
   resources :orders, only: %i[index show]
   resources :meals, only: %i[show destroy]
   resources :carts, only: %i[show update]
   resources :order_lists, only: %i[create]
+
 end

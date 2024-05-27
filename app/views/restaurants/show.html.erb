@@ -3,7 +3,11 @@
 </div>
   <div class="container mt-3 mb-3">
     <div class="d-flex justify-content-center card-product mb-5 mx-5">
-      <%= image_tag "reto.png"%>
+      <% if @restaurant.photo.attached? %>
+        <%= cl_image_tag @restaurant.photo.key %>
+      <% else %>
+        <%= image_tag "reto.png"%>
+      <% end %>
       <div class="card-product-infos">
         <h2 class="mt-4"><%= @restaurant.name %></h2>
         <p><%= @restaurant.phone %></p>

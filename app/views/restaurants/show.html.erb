@@ -12,17 +12,38 @@
         <h2 class="mt-4"><%= @restaurant.name %></h2>
         <p><%= @restaurant.phone %></p>
         <p><%= @restaurant.address %></p>
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+  see all reviews
+</button>
         <p>⭐⭐⭐</p>
         <%= link_to "Menu", restaurant_meals_path(@restaurant), class:"btn btn-primary mt-3" %>
       </div>
     </div>
-    <h1><%= @restaurant.name %>'s Reviews</h1>
-    <% @reviews.each do |review| %>
-      <%= review.content %>
-    <% end %>
+    <div class="container-fluid - col-md-6">
+    <h1></h1>
+    <h4>Add a Review</h4>
     <%= simple_form_for [@restaurant, @restaurant_review] do |f| %>
-      <%= f.input :content %>
-      <%= f.input :rating %>
+      <strong><%= f.input :content %></strong>
+       <strong><%= f.input :rating %></strong>
       <%= f.submit %>
     <% end %>
+
+    </div>
+  </div>
+<!-- Button trigger modal -->
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel"><%= @restaurant.name %>'s Reviews</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <% @reviews.each do |review| %>
+          <p><%= review.content %></p>
+        <% end %>
+      </div>
+    </div>
   </div>

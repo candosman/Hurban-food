@@ -2,9 +2,9 @@
 <div class="container container-orders mb-5">
     <% @orders.each do |order| %>
       <div class='order-card d-flex justify-content-evenly'>
-        <div style="font-weight: bold;">Order ID: <%= order.id %></div>
+        <div style="font-weight: bold;">Order Number: <%= order.order_number %></div>
         <div style="font-weight: bold;">Ordered At: <%= order.created_at.strftime("%d/%B/%Y") %></div>
-        <div>Price: <%= order.amount %></div>
+        <div style="font-weight: bold;">Total: Rs <%= order.amount%></div>
       </div>
     <% end %>
 </div>

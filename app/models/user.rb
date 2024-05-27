@@ -6,4 +6,5 @@ class User < ApplicationRecord
   has_many :restaurants
   has_many :orders, dependent: :destroy
   has_many :restaurant_reviews
+  has_many :meal_reviews
 end

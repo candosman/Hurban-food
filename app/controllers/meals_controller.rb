@@ -3,7 +3,8 @@ class MealsController < ApplicationController
   skip_before_action :authenticate_user!, only: %i[index show]
 
   def index
-    @meals = Meal.all
+    @restaurant = Restaurant.find(params[:restaurant_id])
+    @meals = Meal.where(restaurant: @restaurant)
     @order_list = OrderList.new
   end
 

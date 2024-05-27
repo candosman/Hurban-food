@@ -1,6 +1,6 @@
 .order-header {
   text-align: center;
-  color: #333;
+  color:rgb(0, 0, 0);
   margin-bottom: 20px;
   font-weight: bold;
 }
@@ -19,5 +19,9 @@
 .container-orders {
   border-radius: 7px;
   border: solid 1px gray;
+  background-color: white;
+}
+
+.table > :not(caption) > * > * {
   background-color: white;
 }

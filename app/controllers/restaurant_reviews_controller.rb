@@ -10,6 +10,7 @@ class RestaurantReviewsController < ApplicationController
       render restaurant_path(@restaurant), status: :unprocessable_entity
     end
   end
+  private
   def review_params
     params.require(:restaurant_review).permit(:content, :rating)
   end

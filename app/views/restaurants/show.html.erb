@@ -12,4 +12,13 @@
         <%= link_to "Menu", restaurant_meals_path(@restaurant), class:"btn btn-primary mt-3" %>
       </div>
     </div>
+    <h1><%= @restaurant.name %>'s Reviews</h1>
+    <% @reviews.each do |review| %>
+      <%= review.content %>
+    <% end %>
+    <%= simple_form_for [@restaurant, @restaurant_review] do |f| %>
+      <%= f.input :content %>
+      <%= f.input :rating %>
+      <%= f.submit %>
+    <% end %>
   </div>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_05_24_061142) do
+ActiveRecord::Schema[7.1].define(version: 2024_05_27_062727) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -49,6 +49,16 @@ ActiveRecord::Schema[7.1].define(version: 2024_05_24_061142) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "meal_reviews", force: :cascade do |t|
+    t.integer "rating"
+    t.bigint "meal_id", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["meal_id"], name: "index_meal_reviews_on_meal_id"
+    t.index ["user_id"], name: "index_meal_reviews_on_user_id"
+  end
+
   create_table "meals", force: :cascade do |t|
     t.string "name"
     t.decimal "price"
@@ -80,6 +90,17 @@ ActiveRecord::Schema[7.1].define(version: 2024_05_24_061142) do
     t.index ["user_id"], name: "index_orders_on_user_id"
   end
 
+  create_table "restaurant_reviews", force: :cascade do |t|
+    t.text "content"
+    t.integer "rating"
+    t.bigint "restaurant_id", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["restaurant_id"], name: "index_restaurant_reviews_on_restaurant_id"
+    t.index ["user_id"], name: "index_restaurant_reviews_on_user_id"
+  end
+
   create_table "restaurants", force: :cascade do |t|
     t.string "name"
     t.string "phone"
@@ -108,10 +129,14 @@ ActiveRecord::Schema[7.1].define(version: 2024_05_24_061142) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "meal_reviews", "meals"
+  add_foreign_key "meal_reviews", "users"
   add_foreign_key "meals", "restaurants"
   add_foreign_key "order_lists", "carts"
   add_foreign_key "order_lists", "meals"
   add_foreign_key "order_lists", "orders"
   add_foreign_key "orders", "users"
+  add_foreign_key "restaurant_reviews", "restaurants"
+  add_foreign_key "restaurant_reviews", "users"
   add_foreign_key "restaurants", "users"
 end

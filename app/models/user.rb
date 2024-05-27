@@ -5,4 +5,5 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   has_many :restaurants
   has_many :orders, dependent: :destroy
+  has_many :restaurant_reviews
 end

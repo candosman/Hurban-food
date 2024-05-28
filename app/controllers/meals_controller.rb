@@ -9,6 +9,7 @@ class MealsController < ApplicationController
   end
 
   def new
+    @hide_nav_bar = true
     @restaurant = Restaurant.find(params[:restaurant_id])
     @meal = Meal.new
   end

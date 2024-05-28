@@ -11,9 +11,9 @@
   </head>
 
   <body>
-    <%= render "shared/navbar" %>
+    <%= render "shared/navbar" unless @hide_nav_bar %>
     <%= render "shared/flashes" %>
     <%= yield %>
-    <%= render "shared/footer" %>
+    <%= render "shared/footer"  unless @hide_footer%>
   </body>
 </html>

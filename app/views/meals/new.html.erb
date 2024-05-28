@@ -1,15 +1,17 @@
-<div class="container mb-5 mt-4 form-restaurant">
-<h1 class='text-center meal'><%= action_name.capitalize %> Meal</h1>
-<%= simple_form_for [@restaurant, @meal] do |f| %>
-  <div class="form-group">
-    <%= f.input :name, label: "Name", input_html: { class: 'form-control' } %>
+<%= render 'layouts/top_dashboard' %>
+  <div class="container mb-5 mt-4 form-restaurant">
+  <h1 class='text-center meal'><%= action_name.capitalize %> Meal</h1>
+  <%= simple_form_for [@restaurant, @meal] do |f| %>
+    <div class="form-group">
+      <%= f.input :name, label: "Name", input_html: { class: 'form-control' } %>
+    </div>
+    <div class="form-group">
+      <%= f.input :price, label: "Price", input_html: { class: 'form-control' } %>
+    </div>
+    <div class="form-group d-flex justify-content-around">
+      <%= f.button :submit, class: "btn btn-primary" %>
+  <%= link_to 'Back', restaurant_meals_path(@restaurant), class: 'btn btn-info' %>
+    </div>
+  <% end %>
   </div>
-  <div class="form-group">
-    <%= f.input :price, label: "Price", input_html: { class: 'form-control' } %>
-  </div>
-  <div class="form-group d-flex justify-content-around">
-    <%= f.button :submit, class: "btn btn-primary" %>
-<%= link_to 'Back', restaurant_meals_path(@restaurant), class: 'btn btn-info' %>
-  </div>
-<% end %>
-</div>
+<%= render 'layouts/btm_dashboard' %>

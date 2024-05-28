@@ -1,0 +1,68 @@
+<nav class="main-menu">
+  <ul>
+    <li>
+      <a href=<%= root_path %>>
+        <i class="fa fa-home fa-2x"></i>
+        <span class="nav-text">
+            Home
+        </span>
+      </a>
+    </li>
+
+    <li class="has-subnav">
+      <a href=<%= new_restaurant_meal_path(12) %>>
+        <i class="fa fa-utensils fa-2x"></i>
+        <span class="nav-text">
+            Create a meal
+        </span>
+      </a>
+    </li>
+
+    <li class="has-subnav">
+        <a href=<%= orders_path %> >
+          <i class="fa fa-burger fa-2x"></i>
+          <span class="nav-text">
+              My orders
+          </span>
+        </a>
+    </li>
+
+    <li class="has-subnav">
+        <a href="#">
+          <i class="fa fa-clipboard-user fa-2x"></i>
+          <span class="nav-text">
+              My Staff
+          </span>
+        </a>
+    </li>
+
+    <li>
+      <a href="restaurant_meals_path">
+        <i class="fa fa-burger fa-2x"></i>
+        <span class="nav-text">
+            My meals
+        </span>
+      </a>
+    </li>
+
+    <ul class="logout">
+      <li>
+        <a href="#">
+          <i class="fa fa-power-off fa-2x"></i>
+          <span class="nav-text">
+              Logout
+          </span>
+        </a>
+      </li>
+    </ul>
+  </ul>
+</nav>
+
+<div class="dashboard-container">
+  <div class='mode-toggle'>
+    <input type="checkbox" class="sr-only" id="darkmode-toggle">
+    <label for="darkmode-toggle" class="toggle">
+      <span>Toggle dark mode</span>
+    </label>
+  </div>
+  <div class='dashboard-body'>

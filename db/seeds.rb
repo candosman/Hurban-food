@@ -29,7 +29,7 @@ puts 'Ten users created'
 
 # RESTAURANTS
 file1 = URI.open("https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D")
-restaurant1 = Restaurant.create(name: "Island Breeze Bistro", address: "Coastal Road, Grand Baie, Mauritius", phone: "0602650362", user: user1)
+restaurant1 = Restaurant.create(name: "Island Breeze Bistro", address: "Costal Road, Grand Baie, Mauritius", phone: "0602650362", user: user1)
 restaurant1.photo.attach(io: file1, filename: "Island Breeze Bistro.png", content_type: "image/png")
 restaurant1.save!
 
@@ -59,7 +59,7 @@ restaurant6.photo.attach(io: file6, filename: "Casa Fiesta Mexican Restaurant.pn
 restaurant6.save!
 
 file7 = URI.open("https://images.unsplash.com/photo-1585518419759-7fe2e0fbf8a6?q=80&w=2824&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D")
-restaurant7 = Restaurant.create(name: "Le Café Parisien", address: "Champs de Mars, Port Louis, Mauritius", phone: "0734829573", user: user5)
+restaurant7 = Restaurant.create(name: "Le Café Parisien", address: "Champ de Mars, Port Louis, Mauritius", phone: "0734829573", user: user5)
 restaurant7.photo.attach(io: file7, filename: "Le Café Parisien.png", content_type: "image/png")
 restaurant7.save!
 
@@ -87,6 +87,7 @@ file12 = URI.open("https://images.unsplash.com/photo-1555396273-367ea4eb4db5?q=8
 restaurant12= Restaurant.create(name: "Urban Flavors Diner", address: "Phoenix Mall, Vacoas-Phoenix, Mauritius", phone: "0178348536", user: user10)
 restaurant12.photo.attach(io: file12, filename: "Urban Flavors Diner.png", content_type: "image/png")
 restaurant12.save!
+puts 'Twelve restaurant created'
 
 # MEALS
 mealfile1 = URI.open("https://images.unsplash.com/photo-1691201090878-1b9eab935bdd?q=80&w=1937&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D")
@@ -138,6 +139,7 @@ mealfile10 = URI.open("https://images.unsplash.com/photo-1529193591184-b1d58069e
 meal10 = Meal.create(name: "BBQ Ribs", price: "900", restaurant: restaurant3, description: "Slow-cooked pork ribs glazed with a smoky barbecue sauce, served with coleslaw and cornbread")
 meal10.photo.attach(io: mealfile10, filename: "BBQ Ribs.png", content_type: "image/png")
 meal10.save!
+puts 'Ten meals created'
 
 mealfile11 = URI.open("https://plus.unsplash.com/premium_photo-1668143365324-37cae1de4e56?q=80&w=2942&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D")
 meal11 = Meal.create(name: "Lobster Bisque", price: "350", restaurant: restaurant2, description: "Creamy and rich lobster soup with a hint of sherry, garnished with chives")
@@ -188,6 +190,7 @@ mealfile20 = URI.open("https://images.unsplash.com/photo-1565557623262-b51c2513a
 meal20 = Meal.create(name: "Chicken Tikka Masala", price: "650", restaurant: restaurant3, description: "Tender chicken pieces simmered in a creamy tomato sauce, served with basmati rice and naan bread")
 meal20.photo.attach(io: mealfile20, filename: "Chicken Tikka Masala.png", content_type: "image/png")
 meal20.save!
+puts 'twenty meals created'
 
 mealfile21 = URI.open("https://plus.unsplash.com/premium_photo-1664391688423-7cb847237bcd?q=80&w=2848&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D")
 meal21 = Meal.create(name: "Spinach & Feta Stuffed Chicken", price: "700", restaurant: restaurant3, description: "Chicken breast stuffed with spinach and feta cheese, served with roasted potatoes and green beans")
@@ -223,3 +226,4 @@ mealfile27 = URI.open("https://images.unsplash.com/photo-1617305855058-336d24456
 meal27 = Meal.create(name: "Chocolate Lava Cake", price: "250", restaurant: restaurant2, description: "Rich chocolate cake with a molten center, served with vanilla ice cream and fresh berries")
 meal27.photo.attach(io: mealfile27, filename: "Chocolate Lava Cake.png", content_type: "image/png")
 meal27.save!
+puts 'Twenty-seven meals created'

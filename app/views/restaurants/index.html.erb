@@ -1,8 +1,15 @@
 <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0),rgba(0,0,0,0)), url(<%= image_path('meat-skewer-with-vegetables-black-backgroundai-generative.jpg') %>);">
   <div class="container">
-    <h1>Hurban Food <strong>your food lover's companion</strong> designed to simplify <strong>your culinary adventures</strong>!</h1>
+    <h1 style="font-size: 48px; color: white;">
+      <span style="display: block; font-size: 72px;">Hurban Food</span>
+      <strong style="color: #FF6347;">your food lover's companion</strong>
+      designed to simplify
+      <strong style="color: #2E8B57;">your culinary adventures</strong>!
+    </h1>
+    <%= link_to "Create your new restaurant", new_restaurant_path(@restaurant), class: "btn btn-success mt-3", style: "color: white;" %>
   </div>
 </div>
+
 <div class="cards mt-5 container">
   <% @restaurants.each do |restaurant| %>
   <%= link_to restaurant_path(restaurant) do %>
@@ -13,11 +20,12 @@
 
   <% end %>
 </div>
-<div class="container mt-5">
+<div class="container my-5">
 
   <div id="map" style="width: 100%; height: 600px;"
     data-controller="map"
     data-map-markers-value="<%= @markers.to_json %>"
-    data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+    data-map-api-key-value="<%= ENV["MAPBOX_API_KEY"] %>">
   </div>
 </div>
+

@@ -6,7 +6,8 @@ class RestaurantsController < ApplicationController
       {
         lat: restaurant.latitude,
         lng: restaurant.longitude,
-        info_window_html: render_to_string(partial: "info_window", locals: {restaurant: restaurant})
+        info_window_html: render_to_string(partial: "info_window", locals: {restaurant: restaurant}),
+        marker_html: render_to_string(partial: "marker", locals: {restaurant: restaurant})
       }
     end
   end
@@ -15,6 +16,7 @@ class RestaurantsController < ApplicationController
     @restaurant = Restaurant.find(params[:id])
     @reviews = @restaurant.restaurant_reviews
     @restaurant_review = RestaurantReview.new
+    @meals = @restaurant.meals
   end
 
   def new

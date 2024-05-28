@@ -2,6 +2,7 @@
   body {
     background-color: #f8f9fa; /* Light background for the whole page */
   }
+
   .card-product {
     border: none;
     border-radius: 10px;
@@ -10,22 +11,28 @@
     display: flex;
     align-items: center;
   }
+
   .card-product img {
     border-radius: 10px; /* Full border-radius for the image */
     height: 100%;
     width: 100%;
     object-fit: cover;
   }
+
   .card-product .card-body {
     padding: 2rem;
   }
+
   .card-title {
-    font-size: 1.75rem;
+    font-size: 2rem; /* Increased font size */
     font-weight: bold;
   }
+
   .card-text {
     color: #6c757d;
+    font-size: 1.25rem; /* Increased font size */
   }
+
   .btn-primary {
     background-color: #007bff;
     border: none;
@@ -34,13 +41,16 @@
   .btn-secondary {
     border-radius: 50px;
   }
+
   .btn-primary:hover {
     background-color: #0056b3;
   }
+
   .review-section h4 {
     margin-top: 2rem;
     margin-bottom: 1rem;
   }
+
   .review-section p {
     font-size: 1rem;
     color: #343a40;
@@ -49,32 +59,62 @@
     border-radius: 5px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   }
+
   .modal-header {
     background-color: #007bff;
     color: #fff;
   }
+
   .modal-body .form-label {
     font-weight: bold;
   }
+
   .container-centered {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
   }
+
+  .card-meal {
+    border: none;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  .card-meal .card-image {
+    background-size: cover;
+    background-position: center;
+    height: 212px;
+  }
+
+  .card-meal-body {
+    padding: 1rem;
+  }
+
+  .card-meal .card-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+
+  .card-meal .card-price {
+    font-size: 1rem;
+    color: #007bff;
+  }
 </style>
 
 <div class="container mt-3 mb-3 container-centered">
   <div class="card-product mb-5">
     <div class="row g-0">
-      <div class="col-md-4">
+      <div class="col-md-6">
         <% if @restaurant.photo.attached? %>
           <%= cl_image_tag @restaurant.photo.key, class: 'img-fluid' %>
         <% else %>
           <%= image_tag "reto.png", class: 'img-fluid' %>
         <% end %>
       </div>
-      <div class="col-md-8">
+      <div class="col-md-6">
         <div class="card-body">
           <h2 class="card-title mt-4"><%= @restaurant.name %></h2>
           <p class="card-text"><%= @restaurant.phone %></p>
@@ -112,6 +152,7 @@
       <div class="modal-body">
         <%= simple_form_for [@restaurant, @restaurant_review] do |f| %>
           <div class="mb-3">
+
             <%= f.input :content, input_html: { class: 'form-control', placeholder: 'Write your review here' } %>
           </div>
           <div class="mb-3">
@@ -119,9 +160,32 @@
           </div>
           <div class="text-end">
             <%= f.submit 'Submit', class: 'btn btn-primary' %>
+
+            <%= f.label :content, "Content", class: 'form-label' %>
+            <%= f.input :content, label: false, input_html: { class: 'form-control' } %>
+          </div>
+          <div class="mb-3">
+            <%= f.label :rating, "Rating", class: 'form-label' %>
+            <%= f.input :rating, label: false, input_html: { class: 'form-control' } %>
           </div>
         <% end %>
       </div>
     </div>
   </div>
 </div>
+
+<div class="container d-grid grid-3 gap-3 my-5">
+  <% @meals.each do |meal| %>
+    <div class="card card-meal">
+      <div class="card-image" style="background-image: url(<%= cl_image_path(meal.photo.key) %>);"></div>
+      <div class="card-body card-meal-body">
+        <div class='d-flex justify-content-between'>
+          <h5 class="card-title"><%= meal.name.upcase %></h5>
+          <h6 class="card-price"><i class="fa-solid fa-tag"></i> Rs <%= meal.price %></h6>
+        </div>
+        <p><i class="fa-solid fa-bowl-food"></i> <%= meal.description %> </p>
+      </div>
+    </div>
+  <% end %>
+</div>
+

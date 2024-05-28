@@ -36,6 +36,10 @@
   .btn-primary {
     background-color: #007bff;
     border: none;
+    border-radius: 50px;
+  }
+  .btn-secondary {
+    border-radius: 50px;
   }
 
   .btn-primary:hover {
@@ -127,8 +131,8 @@
     </div>
   </div>
 
+
   <div class="container-fluid col-md-6 review-section">
-    <h4>See All Reviews</h4>
     <% @reviews.each do |review| %>
       <div class="mb-3">
         <p class="mb-0"><%= review.content %></p>
@@ -139,15 +143,24 @@
 </div>
 
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
+  <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel"><%= @restaurant.name %>'s Reviews</h5>
+      <div class="modal-header bg-primary text-light">
+        <h5 class="modal-title" id="exampleModalLabel"><%= @restaurant.name %>'s Reviews 👋</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
         <%= simple_form_for [@restaurant, @restaurant_review] do |f| %>
           <div class="mb-3">
+
+            <%= f.input :content, input_html: { class: 'form-control', placeholder: 'Write your review here' } %>
+          </div>
+          <div class="mb-3">
+            <%= f.input :rating, input_html: { class: 'form-control', placeholder: 'Rating (1-5)' } %>
+          </div>
+          <div class="text-end">
+            <%= f.submit 'Submit', class: 'btn btn-primary' %>
+
             <%= f.label :content, "Content", class: 'form-label' %>
             <%= f.input :content, label: false, input_html: { class: 'form-control' } %>
           </div>
@@ -155,7 +168,6 @@
             <%= f.label :rating, "Rating", class: 'form-label' %>
             <%= f.input :rating, label: false, input_html: { class: 'form-control' } %>
           </div>
-          <%= f.submit 'Submit', class: 'btn btn-primary' %>
         <% end %>
       </div>
     </div>

@@ -6,7 +6,8 @@ class RestaurantsController < ApplicationController
       {
         lat: restaurant.latitude,
         lng: restaurant.longitude,
-        info_window_html: render_to_string(partial: "info_window", locals: {restaurant: restaurant})
+        info_window_html: render_to_string(partial: "info_window", locals: {restaurant: restaurant}),
+        marker_html: render_to_string(partial: "marker", locals: {restaurant: restaurant})
       }
     end
   end

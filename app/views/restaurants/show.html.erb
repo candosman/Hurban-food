@@ -1,38 +1,103 @@
+<style>
+  body {
+    background-color: #f8f9fa; /* Light background for the whole page */
+  }
+  .card-product {
+    border: none;
+    border-radius: 10px;
+    background-color: transparent; /* Remove white background */
+    overflow: hidden; /* Ensure rounded corners */
+    display: flex;
+    align-items: center;
+  }
+  .card-product img {
+    border-radius: 10px; /* Full border-radius for the image */
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+  }
+  .card-product .card-body {
+    padding: 2rem;
+  }
+  .card-title {
+    font-size: 1.75rem;
+    font-weight: bold;
+  }
+  .card-text {
+    color: #6c757d;
+  }
+  .btn-primary {
+    background-color: #007bff;
+    border: none;
+  }
+  .btn-primary:hover {
+    background-color: #0056b3;
+  }
+  .review-section h4 {
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+  }
+  .review-section p {
+    font-size: 1rem;
+    color: #343a40;
+    background-color: #ffffff;
+    padding: 1rem;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  .modal-header {
+    background-color: #007bff;
+    color: #fff;
+  }
+  .modal-body .form-label {
+    font-weight: bold;
+  }
+  .container-centered {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+</style>
 
-<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0),rgba(0,0,0,0)), url(<%= image_path('bover.png') %>);">
-</div>
-  <div class="container mt-3 mb-3">
-    <div class="d-flex justify-content-center card-product mb-5 mx-5">
-      <% if @restaurant.photo.attached? %>
-        <%= cl_image_tag @restaurant.photo.key %>
-      <% else %>
-        <%= image_tag "reto.png"%>
-      <% end %>
-      <div class="card-product-infos">
-        <h2 class="mt-4"><%= @restaurant.name %></h2>
-        <p><%= @restaurant.phone %></p>
-        <p><%= @restaurant.address %></p>
-        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-  see all reviews
-</button>
-        <p>⭐⭐⭐</p>
-        <%= link_to "Menu", restaurant_meals_path(@restaurant), class:"btn btn-primary mt-3" %>
+<div class="container mt-3 mb-3 container-centered">
+  <div class="card-product mb-5">
+    <div class="row g-0">
+      <div class="col-md-4">
+        <% if @restaurant.photo.attached? %>
+          <%= cl_image_tag @restaurant.photo.key, class: 'img-fluid' %>
+        <% else %>
+          <%= image_tag "reto.png", class: 'img-fluid' %>
+        <% end %>
+      </div>
+      <div class="col-md-8">
+        <div class="card-body">
+          <h2 class="card-title mt-4"><%= @restaurant.name %></h2>
+          <p class="card-text"><%= @restaurant.phone %></p>
+          <p class="card-text"><%= @restaurant.address %></p>
+          <div class="d-flex justify-content-start align-items-center">
+            <button type="button" class="btn btn-primary me-2" data-bs-toggle="modal" data-bs-target="#exampleModal">
+              Add a Review
+            </button>
+            <p class="mb-0">⭐⭐⭐</p>
+          </div>
+          <%= link_to "Menu", restaurant_meals_path(@restaurant), class: "btn btn-secondary mt-3" %>
+        </div>
       </div>
     </div>
-    <div class="container-fluid - col-md-6">
-    <h1></h1>
-    <h4>Add a Review</h4>
-    <%= simple_form_for [@restaurant, @restaurant_review] do |f| %>
-      <strong><%= f.input :content %></strong>
-       <strong><%= f.input :rating %></strong>
-      <%= f.submit %>
-    <% end %>
-
-    </div>
   </div>
-<!-- Button trigger modal -->
 
-<!-- Modal -->
+  <div class="container-fluid col-md-6 review-section">
+    <h4>See All Reviews</h4>
+    <% @reviews.each do |review| %>
+      <div class="mb-3">
+        <p class="mb-0"><%= review.content %></p>
+        <hr>
+      </div>
+    <% end %>
+  </div>
+</div>
+
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -41,9 +106,18 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <% @reviews.each do |review| %>
-          <p><%= review.content %></p>
+        <%= simple_form_for [@restaurant, @restaurant_review] do |f| %>
+          <div class="mb-3">
+            <%= f.label :content, class: 'form-label' %>
+            <%= f.input :content, input_html: { class: 'form-control' } %>
+          </div>
+          <div class="mb-3">
+            <%= f.label :rating, class: 'form-label' %>
+            <%= f.input :rating, input_html: { class: 'form-control' } %>
+          </div>
+          <%= f.submit 'Submit', class: 'btn btn-primary' %>
         <% end %>
       </div>
     </div>
   </div>
+</div>

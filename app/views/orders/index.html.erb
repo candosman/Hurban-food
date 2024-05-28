@@ -18,7 +18,7 @@
           <td><%= order.created_at.strftime("%d %B, %Y") %></td>
           <td>Rs <%= number_with_delimiter(order.amount, delimiter: ',') %></td>
           <td>
-            <% if order.delivered_status %>
+            <% if order.delivered_status == true %>
               <span class="badge bg-success">Delivered</span>
             <% else %>
               <span class="badge bg-warning text-white">On the Way</span>

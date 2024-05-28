@@ -7,5 +7,7 @@ class OrdersController < ApplicationController
 
   def show
     @order = Order.find(params[:id])
+    @meals = @order.meals
+    @user = @order.user
   end
 end

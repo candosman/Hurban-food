@@ -8,7 +8,10 @@ class OrdersController < ApplicationController
   end
 
   def show
-
+    @hide_nav_bar = true
+    @hide_footer = true
     @order = Order.find(params[:id])
+    @meals = @order.meals
+    @user = @order.user
   end
 end

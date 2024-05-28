@@ -1,3 +1,47 @@
-<h2><%= @order.order_number %></h2>
-<p><%= @order.is_delivered %></p>
+<%= render 'layouts/top_dashboard' %>
+  <div class="container d-grid grid-3 gap-2">
+    <div class="box-container flex-column">
+      <h2 class="text-center">#<%= @order.order_number %></h2>
+      <p><%= @order.created_at.strftime("%d %B, %Y") %></p>
+    </div>
+    <div class="box-container flex-column">
+      <h4>Total</h4>
+      <p>Rs <%= number_with_delimiter(@order.amount, delimiter: ',') %></p>
+    </div>
+    <div class="box-container undelivered">
+      <% if @order.delivered_status == true %>
+        <i class="fa-solid fa-truck-ramp-box"></i>
+        <span class="badge bg-success">Delivered</span>
+      <% else %>
+        <i class="fa-solid fa-truck"></i>
+        <span class="badge bg-warning text-white">On the Way</span>
+      <% end %>
+    </div>
+  </div>
 
+  <div class="container center-items box-container user-info-orders my-5">
+    <i class="fa-solid fa-address-card"></i>
+    <div>
+      <p><%= @user.name %></p>
+      <p><%= @user.email %></p>
+      <p><%= @user.phone_number %></p>
+    </div>
+  </div>
+
+  <div class="container d-grid grid-3 gap-3">
+    <% @meals.each do |meal| %>
+      <div class="card card-meal">
+        <div class="card-image" style="background-image: url( <%= cl_image_path(meal.photo.key) %>); height:212px;">
+        </div>
+
+        <div class="card-body card-meal-body">
+          <div class='d-flex justify-content-between'>
+            <h5 class="card-title"> <%= meal.name.upcase %></h5>
+            <h6 class="card-price"><i class="fa-solid fa-tag"></i> Rs <%= meal.price %></h6>
+          </div>
+          <p><i class="fa-solid fa-bowl-food"></i> <%= meal.description %> </p>
+        </div>
+      </div>
+    <% end %>
+  </div>
+<%= render 'layouts/btm_dashboard' %>

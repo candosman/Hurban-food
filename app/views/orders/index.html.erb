@@ -1,8 +1,7 @@
 <%= render 'layouts/top_dashboard' %>
-<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0),rgba(0,0,0,0)), url(<%= image_path('https://img.freepik.com/premium-photo/top-view-fast-food-meal_1124848-7079.jpg?w=740') %>);">
-</div>
-<div class="container container-orders my-5">
+<div class="container container-orders">
   <h1 class="order-header mt-3 text-center">My Orders</h1>
+
   <table class="table table-hover table-striped">
     <thead class="table-dark">
       <tr>
@@ -13,19 +12,21 @@
       </tr>
     </thead>
     <tbody>
+
       <% @orders.each do |order| %>
-        <tr>
-          <td>#<%= order.order_number %></td>
-          <td><%= order.created_at.strftime("%d %B, %Y") %></td>
-          <td>Rs <%= number_with_delimiter(order.amount, delimiter: ',') %></td>
-          <td>
-            <% if order.delivered_status == true %>
-              <span class="badge bg-success">Delivered</span>
-            <% else %>
-              <span class="badge bg-warning text-white">On the Way</span>
-            <% end %>
-          </td>
-        </tr>
+          <tr>
+            <td>#<%= order.order_number %></td>
+            <td><%= order.created_at.strftime("%d %B, %Y") %></td>
+            <td>Rs <%= number_with_delimiter(order.amount, delimiter: ',') %></td>
+            <td>
+              <% if order.delivered_status == true %>
+                <span class="badge bg-success">Delivered</span>
+              <% else %>
+                <span class="badge bg-warning text-white">On the Way</span>
+              <% end %>
+            </td>
+            <td><%= link_to 'See Details', order_path(order), class: "btn btn-primary" %></td>
+          </tr>
       <% end %>
     </tbody>
   </table>

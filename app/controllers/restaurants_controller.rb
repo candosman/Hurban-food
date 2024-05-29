@@ -17,6 +17,7 @@ class RestaurantsController < ApplicationController
     @reviews = @restaurant.restaurant_reviews
     @restaurant_review = RestaurantReview.new
     @meals = @restaurant.meals
+    @order_list = OrderList.new
     if @restaurant.geocoded?
       @markers = [{
         lat: @restaurant.latitude,
@@ -27,6 +28,7 @@ class RestaurantsController < ApplicationController
     else
       @markers = []
     end
+
   end
 
   def new

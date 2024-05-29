@@ -1,134 +1,84 @@
-<style>
-  body {
-    background-color: #f8f9fa; /* Light background for the whole page */
-  }
 
-  .card-product {
-    border: none;
-    border-radius: 10px;
-    background-color: transparent; /* Remove white background */
-    overflow: hidden; /* Ensure rounded corners */
-    display: flex;
-    align-items: center;
-  }
 
-  .card-product img {
-    border-radius: 10px; /* Full border-radius for the image */
-    height: 100%;
-    width: 100%;
-    object-fit: cover;
-  }
-
-  .card-product .card-body {
-    padding: 2rem;
-  }
-
-  .card-title {
-    font-size: 2rem; /* Increased font size */
-    font-weight: bold;
-  }
-
-  .card-text {
-    color: #6c757d;
-    font-size: 1.25rem; /* Increased font size */
-  }
-
-  .btn-primary {
-    background-color: #007bff;
-    border: none;
-    border-radius: 50px;
-  }
-  .btn-secondary {
-    border-radius: 50px;
-  }
-
-  .btn-primary:hover {
-    background-color: #0056b3;
-  }
-
-  .review-section h4 {
-    margin-top: 2rem;
-    margin-bottom: 1rem;
-  }
-
-  .review-section p {
-    font-size: 1rem;
-    color: #343a40;
-    background-color: #ffffff;
-    padding: 1rem;
-    border-radius: 5px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  }
-
-  .modal-header {
-    background-color: #007bff;
-    color: #fff;
-  }
-
-  .modal-body .form-label {
-    font-weight: bold;
-  }
-
-  .container-centered {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-  }
-
-  .card-meal {
-    border: none;
-    border-radius: 10px;
-    overflow: hidden;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  }
-
-  .card-meal .card-image {
-    background-size: cover;
-    background-position: center;
-    height: 212px;
-  }
-
-  .card-meal-body {
-    padding: 1rem;
-  }
-
-  .card-meal .card-title {
-    font-size: 1.5rem;
-    font-weight: bold;
-  }
-
-  .card-meal .card-price {
-    font-size: 1rem;
-    color: #007bff;
-  }
-</style>
-
-<div class="container mt-3 mb-3 container-centered">
-  <div class="card-product mb-5">
-    <div class="row g-0">
-      <div class="col-md-6">
+<div class="container mt-3 mb-3">
+  <div class='container-centered d-flex gap-3 justify-content-between'>
+    <div style='width:50%;'>
+      <div>
         <% if @restaurant.photo.attached? %>
-          <%= cl_image_tag @restaurant.photo.key, class: 'img-fluid' %>
+          <%= cl_image_tag @restaurant.photo.key, class: 'img-fluid img-fluid-radius' %>
         <% else %>
           <%= image_tag "reto.png", class: 'img-fluid' %>
         <% end %>
       </div>
-      <div class="col-md-6">
-        <div class="card-body">
-          <h2 class="card-title mt-4"><%= @restaurant.name %></h2>
-          <p class="card-text"><%= @restaurant.phone %></p>
-          <p class="card-text"><%= @restaurant.address %></p>
-          <div class="d-flex justify-content-start align-items-center">
-            <button type="button" class="btn btn-primary me-2" data-bs-toggle="modal" data-bs-target="#exampleModal">
-              Add a Review
-            </button>
-            <p class="mb-0">⭐⭐⭐</p>
-          </div>
-          <%= link_to "Menu", restaurant_meals_path(@restaurant), class: "btn btn-secondary mt-3" %>
-        </div>
+    </div>
+
+    <div class='banner-restaurant-right'>
+      <div class="restaurant-info">
+        <h2 class="card-title mt-4"><%= @restaurant.name %></h2>
+        <p class="card-text"> <i class="fa-solid fa-phone"></i> <%= @restaurant.phone %></p>
+        <p class="card-text"><i class="fa-solid fa-location-pin"></i> <%= @restaurant.address %></p>
+      </div>
+
+      <div class='d-grid grid-3 gap-2 chef-images-container'>
+        <% if @restaurant.chef_photos.attached? %>
+          <% @restaurant.chef_photos.first(3) do |photo| %>
+
+          <% end %>
+
+        <% else %>
+          <div class='img-chef' style='background-image:url(<%= image_path "reto.png", class: 'img-chef' %>)'></div>
+          <div class='img-chef' style='background-image:url(<%= image_path "reto.png", class: 'img-chef' %>)'></div>
+          <div class='img-chef' style='background-image:url(<%= image_path "reto.png", class: 'img-chef' %>)'></div>
+        <% end %>
       </div>
     </div>
+  </div>
+ <div class=" thumb container mt-2">
+    <div class="thumb col-8">
+      <button id="likeButton" onclick="like()">⭐</button>
+    </div>
+    <div id="likeCountDisplay">0 ⭐</div>
+    <script>
+      var likeCount = 0;
+
+      function like() {
+        likeCount++;
+        document.getElementById("likeCountDisplay").innerText = likeCount + " ⭐";
+      }
+    </script>
+  </div>
+</div>
+
+
+
+
+
+  <div class = 'info-menu'>
+    <h1>Menu</h1>
+  </div>
+
+  <div class="container d-grid grid-3 gap-3 my-5">
+    <% @meals.each do |meal| %>
+      <div class="card card-meal">
+        <div class="card-image" style="background-image: url( <%= cl_image_path(meal.photo.key) %>); height:212px;">
+        </div>
+
+        <div class="card-body card-meal-body">
+          <div class='d-flex justify-content-between'>
+            <h5 class="card-title"> <%= meal.name.upcase %></h5>
+            <h6 class="card-price"><i class="fa-solid fa-tag"></i> Rs <%= meal.price %></h6>
+          </div>
+          <p><i class="fa-solid fa-bowl-food"></i> <%= meal.description %> </p>
+            
+          <%= simple_form_for(@order_list) do |f| %>
+            <%= f.association :meal, as: :hidden, input_html: {value: meal.id}  %>
+            <%= f.association :cart, as: :hidden, input_html: {value: @cart.id}  %>
+            <%= f.button :submit,  'Add to Cart', class: 'add-to-cart-btn' %>
+          <% end %>
+        </div>
+      </div>
+
+    <% end %>
   </div>
 
 
@@ -140,51 +90,6 @@
       </div>
     <% end %>
   </div>
-</div>
-
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered">
-    <div class="modal-content">
-      <div class="modal-header bg-primary text-light">
-        <h5 class="modal-title" id="exampleModalLabel"><%= @restaurant.name %>'s Reviews 👋</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <%= simple_form_for [@restaurant, @restaurant_review] do |f| %>
-          <div class="mb-3">
-
-            <%= f.input :content, input_html: { class: 'form-control', placeholder: 'Write your review here' } %>
-          </div>
-          <div class="mb-3">
-            <%= f.input :rating, input_html: { class: 'form-control', placeholder: 'Rating (1-5)' } %>
-          </div>
-          <div class="text-end">
-            <%= f.submit 'Submit', class: 'btn btn-primary' %>
-
-            <%= f.label :content, "Content", class: 'form-label' %>
-            <%= f.input :content, label: false, input_html: { class: 'form-control' } %>
-          </div>
-          <div class="mb-3">
-            <%= f.label :rating, "Rating", class: 'form-label' %>
-            <%= f.input :rating, label: false, input_html: { class: 'form-control' } %>
-          </div>
-        <% end %>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="container d-grid grid-3 gap-3 my-5">
-  <% @meals.each do |meal| %>
-    <div class="card card-meal">
-      <div class="card-image" style="background-image: url(<%= cl_image_path(meal.photo.key) %>);"></div>
-      <div class="card-body card-meal-body">
-        <div class='d-flex justify-content-between'>
-          <h5 class="card-title"><%= meal.name.upcase %></h5>
-          <h6 class="card-price"><i class="fa-solid fa-tag"></i> Rs <%= meal.price %></h6>
-        </div>
-        <p><i class="fa-solid fa-bowl-food"></i> <%= meal.description %> </p>
-      </div>
     </div>
   <% end %>
 </div>
@@ -197,3 +102,4 @@
     data-map-api-key-value="<%= ENV["MAPBOX_API_KEY"] %>">
   </div>
 </div>
+

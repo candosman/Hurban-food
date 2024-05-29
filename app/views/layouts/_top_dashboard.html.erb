@@ -1,5 +1,6 @@
 <nav class="main-menu">
   <ul>
+
     <li>
       <a href=<%= root_path %>>
         <i class="fa fa-home fa-2x"></i>
@@ -8,6 +9,8 @@
         </span>
       </a>
     </li>
+
+    <% if current_user.owner? %>
      <li>
       <a href= <%= dashboard_path %>>
         <i class="fa fa-user"></i>
@@ -18,7 +21,7 @@
     </li>
 
     <li class="has-subnav">
-      <a href= <%= new_restaurant_meal_path %>>
+      <a href= <%= new_restaurant_meal_path(current_user.restaurant) %>>
         <i class="fa fa-utensils fa-2x"></i>
         <span class="nav-text">
             Create a meal
@@ -45,13 +48,34 @@
     </li>
 
     <li>
-      <a href="edit_restaurant_meal_path">
+      <a href= <%= restaurant_meals_path(current_user.restaurant) %>>
         <i class="fa fa-burger fa-2x"></i>
         <span class="nav-text">
             My meals
         </span>
       </a>
     </li>
+
+    <% else %>
+
+      <li class="has-subnav">
+        <a href="#">
+          <i class="fa fa-clipboard-user fa-2x"></i>
+          <span class="nav-text">
+              My Orders
+          </span>
+        </a>
+    </li>
+
+    <li>
+      <a href="edit_restaurant_meal_path">
+        <i class="fa fa-burger fa-2x"></i>
+        <span class="nav-text">
+            My Favourites
+        </span>
+      </a>
+    </li>
+    <% end %>
 
     <ul class="logout">
       <li>

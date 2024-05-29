@@ -1,17 +1,30 @@
-<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('https://fnsharp.com/cdn/shop/articles/backyard-bbq-meat-grilling-guide-850x600_850x.jpg?v=1617738809');">
   <div class="container">
     <h1 class=" restaurant-title text-center">Create <strong>your new restaurant</strong> <strong>below !</strong></h1>
   </div>
 
-</div>
 
-  <div class="container mb-5 mt-4 form-restaurant">
-    <%= simple_form_for @restaurant do |f| %>
-      <%= f.input :name, placeholder:"Enter name" %>
-      <%= f.input :address, placeholder: "Enter address" %>
-      <%= f.input :phone, placeholder: "Enter phone number" %>
-      <%= f.input :photo, as: :file %>
+<div class="container d-flex big-container mb-5">
+  <div class="d-flex login-form-container gap-3">
+    <div class="form-details">
+      <%= simple_form_for @restaurant do |f| %>
+        <div class="form-inputs">
+          <%= f.input :name, placeholder:"Enter name" %>
+          <%= f.input :address, placeholder: "Enter address" %>
+          <%= f.input :phone, placeholder: "Enter phone number" %>
+          <%= f.input :photo, as: :file %>
+        </div>
 
-      <%= f.submit class: 'btn btn-primary' %>
-    <% end %>
+        <%= f.submit class: 'btn btn-primary' %>
+      <% end %>
+    </div>
+
   </div>
+
+<div class="container d-flex justify-content-center gap-3">
+    <div class="form-infos">
+      <h1>title</h1>
+      <p>you will find all the restaurants you want when you search below</p>
+      <p>here is the best place you want to find all your restaurant</p>
+    </div>
+    </div>
+</div>

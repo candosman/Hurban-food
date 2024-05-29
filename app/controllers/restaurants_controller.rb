@@ -17,6 +17,16 @@ class RestaurantsController < ApplicationController
     @reviews = @restaurant.restaurant_reviews
     @restaurant_review = RestaurantReview.new
     @meals = @restaurant.meals
+    if @restaurant.geocoded?
+      @markers = [{
+        lat: @restaurant.latitude,
+        lng: @restaurant.longitude,
+        info_window_html: render_to_string(partial: "info_window", locals: {restaurant: @restaurant}),
+        marker_html: render_to_string(partial: "marker", locals: {restaurant: @restaurant})
+      }]
+    else
+      @markers = []
+    end
   end
 
   def new

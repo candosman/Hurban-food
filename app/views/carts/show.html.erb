@@ -1,7 +1,7 @@
-<div class="container py-4">
+<div class="container py-4 ">
   <div class="row justify-content-center">
     <div class="col-md-8">
-      <div class="card border-0 shadow-lg rounded-3xl">
+      <div class="card card-checkout border-0 shadow-lg rounded-3xl">
         <h2 class="card-title text-center my-4 text-primary">Your Cart</h2>
         <div class="card-body">
           <% total_price = 0 %>
@@ -19,7 +19,6 @@
           <% end %>
           <div class="text-center">
             <p>Total: RS <%= @cart.total_price %></p>
-            <%= link_to 'Checkout!', cart_path(@cart), data: { turbo_method: :patch }, class: 'btn btn-primary btn-lg' %>
           </div>
           <hr class="my-4">
           <p class="text-center mt-3 mb-0"><small><a href="#" class="text-muted">Continue Shopping</a></small></p>
@@ -27,4 +26,26 @@
       </div>
     </div>
   </div>
+</div>
+
+<div class="container center-items checkout-container">
+  <div class="form-container">
+      <div class="field-container">
+          <label for="name">Name</label>
+          <input id="name" maxlength="20" type="text">
+      </div>
+      <div class="field-container">
+          <label for="cardnumber">Card Number</label>
+          <input id="cardnumber" type="text" pattern="[0-9]*" inputmode="numeric">
+      </div>
+      <div class="field-container">
+          <label for="expirationdate">Expiration (mm/yy)</label>
+          <input id="expirationdate" type="text" pattern="[0-9]*" inputmode="numeric">
+      </div>
+      <div class="field-container">
+          <label for="securitycode">Security Code</label>
+          <input id="securitycode" type="text" pattern="[0-9]*" inputmode="numeric">
+      </div>
+  </div>
+  <%= link_to 'Checkout!', cart_path(@cart), data: { turbo_method: :patch }, class: 'btn btn-primary btn-lg' %>
 </div>

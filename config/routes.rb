@@ -25,7 +25,7 @@ Rails.application.routes.draw do
   get "dashboard", to: "dashboard#my_dashboard"
   get "dashboard", to: "dashboard#create_orders"
   get "dashboard", to: "dashboard#my_orders"
-  
+
 
 
 end

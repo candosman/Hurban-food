@@ -1,0 +1,53 @@
+.banner-restaurant img {
+  height: 400px;
+  width: 850px;
+  background-size: cover;
+  -o-object-fit: cover;
+  object-fit: cover;
+  border-radius: 5px;
+}
+.restaurant-info {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding-left: 50px;
+  width: 500px;
+  align-content: center;
+  height: 50%;
+}
+
+.img-chef {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 20px;
+  margin-top: 18px;
+  transition: transform 0.2s;
+
+}
+.img-chef:hover {
+  transform: scale(1.1);
+}
+
+.chef-images-container {
+  height: 50%;
+}
+.thumb-container {
+  display: flex;
+  align-items: center;
+  display: inline-block;
+  text-align: center;
+
+}
+#likeButton{
+  border-radius: 20px;
+}
+.img-fluid-radius {
+  border-radius: 20px;
+
+}
+.info-menu {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

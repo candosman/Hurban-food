@@ -8,9 +8,17 @@
         </span>
       </a>
     </li>
+     <li>
+      <a href= <%= dashboard_path %>>
+        <i class="fa fa-user"></i>
+        <span class="nav-text">
+            My restaurant
+        </span>
+      </a>
+    </li>
 
     <li class="has-subnav">
-      <a href=<%= new_restaurant_meal_path(12) %>>
+      <a href= <%= new_restaurant_meal_path %>
         <i class="fa fa-utensils fa-2x"></i>
         <span class="nav-text">
             Create a meal
@@ -37,7 +45,7 @@
     </li>
 
     <li>
-      <a href="restaurant_meals_path">
+      <a href="edit_restaurant_meal_path">
         <i class="fa fa-burger fa-2x"></i>
         <span class="nav-text">
             My meals

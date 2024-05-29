@@ -17,6 +17,7 @@ class RestaurantsController < ApplicationController
     @reviews = @restaurant.restaurant_reviews
     @restaurant_review = RestaurantReview.new
     @meals = @restaurant.meals
+    @order_list = OrderList.new
   end
 
   def new

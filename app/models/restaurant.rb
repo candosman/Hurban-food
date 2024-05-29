@@ -6,4 +6,5 @@ class Restaurant < ApplicationRecord
   has_one_attached :photo
   has_many :restaurant_reviews
   has_many :meal_reviews
+  has_many_attached :chef_photos
 end

@@ -14,6 +14,6 @@
     <%= render "shared/navbar" unless @hide_nav_bar %>
     <%= render "shared/flashes" %>
     <%= yield %>
-    <%= render "shared/footer"  unless @hide_footer%>
+    <%= render "shared/footer"  unless @hide_footer || controller_name == 'registrations' || controller_name == 'sessions' || controller_name == 'passwords' %>
   </body>
 </html>

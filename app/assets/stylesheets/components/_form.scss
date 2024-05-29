@@ -41,3 +41,28 @@
 .king{
   background-color:b;
 }
+
+.imageclass {
+  img {
+    height: 450px;
+    border-radius: 20px;
+  }
+
+}
+
+.big-container {
+  justify-content: center;
+  padding: 20px 20px 20px 50px;
+  width: fit-content;
+  height: 500px;
+  margin-top: 3rem;
+  background-color: rgb(249, 176, 98);
+  border-radius: 30px;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
+
+.form-inputs {
+ input {
+  border-radius: 20px;
+ }
+}

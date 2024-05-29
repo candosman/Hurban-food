@@ -6,7 +6,13 @@
       <%= f.input :name, label: "Name", input_html: { class: 'form-control' } %>
     </div>
     <div class="form-group">
+      <%= f.input :description, label: "Description", input_html: { class: 'form-control' } %>
+    </div>
+    <div class="form-group">
       <%= f.input :price, label: "Price", input_html: { class: 'form-control' } %>
+    </div>
+    <div class="form-group">
+      <%= f.input :photo, as: :file, label: "photo", input_html: { class: 'form-control' } %>
     </div>
     <div class="form-group d-flex justify-content-around">
       <%= f.button :submit, class: "btn btn-primary" %>

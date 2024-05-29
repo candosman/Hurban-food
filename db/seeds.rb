@@ -57,6 +57,7 @@ file6 = URI.open("https://images.unsplash.com/photo-1481833761820-0509d3217039?q
 restaurant6 = Restaurant.create(name: "Casa Fiesta Mexican Restaurant", address: "Coastal Road, Tamarin, Mauritius", phone: "0928537503", user: user4)
 restaurant6.photo.attach(io: file6, filename: "Casa Fiesta Mexican Restaurant.png", content_type: "image/png")
 restaurant6.save!
+puts 'six restaurant created'
 
 file7 = URI.open("https://images.unsplash.com/photo-1585518419759-7fe2e0fbf8a6?q=80&w=2824&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D")
 restaurant7 = Restaurant.create(name: "Le Café Parisien", address: "Champ de Mars, Port Louis, Mauritius", phone: "0734829573", user: user5)
@@ -114,6 +115,7 @@ mealfile5 = URI.open("https://images.unsplash.com/photo-1599974579688-8dbdd335c7
 meal5 = Meal.create(name: "Beef Tacos", price: "550", restaurant: restaurant3, description: "Three soft tacos filled with seasoned ground beef, lettuce, cheese, salsa, and sour cream. Served with a side of rice and beans")
 meal5.photo.attach(io: mealfile5, filename: "Beef Tacos.png", content_type: "image/png")
 meal5.save!
+puts 'five meals created'
 
 mealfile6 = URI.open("https://images.unsplash.com/photo-1598023696416-0193a0bcd302?q=80&w=2736&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D")
 meal6 = Meal.create(name: "Margherita Pizza", price: "500", restaurant: restaurant5, description: "Classic pizza topped with fresh tomatoes, mozzarella cheese, and basil leaves on a thin, crispy crust")
@@ -165,6 +167,7 @@ mealfile15 = URI.open("https://images.unsplash.com/photo-1666633151676-428fe839c
 meal15 = Meal.create(name: "Filet Mignon", price: "1200", restaurant: restaurant3, description: "Tender and juicy filet mignon, cooked to perfection and served with mashed potatoes and steamed broccoli")
 meal15.photo.attach(io: mealfile15, filename: "Filet Mignon.png", content_type: "image/png")
 meal15.save!
+puts 'fifteen meals created'
 
 mealfile16 = URI.open("https://images.unsplash.com/photo-1626804475297-41608ea09aeb?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D")
 meal16 = Meal.create(name: "Pad Thai", price: "600", restaurant: restaurant5, description: "Stir-fried rice noodles with chicken, shrimp, tofu, egg, and peanuts, tossed in a tangy tamarind sauce")
@@ -216,6 +219,7 @@ mealfile25 = URI.open("https://images.unsplash.com/photo-1631292784640-2b24be784
 meal25 = Meal.create(name: "Mango Chicken Curry", price: "700", restaurant: restaurant2, description: "Sweet and spicy chicken curry with mango chunks, served with jasmine rice")
 meal25.photo.attach(io: mealfile25, filename: "Mango Chicken Curry.png", content_type: "image/png")
 meal25.save!
+puts 'Twenty-Five meals created'
 
 mealfile26 = URI.open("https://images.unsplash.com/photo-1709201417401-5c72ed84f191?q=80&w=3023&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D")
 meal26 = Meal.create(name: "Gourmet Mac & Cheese", price: "500", restaurant: restaurant2, description: "Creamy macaroni and cheese with a blend of gourmet cheeses, topped with breadcrumbs and baked to a golden brown")
@@ -226,4 +230,144 @@ mealfile27 = URI.open("https://images.unsplash.com/photo-1617305855058-336d24456
 meal27 = Meal.create(name: "Chocolate Lava Cake", price: "250", restaurant: restaurant2, description: "Rich chocolate cake with a molten center, served with vanilla ice cream and fresh berries")
 meal27.photo.attach(io: mealfile27, filename: "Chocolate Lava Cake.png", content_type: "image/png")
 meal27.save!
-puts 'Twenty-seven meals created'
+
+mealfile28 = URI.open("https://images.unsplash.com/photo-1617692855027-33b14f061079?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D")
+meal28 = Meal.create(name: "Tandoori Chicken", price: "750", restaurant: restaurant1, description: "Marinated chicken grilled to perfection, served with naan bread and mint yogurt")
+meal28.photo.attach(io: mealfile28, filename: "Tandoori Chicken.png", content_type: "image/png")
+meal28.save!
+
+mealfile29 = URI.open("https://images.unsplash.com/photo-1690401767645-595de0e0e5f8?q=80&w=2813&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D")
+meal29 = Meal.create(name: "Butter Paneer", price: "600", restaurant: restaurant1, description: "Creamy tomato-based curry with soft paneer cubes, served with basmati rice and garlic naan")
+meal29.photo.attach(io: mealfile29, filename: "Butter Paneer.png", content_type: "image/png")
+meal29.save!
+
+mealfile30 = URI.open("https://images.unsplash.com/photo-1564834744159-ff0ea41ba4b9?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D")
+meal30 = Meal.create(name: "Lamb Rogan Josh", price: "850", restaurant: restaurant1, description: "Slow-cooked lamb in a rich and flavorful tomato and yogurt sauce, served with saffron rice")
+meal30.photo.attach(io: mealfile30, filename: "Lamb Rogan Josh.png", content_type: "image/png")
+meal30.save!
+puts 'Thirty meals created'
+
+mealfile31 = URI.open("https://images.unsplash.com/photo-1448043552756-e747b7a2b2b8?q=80&w=2852&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D")
+meal31 = Meal.create(name: "Fish Vindaye", price: "700", restaurant: restaurant4, description: "Traditional Mauritian fish curry with mustard seeds, served with white rice and a side of pickles")
+meal31.photo.attach(io: mealfile31, filename: "Fish Vindaye.png", content_type: "image/png")
+meal31.save!
+
+mealfile32 = URI.open("https://images.unsplash.com/photo-1696385793103-71f51f6fd3b7?q=80&w=2948&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D")
+meal32 = Meal.create(name: "Chicken Satay", price: "500", restaurant: restaurant4, description: "Skewered grilled chicken served with a spicy peanut sauce and jasmine rice")
+meal32.photo.attach(io: mealfile32, filename: "Chicken Satay.png", content_type: "image/png")
+meal32.save!
+
+mealfile33 = URI.open("https://images.unsplash.com/photo-1605461682195-9fd4d079a41d?q=80&w=2864&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D")
+meal33 = Meal.create(name: "Thai Green Curry", price: "650", restaurant: restaurant4, description: "Aromatic green curry with chicken and vegetables, served with steamed rice")
+meal33.photo.attach(io: mealfile33, filename: "Thai Green Curry.png", content_type: "image/png")
+meal33.save!
+
+mealfile34 = URI.open("https://images.unsplash.com/photo-1519996409144-56c88c9aa612?q=80&w=2787&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D")
+meal34 = Meal.create(name: "Greek Gyro Platter", price: "550", restaurant: restaurant6, description: "Sliced lamb with pita bread, tzatziki sauce, and a side of Greek salad")
+meal34.photo.attach(io: mealfile34, filename: "Greek Gyro Platter.png", content_type: "image/png")
+meal34.save!
+
+mealfile35 = URI.open("https://images.unsplash.com/photo-1684815595429-cf46bff6294f?q=80&w=2250&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D")
+meal35 = Meal.create(name: "Teriyaki Salmon", price: "800", restaurant: restaurant6, description: "Glazed salmon fillet served with a side of stir-fried vegetables and jasmine rice")
+meal35.photo.attach(io: mealfile35, filename: "Teriyaki Salmon.png", content_type: "image/png")
+meal35.save!
+puts 'Thirty-five meals created'
+
+mealfile36 = URI.open("https://images.unsplash.com/photo-1519676867240-f03562e64548?q=80&w=2787&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D")
+meal36 = Meal.create(name: "Peking Duck", price: "900", restaurant: restaurant6, description: "Crispy duck served with pancakes, hoisin sauce, and spring onions")
+meal36.photo.attach(io: mealfile36, filename: "Peking Duck.png", content_type: "image/png")
+meal36.save!
+
+mealfile37 = URI.open("https://images.unsplash.com/photo-1542528180-a1208c5169a5?q=80&w=2954&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D")
+meal37 = Meal.create(name: "Shawarma Plate", price: "550", restaurant: restaurant7, description: "Marinated chicken served with pita bread, hummus, and a mixed salad")
+meal37.photo.attach(io: mealfile37, filename: "Shawarma Plate.png", content_type: "image/png")
+meal37.save!
+
+mealfile38 = URI.open("https://images.unsplash.com/photo-1572453800999-e8d2d1589b7c?q=80&w=2870&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D")
+meal38 = Meal.create(name: "Ratatouille", price: "600", restaurant: restaurant7, description: "A French vegetable stew made with eggplant, zucchini, peppers, and tomatoes, served with crusty bread")
+meal38.photo.attach(io: mealfile38, filename: "Ratatouille.png", content_type: "image/png")
+meal38.save!
+
+mealfile39 = URI.open("https://images.unsplash.com/photo-1624174782964-e541742299ee?q=80&w=2787&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D")
+meal39 = Meal.create(name: "Crispy Pork Belly", price: "750", restaurant: restaurant7, description: "Slow-roasted pork belly with a crispy skin, served with apple sauce and mashed potatoes")
+meal39.photo.attach(io: mealfile39, filename: "Crispy Pork Belly.png", content_type: "image/png")
+meal39.save!
+
+mealfile40 = URI.open("https://images.unsplash.com/photo-1505253668822-42074d58a7c6?q=80&w=2787&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D")
+meal40 = Meal.create(name: "Paella Valenciana", price: "900", restaurant: restaurant8, description: "Traditional Spanish paella with chicken, rabbit, and green beans")
+meal40.photo.attach(io: mealfile40, filename: "Paella Valenciana.png", content_type: "image/png")
+meal40.save!
+puts 'Forty meals created'
+
+mealfile41 = URI.open("https://images.unsplash.com/photo-1660652377925-d615178531db?q=80&w=2942&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D")
+meal41 = Meal.create(name: "Bangers and Mash", price: "500", restaurant: restaurant8, description: "Grilled sausages served with creamy mashed potatoes and onion gravy")
+meal41.photo.attach(io: mealfile41, filename: "Bangers and Mash.png", content_type: "image/png")
+meal41.save!
+
+mealfile42 = URI.open("https://images.unsplash.com/photo-1517244683847-7456b63c5969?q=80&w=2788&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D")
+meal42 = Meal.create(name: "Jambalaya", price: "700", restaurant: restaurant8, description: "Spicy Cajun rice dish with chicken, sausage, and shrimp")
+meal42.photo.attach(io: mealfile42, filename: "Jambalaya.png", content_type: "image/png")
+meal42.save!
+
+mealfile43 = URI.open("https://images.unsplash.com/photo-1628294895950-9805252327bc?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D")
+meal43 = Meal.create(name: "Cuban Mojo Pork", price: "750", restaurant: restaurant9, description: "Marinated pork served with black beans, rice, and fried plantains")
+meal43.photo.attach(io: mealfile43, filename: "Cuban Mojo Pork.png", content_type: "image/png")
+meal43.save!
+
+mealfile44 = URI.open("https://images.unsplash.com/photo-1504649346668-2cc86afaa2e1?q=80&w=2864&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D")
+meal44 = Meal.create(name: "Moroccan Lamb Tagine", price: "850", restaurant: restaurant9, description: "Slow-cooked lamb with apricots and almonds, served with couscous")
+meal44.photo.attach(io: mealfile44, filename: "Moroccan Lamb Tagine.png", content_type: "image/png")
+meal44.save!
+
+mealfile45 = URI.open("https://images.unsplash.com/photo-1714596598471-aa2dfd029e2b?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D")
+meal45 = Meal.create(name: "Beef Bourguignon", price: "800", restaurant: restaurant9, description: "French beef stew cooked in red wine with mushrooms and pearl onions, served with potatoes")
+meal45.photo.attach(io: mealfile45, filename: "Beef Bourguignon.png", content_type: "image/png")
+meal45.save!
+puts 'Forty-five meals created'
+
+mealfile46 = URI.open("https://images.unsplash.com/photo-1682568514240-fa229b2d1f27?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D")
+meal46 = Meal.create(name: "Szechuan Beef", price: "650", restaurant: restaurant10, description: "Spicy stir-fried beef with Szechuan peppers, served with steamed rice")
+meal46.photo.attach(io: mealfile46, filename: "Szechuan Beef.png", content_type: "image/png")
+meal46.save!
+
+mealfile47 = URI.open("https://images.unsplash.com/photo-1509249270761-2f410c3c47dc?q=80&w=2938&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D")
+meal47 = Meal.create(name: "Chili Con Carne", price: "600", restaurant: restaurant10, description: "Hearty chili with ground beef and beans, served with tortilla chips and sour cream")
+meal47.photo.attach(io: mealfile47, filename: "Chili Con Carne.png", content_type: "image/png")
+meal47.save!
+
+mealfile48 = URI.open("https://images.unsplash.com/photo-1596464716059-f81da526557b?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D")
+meal48 = Meal.create(name: "Quinoa Stuffed Peppers", price: "500", restaurant: restaurant10, description: "Bell peppers filled with quinoa, black beans, corn, and cheese, baked to perfection")
+meal48.photo.attach(io: mealfile48, filename: "Quinoa Stuffed Peppers.png", content_type: "image/png")
+meal48.save!
+
+mealfile49 = URI.open("https://images.unsplash.com/photo-1569050467447-ce54b3bbc37d?q=80&w=2735&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D")
+meal49 = Meal.create(name: "Chicken Katsu Curry", price: "700", restaurant: restaurant11, description: "Breaded chicken cutlet served with Japanese curry sauce and steamed rice")
+meal49.photo.attach(io: mealfile49, filename: "Chicken Katsu Curry.png", content_type: "image/png")
+meal49.save!
+
+mealfile50 = URI.open("https://images.unsplash.com/photo-1606898425987-62733fb7dbe7?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D")
+meal50 = Meal.create(name: "Crab Cakes", price: "850", restaurant: restaurant11, description: "Pan-seared crab cakes served with a side of remoulade and a fresh salad")
+meal50.photo.attach(io: mealfile50, filename: "Crab Cakes.png", content_type: "image/png")
+meal50.save!
+puts 'Fifty meals created'
+
+mealfile51 = URI.open("https://images.unsplash.com/photo-1680287370324-8ba1fd88a066?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D")
+meal51 = Meal.create(name: "Pulled Pork Sandwich", price: "600", restaurant: restaurant11, description: "Slow-cooked pulled pork in BBQ sauce, served in a bun with coleslaw")
+meal51.photo.attach(io: mealfile51, filename: "Pulled Pork Sandwich.png", content_type: "image/png")
+meal51.save!
+
+mealfile52 = URI.open("https://images.unsplash.com/photo-1642231877874-ce3e205f39c0?q=80&w=2942&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D")
+meal52 = Meal.create(name: "Duck Confit", price: "950", restaurant: restaurant12, description: "Traditional French duck leg confit, served with roasted potatoes and a side salad")
+meal52.photo.attach(io: mealfile52, filename: "Duck Confit.png", content_type: "image/png")
+meal52.save!
+
+mealfile53 = URI.open("https://images.unsplash.com/photo-1631515243349-e0cb75fb8d3a?q=80&w=2976&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D")
+meal53 = Meal.create(name: "Biryani", price: "700", restaurant: restaurant12, description: "Aromatic rice dish with marinated chicken, spices, and saffron, served with raita")
+meal53.photo.attach(io: mealfile53, filename: "Biryani.png", content_type: "image/png")
+meal53.save!
+
+mealfile54 = URI.open("https://images.unsplash.com/photo-1603032305813-be7441bc1037?q=80&w=2787&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D")
+meal54 = Meal.create(name: "Chocolate Mousse", price: "300", restaurant: restaurant12, description: "Rich and creamy chocolate mousse topped with whipped cream and chocolate shavings")
+meal54.photo.attach(io: mealfile54, filename: "Chocolate Mousse.png", content_type: "image/png")
+meal54.save!
+puts 'Fifty-four meals created'

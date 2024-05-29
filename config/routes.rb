@@ -25,6 +25,7 @@ Rails.application.routes.draw do
   get "dashboard", to: "dashboard#my_dashboard"
   get "dashboard", to: "dashboard#create_orders"
   get "dashboard", to: "dashboard#my_orders"
+  get "customer", to: "customer#my_profile"
 
 
 

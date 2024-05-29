@@ -13,6 +13,11 @@ class DashboardController < ApplicationController
   def my_orders
 
   end
+  def my_favourites
+    
+  end
+
+
 
   private
 

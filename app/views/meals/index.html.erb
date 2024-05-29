@@ -20,7 +20,6 @@
           <h6 class="card-price"><i class="fa-solid fa-tag"></i> Rs <%= meal.price %></h6>
         </div>
         <p><i class="fa-solid fa-bowl-food"></i> <%= meal.description %> </p>
-        <%= link_to "Add a rating", new_meal_meal_review_path(meal) %>
         <%= simple_form_for(@order_list) do |f| %>
           <%= f.association :meal, as: :hidden, input_html: {value: meal.id}  %>
           <%= f.association :cart, as: :hidden, input_html: {value: @cart.id}  %>

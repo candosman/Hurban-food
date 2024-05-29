@@ -13,9 +13,10 @@
 
     <div class='banner-restaurant-right'>
       <div class="restaurant-info">
-        <h2 class="card-title mt-4"><%= @restaurant.name %></h2>
-        <p class="card-text"> <i class="fa-solid fa-phone"></i> <%= @restaurant.phone %></p>
-        <p class="card-text"><i class="fa-solid fa-location-pin"></i> <%= @restaurant.address %></p>
+        <h2 class="card-title"><%= @restaurant.name %></h2>
+        <br>
+        <p> <i class="fa-solid fa-phone"></i> <%= @restaurant.phone %></p>
+        <p><i class="fa-solid fa-location-pin"></i> <%= @restaurant.address %></p>
       </div>
 
       <div class='d-grid grid-3 gap-2 chef-images-container'>
@@ -32,19 +33,28 @@
       </div>
     </div>
   </div>
- <div class=" thumb container mt-2">
-    <div class="thumb col-8">
-      <button id="likeButton" onclick="like()">⭐</button>
-    </div>
-    <div id="likeCountDisplay">0 ⭐</div>
-    <script>
-      var likeCount = 0;
+</div>
 
-      function like() {
-        likeCount++;
-        document.getElementById("likeCountDisplay").innerText = likeCount + " ⭐";
-      }
-    </script>
+<div class="thumb container mt-2">
+  <div class="thumb col-8">
+    <button id="likeButton" onclick="like()">⭐</button>
+  </div>
+  <div id="likeCountDisplay">0 ⭐</div>
+  <script>
+    var likeCount = 0;
+
+    function like() {
+      likeCount++;
+      document.getElementById("likeCountDisplay").innerText = likeCount + " ⭐";
+    }
+  </script>
+</div>
+<div class="container my-5">
+
+  <div id="map" style="width: 100%; height: 300px;"
+    data-controller="map"
+    data-map-markers-value="<%= @markers.to_json %>"
+    data-map-api-key-value="<%= ENV["MAPBOX_API_KEY"] %>">
   </div>
 </div>
 
@@ -53,7 +63,7 @@
 
 
   <div class = 'info-menu'>
-    <h1>Menu</h1>
+    <h1>Choose your meal</h1>
   </div>
 
   <div class="container d-grid grid-3 gap-3 my-5">
@@ -90,14 +100,5 @@
     <% end %>
   </div>
     </div>
- 
-</div>
 
-<div class="container my-5">
-
-  <div id="map" style="width: 100%; height: 600px;"
-    data-controller="map"
-    data-map-markers-value="<%= @markers.to_json %>"
-    data-map-api-key-value="<%= ENV["MAPBOX_API_KEY"] %>">
-  </div>
 </div>

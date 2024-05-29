@@ -10,6 +10,16 @@
   </div>
 </div>
 
+<div class="container about-us-container">
+  <div>
+    <p>hi</p>
+  </div>
+
+  <div>
+    <%= image_tag('logo.png') %>
+  </div>
+</div>
+
 <div class="cards mt-5 container">
   <% @restaurants.each do |restaurant| %>
   <%= link_to restaurant_path(restaurant) do %>
@@ -28,4 +38,3 @@
     data-map-api-key-value="<%= ENV["MAPBOX_API_KEY"] %>">
   </div>
 </div>
-

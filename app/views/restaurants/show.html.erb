@@ -1,5 +1,4 @@
 
-
 <div class="container mt-3 mb-3">
   <div class='container-centered d-flex gap-3 justify-content-between'>
     <div style='width:50%;'>
@@ -69,7 +68,7 @@
             <h6 class="card-price"><i class="fa-solid fa-tag"></i> Rs <%= meal.price %></h6>
           </div>
           <p><i class="fa-solid fa-bowl-food"></i> <%= meal.description %> </p>
-            
+
           <%= simple_form_for(@order_list) do |f| %>
             <%= f.association :meal, as: :hidden, input_html: {value: meal.id}  %>
             <%= f.association :cart, as: :hidden, input_html: {value: @cart.id}  %>
@@ -91,7 +90,7 @@
     <% end %>
   </div>
     </div>
-  <% end %>
+ 
 </div>
 
 <div class="container my-5">
@@ -102,4 +101,3 @@
     data-map-api-key-value="<%= ENV["MAPBOX_API_KEY"] %>">
   </div>
 </div>
-

@@ -38,16 +38,72 @@
 
 
 
-
+.big-container {
+  justify-content: center;
+  padding: 20px 20px 20px 50px;
+  width: fit-content;
+  height: 500px;
+  margin-top: 3rem;
+  background-color: #CE7A27;
+  border-radius: 30px;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
 
 .form-inputs {
  input {
   border-radius: 20px;
  }
-}
+
+ label {
+  font-weight: bold;
+ }
+
+ }
 
 .form-infos {
   padding: 30px;
   background-color: rgb(255, 255, 255);
   border-radius: 30px;
+
+  h1 {
+    font-weight:bold;
+    font-family:'Times New Roman', Times, serif;
+  }
+
+  p {
+    font-weight: bold;
+    color: rgb(16, 0, 0);
+    font-family:'Times New Roman', Times, serif;
+    text-align: center;
+  }
+}
+
+.restaurant-info {
+    border-radius: 30px;
+    padding: 20px;
+    height: 50%;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+
+    .restaurant-title {
+      border-radius: 10px;
+      font-weight: bold;
+      color: black!important;
+      font-family: 'Times New Roman', Times, serif;
+      box-shadow: none;
+    }
+}
+
+.btn-dark {
+  border-radius: 20px;
+ }
+
+ .food-img {
+  img{
+    height: 235px;
+    width:  300px;
+    border-radius: 30px;
+    padding: 10px;
+    margin-bottom: 3rem;
+
+ }
 }

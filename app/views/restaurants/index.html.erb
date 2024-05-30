@@ -1,5 +1,5 @@
 <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0),rgba(0,0,0,0)), url(<%= image_path('meat-skewer-with-vegetables-black-backgroundai-generative.jpg') %>);">
-  <div class="container">
+  <div class="container banner-content">
     <h1 style="font-size: 48px; color: white;">
       <span style="display: block; font-size: 72px;">Hurban Food</span>
       <strong style="color: #FF6347;">your food lover's companion</strong>
@@ -10,26 +10,38 @@
   </div>
 </div>
 
-<div class="container about-us-container">
-  <div>
-    <p>hi</p>
-  </div>
-
-  <div>
-    <%= image_tag('logo.png') %>
-  </div>
-</div>
-
-<div class="cards mt-5 container">
-  <% @restaurants.each do |restaurant| %>
-  <%= link_to restaurant_path(restaurant) do %>
-    <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= restaurant.photo.attached? ? cl_image_path(restaurant.photo.key, height: 300, crop: :fill) : asset_path('meat-skewer-with-vegetables-black-backgroundai-generative.jpg', height: 300, crop: :fill) %>')">
-      <%= restaurant.name %>
+<div class="about-us-container">
+  <div class="container about-us-content">
+    <div class="about-us-text">
+      <h1 class="about-us-heading">About Us</h1>
+      <p>
+        "Hurban Food" is your go-to food app for urban cravings. Discover a diverse range of culinary delights from local eateries, trendy cafes, and hidden gems within your vicinity. Whether you're in the mood for a quick bite or a gourmet meal, Hurban Food makes ordering easy with seamless delivery or pickup options.
+      </p>
     </div>
-  <% end %>
 
-  <% end %>
+    <div class="about-us-logo">
+      <%= image_tag('logo.png', alt: 'Hurban Food Logo') %>
+    </div>
+  </div>
 </div>
+
+<div class="container">
+  <div class="restaurant-cards my-5 ">
+    <% @restaurants.each do |restaurant| %>
+    <%= link_to restaurant_path(restaurant) do %>
+      <div class="card-scroll">
+        <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= restaurant.photo.attached? ? cl_image_path(restaurant.photo.key, height: 300, crop: :fill) : asset_path('meat-skewer-with-vegetables-black-backgroundai-generative.jpg', height: 300, crop: :fill) %>')">
+          <p>
+            <%= restaurant.name %>
+          </p>
+        </div>
+      </div>
+    <% end %>
+
+    <% end %>
+  </div>
+</div>
+
 <div class="container my-5">
 
   <div id="map" style="width: 100%; height: 600px;"

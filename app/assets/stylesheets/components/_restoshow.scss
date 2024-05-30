@@ -4,18 +4,21 @@
   background-size: cover;
   -o-object-fit: cover;
   object-fit: cover;
-  border-radius: 5px;
+  border-radius: 10px;
 }
 .restaurant-info {
-  border-radius: 20px;
+  border-radius: 10px;
   padding: 20px;
   height: 50%;
   background-color: white;
 
   h2 {
-    color: green;
+    color: rgb(0, 0, 0);
     font-size: 40px;
     font-weight: bold;
+  }
+  p {
+    color: #5e5a5a
   }
 }
 
@@ -23,7 +26,7 @@
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  border-radius: 20px;
+  border-radius: 10px;
   margin-top: 18px;
   transition: transform 0.2s;
 
@@ -46,7 +49,7 @@
   border-radius: 20px;
 }
 .img-fluid-radius {
-  border-radius: 20px;
+  border-radius: 10px;
 
 }
 .info-menu {

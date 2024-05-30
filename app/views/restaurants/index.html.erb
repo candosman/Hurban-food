@@ -2,11 +2,13 @@
   <div class="container banner-content">
     <h1 style="font-size: 48px; color: white;">
       <span style="display: block; font-size: 72px;">Hurban Food</span>
-      <strong style="color: #FF6347;">your food lover's companion</strong>
-      designed to simplify
-      <strong style="color: #2E8B57;">your culinary adventures</strong>!
     </h1>
-    <%= link_to "Create your new restaurant", new_restaurant_path(@restaurant), class: "btn btn-success mt-3", style: "color: white;" %>
+    <p>
+      <strong>your food lover's companion</strong>
+      designed to simplify
+      <strong >your culinary adventures</strong>!
+    </p>
+    <%= link_to "Create Restaurant", new_restaurant_path(@restaurant), class: "btn-banner" %>
   </div>
 </div>
 
@@ -20,31 +22,35 @@
     </div>
 
     <div class="about-us-logo">
-      <%= image_tag('logo.png', alt: 'Hurban Food Logo') %>
+      <%= image_tag('hf-round-vert.png', alt: 'Hurban Food Logo') %>
     </div>
   </div>
 </div>
 
-<div class="container">
-  <div class="restaurant-cards my-5 ">
-    <% @restaurants.each do |restaurant| %>
-    <%= link_to restaurant_path(restaurant) do %>
-      <div class="card-scroll">
-        <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= restaurant.photo.attached? ? cl_image_path(restaurant.photo.key, height: 300, crop: :fill) : asset_path('meat-skewer-with-vegetables-black-backgroundai-generative.jpg', height: 300, crop: :fill) %>')">
-          <p>
-            <%= restaurant.name %>
-          </p>
-        </div>
-      </div>
-    <% end %>
 
-    <% end %>
+<div class="restaurant-container">
+  <div class="container">
+    <div class="restaurant-cards">
+      <% @restaurants.each do |restaurant| %>
+      <%= link_to restaurant_path(restaurant) do %>
+        <div class="card-scroll">
+          <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= restaurant.photo.attached? ? cl_image_path(restaurant.photo.key, height: 300, crop: :fill) : asset_path('meat-skewer-with-vegetables-black-backgroundai-generative.jpg', height: 300, crop: :fill) %>')">
+            <p>
+              <%= restaurant.name %>
+            </p>
+          </div>
+        </div>
+      <% end %>
+
+      <% end %>
+    </div>
   </div>
+
 </div>
 
 <div class="container my-5">
 
-  <div id="map" style="width: 100%; height: 600px;"
+  <div id="map" style="width: 100%; height: 600px; border-radius: 10px;"
     data-controller="map"
     data-map-markers-value="<%= @markers.to_json %>"
     data-map-api-key-value="<%= ENV["MAPBOX_API_KEY"] %>">

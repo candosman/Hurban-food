@@ -17,7 +17,7 @@
       <div class="card-body card-meal-body">
         <div class='d-flex justify-content-between'>
           <h5 class="card-title"> <%= meal.name.upcase %></h5>
-          <h6 class="card-price"><i class="fa-solid fa-tag"></i> Rs <%= meal.price %></h6>
+          <h6 class="card-price"><i class="fa-solid fa-tag"></i> <strong> Rs<%= meal.price %></h6> </strong>
         </div>
         <p><i class="fa-solid fa-bowl-food"></i> <%= meal.description %> </p>
         <%= simple_form_for(@order_list) do |f| %>

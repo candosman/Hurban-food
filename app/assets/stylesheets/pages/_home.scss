@@ -1,7 +1,7 @@
 // Specific CSS for your home-page
 .about-us-container {
 
-  padding: 10% 0;
+  padding: 5% 0;
   background-color: #ffffff;
   text-align: center;
   margin: 0 auto;
@@ -25,11 +25,14 @@
   color: #333;
 }
 
-.about-us-logo img {
-  max-width: 200px;
-  height: auto;
-  display: block;
-  margin: 20px auto;
+.about-us-logo {
+  width: 35%;
+  img  {
+
+    max-width: 450px;
+    height: auto;
+  }
+  // margin: 20px auto;
 }
 
 .restaurant-cards {
@@ -50,5 +53,24 @@
       // text-wrap: balance;
       text-align: center;
     }
+  }
+}
+
+.restaurant-container {
+  background-color: #F6E9B2;
+}
+
+.btn-banner {
+  border-radius: 5px;
+  border: 2px solid $banner;
+  color: #FFFFFF;
+  font-weight: 700;
+  text-decoration: none;
+  padding: 10px 15px;
+  transition: all 300ms ease-in;
+
+  &:hover {
+    background-color: $banner;
+    color: #1a1a1a;
   }
 }

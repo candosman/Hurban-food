@@ -1,13 +1,13 @@
-  <div class="container restaurant-info mt-3">
+  <div class="container new-restaurant-info mt-3">
     <h1 class=" restaurant-title text-center">Create <strong>your new restaurant</strong> <strong>below !</strong></h1>
   </div>
 
 
-<div class="container d-flex big-container mb-5">
+<div class="container d-flex new-restaurant-container mb-5">
   <div class="d-flex login-form-container mx-3 gap-4">
     <div class="form-details">
       <%= simple_form_for @restaurant do |f| %>
-        <div class="form-inputs">
+        <div class="form-inputs-new-restaurant">
           <%= f.input :name, placeholder:"Enter name" %>
           <%= f.input :address, placeholder: "Enter address" %>
           <%= f.input :phone, placeholder: "Enter phone number" %>
@@ -21,7 +21,7 @@
   </div>
 
 <div class="container d-flex justify-content-center gap-3">
-    <div class="form-infos">
+    <div class="form-infos-new-restaurant">
       <h1 class="text-center">Hurban-Food</h1>
       <p>With Hurban-Food, the entire culinary universe is at your fingertips.📱Seamlessly browse recipes on-the-go: Whether you're in the supermarket or relaxing at home, our user-friendly interface ensures effortless navigation and inspiration at your fingertips.🍴Discover top-rated restaurants nearby, read reviews from fellow foodies, and make reservations directly from the app. With Hurban-Food, every meal is an adventure waiting to be savored.</p>
       <div class="food-img d-flex justify-content-center">

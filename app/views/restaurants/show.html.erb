@@ -43,7 +43,11 @@
   </div>
   <div id="mealCarousel" class="carousel slide" data-bs-ride="carousel">
     <div class="carousel-inner">
+
+      <div class="container d-grid grid-3 gap-3 my-5">
+
       <div class="container d-grid grid-3 gap-3" style= "margin-right= 80px";>
+
         <% @meals.each do |meal| %>
           <div class="card card-meal">
             <% if meal.photo.attached? %>

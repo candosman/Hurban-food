@@ -23,7 +23,7 @@
         <%= simple_form_for(@order_list) do |f| %>
           <%= f.association :meal, as: :hidden, input_html: {value: meal.id}  %>
           <%= f.association :cart, as: :hidden, input_html: {value: @cart.id}  %>
-          <%= f.button :submit,  'Add to Cart', class: 'add-to-cart-btn' %>
+          <%= f.button :submit,  'Add to Cart', class: 'btn-custom-y' %>
         <% end %>
       </div>
     </div>

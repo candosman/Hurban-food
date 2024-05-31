@@ -40,6 +40,24 @@
   overflow-y: hidden;
   white-space: nowrap;
 
+  a {
+    text-decoration: none;
+  }
+
+  &::-webkit-scrollbar {
+    width: .5em;
+  }
+
+  &::-webkit-scrollbar-track {
+    background-color: #F6E9B2;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: $customdarkgreen;
+    border-radius: 15px;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  }
+
   .card-scroll {
     display: inline-block;
     min-width: 325px;
@@ -47,8 +65,6 @@
   }
 
   .card-category {
-
-
     p {
       // text-wrap: balance;
       text-align: center;
@@ -58,7 +74,12 @@
 
 .restaurant-container {
   background-color: #F6E9B2;
+  padding: 100px 0;
+
+
 }
+
+
 
 .btn-banner {
   border-radius: 5px;

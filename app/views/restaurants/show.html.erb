@@ -77,12 +77,12 @@
             <h5 class="card-title"> <%= meal.name.upcase %></h5>
             <h6 class="card-price"><i class="fa-solid fa-tag"></i> Rs <%= meal.price %></h6>
           </div>
-          <p><i class="fa-solid fa-bowl-food"></i> <%= meal.description %> </p>
+          <p><i><%= image_tag "logo.png", alt: "", width: 20, class: "img-logo" %></i> <%= meal.description %> </p>
 
           <%= simple_form_for(@order_list) do |f| %>
             <%= f.association :meal, as: :hidden, input_html: {value: meal.id}  %>
             <%= f.association :cart, as: :hidden, input_html: {value: @cart.id}  %>
-            <%= f.button :submit,  'Add to Cart', class: 'add-to-cart-btn' %>
+            <%= f.button :submit,  'Add to Cart', class: 'btn-custom-y' %>
           <% end %>
         </div>
       </div>

@@ -23,9 +23,13 @@
   border-bottom-left-radius: 15px;
   border-bottom-right-radius: 15px;
   transition: all ease-in-out 0.2s;
-  box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
   height: 405px;
   cursor: pointer;
+
+  .card-price i {
+    color: $customdarkgreen;
+  }
 
   p {
     white-space: nowrap; /* Prevent line breaks */
@@ -47,17 +51,7 @@
     justify-content: space-around;
   }
 
-  .add-to-cart-btn {
-    width: 100%;
-    background-color: #3da9bf;
-    border-radius: 30px;
-    color: black;
-    font-weight: bold;
-  }
 
-  &:hover {
-    transform: scale(1.02);
-  }
 }
 
 .cards {

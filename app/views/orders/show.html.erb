@@ -39,7 +39,7 @@
             <h5 class="card-title"> <%= meal.name.upcase %></h5>
             <h6 class="card-price"><i class="fa-solid fa-tag"></i> Rs <%= meal.price %></h6>
           </div>
-          <p><i class="fa-solid fa-bowl-food"></i> <%= meal.description %> </p>
+          <p><i><%= image_tag "logo.png", alt: "", width: 20, class: "img-logo" %></i> <%= meal.description %> </p>
         </div>
       </div>
     <% end %>

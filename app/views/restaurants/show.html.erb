@@ -17,7 +17,7 @@
         <p><i class="fa-solid fa-phone" style="margin-right: 20px; color: #F6E9B2;"><b></i> <%= @restaurant.phone %></b></p>
         <p><i class="fa-solid fa-location-pin" style="margin-right: 20px; color: #F6E9B2;"><b></i> <%= @restaurant.address %></p>
         <% if current_user == @restaurant.user %>
-          <%= link_to 'Add meal!', new_restaurant_meal_path(@restaurant), data: { turbo_method: :patch }, class: 'btn-custom-g' %>
+          <%= link_to 'Add meal!', new_restaurant_meal_path(@restaurant), class: 'btn-custom-g' %>
         <% end %>
         <br>
       </div>

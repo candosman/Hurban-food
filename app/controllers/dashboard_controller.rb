@@ -5,7 +5,7 @@ class DashboardController < ApplicationController
     @meals = current_user.restaurants.map(&:meals).flatten
     @meals_sold = 0
     @meals.each do |meal|
-      @meals_sold += meal.order_lists.count
+      @meals_sold += meal.order_lists.count{ |order_list| order_list.id != nil }
     end
   end
 
@@ -17,13 +17,14 @@ class DashboardController < ApplicationController
     @meals = current_user.restaurants.map(&:meals).flatten
     @order_lists = @meals.map(&:order_lists).uniq.flatten.reject{ |order_list| order_list.order_id.nil? }
     @orders = @order_lists.group_by(&:order_id)
+
+
+
   end
 
   def my_favourites
 
   end
-
-
 
   private
 

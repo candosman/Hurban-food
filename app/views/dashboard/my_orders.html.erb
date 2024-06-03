@@ -1,0 +1,36 @@
+<div class="container center-items">
+  <div class="your-cart">
+    <div class="card card-checkout py-3 border-0 rounded-3xl">
+      <h2 class="card-title text-center my-4">Your Cart</h2>
+      <hr>
+      <div class="card-body">
+        <% @orders.each do |order_lists| %>
+          <% total_price = 0 %>
+          <div class="card mb-2 border-0 rounded-3xl">
+            <div class="card-body d-grid grid-3 gap-2 p-3">
+              <% order_lists[1].each do |order_list| %>
+                <div class='d-flex'>
+                  <div class="card-image mr-3" style="background-image: url(<%= cl_image_path(order_list.meal.photo.key) %>); height: 100px; width: 100px; background-size: cover; background-position: center;"></div>
+                  <div class="ms-3">
+                    <h5 class="card-title mb-2 mt-0"><strong><%= order_list.meal.name %></strong></h5>
+                    <p class="card-text text-muted mb-0">Rs <%= order_list.meal.price %></p>
+                  </div>
+                  <% total_price += order_list.meal.price %>
+                </div>
+              <% end %>
+            </div>
+            <div class="total-price">
+              <p>Total: <strong>RS <%= total_price %></strong></p>
+            </div>
+          </div>
+          <hr>
+        <% end %>
+        <hr class="my-4">
+        <div class="text-center check-btn-container ">
+          <a href="#" class="btn-custom-g">Continue Shopping</a>
+          <a href="#" class="btn-custom-k">Cancel</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

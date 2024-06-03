@@ -51,13 +51,6 @@
         <% else %>
         <div class="card-image" style="background-image: url(); height:212px;">
         </div>
-        <p><i><%= image_tag "logo.png", alt: "", width: 20, class: "img-logo" %></i> <%= meal.description %> </p>
-        <% unless current_user == @restaurant.user %>
-          <%= simple_form_for(@order_list) do |f| %>
-            <%= f.association :meal, as: :hidden, input_html: {value: meal.id}  %>
-            <%= f.association :cart, as: :hidden, input_html: {value: @cart.id}  %>
-            <%= f.button :submit,  'Add to Cart', class: 'btn-custom-y' %>
-          <% end %>
         <% end %>
 
         <div class="card-body card-meal-body">
@@ -66,10 +59,12 @@
             <h6 class="card-price"><i class="fa-solid fa-tag"></i> <strong> Rs<%= meal.price %></strong></h6>
           </div>
           <p><i><%= image_tag "logo.png", alt: "", width: 20, class: "img-logo" %></i> <%= meal.description %> </p>
-          <%= simple_form_for(@order_list) do |f| %>
-            <%= f.association :meal, as: :hidden, input_html: {value: meal.id}  %>
-            <%= f.association :cart, as: :hidden, input_html: {value: @cart.id}  %>
-            <%= f.button :submit,  'Add to Cart', class: 'btn-custom-y' %>
+          <% unless current_user == @restaurant.user %>
+            <%= simple_form_for(@order_list) do |f| %>
+              <%= f.association :meal, as: :hidden, input_html: {value: meal.id}  %>
+              <%= f.association :cart, as: :hidden, input_html: {value: @cart.id}  %>
+              <%= f.button :submit,  'Add to Cart', class: 'btn-custom-y' %>
+            <% end %>
           <% end %>
         </div>
       </div>

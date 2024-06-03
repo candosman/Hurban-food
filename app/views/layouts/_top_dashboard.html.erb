@@ -21,6 +21,15 @@
     </li>
 
     <li class="has-subnav">
+      <a href= <%= new_restaurant_meal_path(current_user.restaurants) %>>
+        <i class="fa fa-utensils fa-2x"></i>
+        <span class="nav-text">
+            Create a meal
+        </span>
+      </a>
+    </li>
+
+    <li class="has-subnav">
         <a href=<%= orders_path %> >
           <i class="fa fa-burger fa-2x"></i>
           <span class="nav-text">
@@ -36,6 +45,16 @@
               My Staff
           </span>
         </a>
+    </li>
+
+
+    <li>
+      <a href= <%= restaurant_meals_path(current_user.restaurants) %>>
+        <i class="fa fa-burger fa-2x"></i>
+        <span class="nav-text">
+            My meals
+        </span>
+      </a>
     </li>
 
     <% else %>

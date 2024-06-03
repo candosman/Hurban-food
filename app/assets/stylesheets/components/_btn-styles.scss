@@ -4,7 +4,7 @@
 .btn-custom-y {
   border-radius: 10px;
   background-color: #F3CA52;
-  color: #000000;
+  color: #ffffff;
   font-weight: 700;
   text-decoration: none;
   padding: 10px 15px;
@@ -13,6 +13,7 @@
   &:hover{
     border: 2px solid $banner;
     background-color: unset;
+    color: #F3CA52;
   }
 }
 
@@ -65,3 +66,5 @@
   }
 
 }
+
+

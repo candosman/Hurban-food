@@ -17,6 +17,9 @@ class RestaurantsController < ApplicationController
     @reviews = @restaurant.restaurant_reviews
     @restaurant_review = RestaurantReview.new
     @meals = @restaurant.meals
+    @starters = @meals.where(category: "starter")
+    @main = @meals.where(category: "main")
+    @desert = @meals.where(category: "desert")
     @order_list = OrderList.new
     if @restaurant.geocoded?
       @markers = [{
@@ -63,6 +66,8 @@ class RestaurantsController < ApplicationController
 
   def my_restaurants
     @restaurants = current_user.restaurants
+    @hide_nav_bar = true
+    @hide_footer = true
   end
 
   private

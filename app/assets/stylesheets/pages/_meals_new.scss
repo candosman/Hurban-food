@@ -1,5 +1,5 @@
 .form-meals-new {
-  background-color: #cd7070;
+  background-color: #ffffff;
   border-radius: 15px;
   padding: 20px;
   box-shadow:rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
@@ -26,14 +26,19 @@
 
 }
 
-.btn-normal {
-  width: 150px;
-  background-color: $customyellow;
-  font-weight: bold;
-}
-
-.btn-param {
-  background-color: $customyellow;
-  font-weight: bold;
+.btn-custom-au {
   border-radius: 10px;
+  background-color: #F3CA52;
+  color: #ffffff;
+  font-weight: 700;
+  text-decoration: none;
+  padding: 10px 15px;
+  transition: all 300ms ease-in;
+  width: 150px;
+
+  &:hover{
+    border: 2px solid $banner;
+    background-color: unset;
+    color: #F3CA52;
+  }
 }

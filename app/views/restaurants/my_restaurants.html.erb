@@ -1,2 +1,23 @@
-<h1>Your Restaurants</h1>
-
+<%= render 'layouts/top_dashboard' %>
+<h1 class="text-center">Your restaurants</h1>
+<div class="restaurant-container">
+  <div class="container">
+    <div class="restaurant-cards d-flex justify-content-around">
+      <% @restaurants.each do |restaurant| %>
+      <%= link_to restaurant_path(restaurant) do %>
+        <div class="card-scroll">
+          <div class="card-category"  style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= restaurant.photo.attached? ? cl_image_path(restaurant.photo.key, height: 300, crop: :fill) : asset_path('meat-skewer-with-vegetables-black-backgroundai-generative.jpg', height: 300, crop: :fill) %>')">
+            <p>
+            <%= restaurant.name %>
+            </p>
+            </div>
+        </div>
+          <% end %>
+        <% end %>
+      </div>
+  </div>
+</div>
+<div class='d-flex justify-content-center mt-3'>
+  <%= link_to "Create Restaurant", new_restaurant_path, class: "btn-m"%>
+</div>
+<%= render 'layouts/btm_dashboard' %>

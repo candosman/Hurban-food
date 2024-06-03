@@ -12,7 +12,7 @@
 
     <% if current_user.owner? %>
      <li>
-      <a href= <%= dashboard_path %>>
+      <a href= <%= my_restaurants_path %>>
         <i class="fa fa-user"></i>
         <span class="nav-text">
             My restaurant
@@ -21,7 +21,7 @@
     </li>
 
     <li class="has-subnav">
-      <a href= <%= new_restaurant_meal_path(current_user.restaurant) %>>
+      <a href= <%= new_restaurant_meal_path(current_user.restaurants) %>>
         <i class="fa fa-utensils fa-2x"></i>
         <span class="nav-text">
             Create a meal
@@ -48,7 +48,7 @@
     </li>
 
     <li>
-      <a href= <%= restaurant_meals_path(current_user.restaurant) %>>
+      <a href= <%= restaurant_meals_path(current_user.restaurants) %>>
         <i class="fa fa-burger fa-2x"></i>
         <span class="nav-text">
             My meals

@@ -29,12 +29,25 @@ puts 'Ten users created'
 
 # RESTAURANTS
 file1 = URI.open("https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D")
+filechef1 = URI.open("https://images.unsplash.com/photo-1577219491135-ce391730fb2c?q=80&w=1954&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D")
+filechef2 = URI.open("https://images.unsplash.com/photo-1600565193348-f74bd3c7ccdf?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8Y2hlZnxlbnwwfHwwfHx8MA%3D%3D")
+filechef3 =URI.open("https://images.unsplash.com/photo-1583394293214-28ded15ee548?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTh8fGNoZWZ8ZW58MHx8MHx8fDA%3D")
 restaurant1 = Restaurant.create(name: "Island Breeze Bistro", address: "Costal Road, Grand Baie, Mauritius", phone: "0602650362", user: user1)
 restaurant1.photo.attach(io: file1, filename: "Island Breeze Bistro.png", content_type: "image/png")
+restaurant1.chef_photos.attach(io: filechef1, filename: "chef_1.png", content_type: "image/png")
+restaurant1.chef_photos.attach(io: filechef2, filename: "chef_2.png", content_type: "image/png")
+restaurant1.chef_photos.attach(io: filechef3, filename: "chef_3.png", content_type: "image/png")
+
 restaurant1.save!
 
 file2 = URI.open("https://images.unsplash.com/photo-1551632436-cbf8dd35adfa?q=80&w=2942&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D")
+filechef4 = URI.open("https://images.unsplash.com/photo-1581349485608-9469926a8e5e?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTl8fGNoZWZ8ZW58MHx8MHx8fDA%3D")
+filechef5 = URI.open("https://images.unsplash.com/photo-1566554273541-37a9ca77b91f?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTZ8fGNoZWZ8ZW58MHx8MHx8fDA%3D")
+filechef6 =URI.open("https://images.unsplash.com/photo-1622021142947-da7dedc7c39a?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjB8fGNoZWZ8ZW58MHx8MHx8fDA%3D")
 restaurant2 = Restaurant.create(name: "Lagoon's Seafood Grill", address: "Royal Road, Flic en Flac, Mauritius", phone: "0583756082", user: user1)
+restaurant2.chef_photos.attach(io: filechef4, filename: "chef_4.png", content_type: "image/png")
+restaurant2.chef_photos.attach(io: filechef5, filename: "chef_5.png", content_type: "image/png")
+restaurant2.chef_photos.attach(io: filechef6, filename: "chef_6.png", content_type: "image/png")
 restaurant2.photo.attach(io: file2, filename: "Lagoon's Seafood Grill.png", content_type: "image/png")
 restaurant2.save!
 

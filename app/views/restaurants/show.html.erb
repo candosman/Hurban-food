@@ -38,36 +38,101 @@
 
 </div>
 
-<div class='info-menu'>
-  <h1>Choose your meal</h1>
-</div>
-<div class="container d-grid grid-3 gap-3 my-5">
-  <% @meals.each do |meal| %>
-    <div class="card card-meal">
-      <% if meal.photo.attached? %>
-      <div class="card-image" style="background-image: url( <%= cl_image_path(meal.photo.key) %>); height:212px;">
-      </div>
-      <% else %>
-      <div class="card-image" style="background-image: url(); height:212px;">
-      </div>
-      <% end %>
-
-      <div class="card-body card-meal-body">
-        <div class='d-flex justify-content-between'>
-          <h5 class="card-title"> <%= meal.name.upcase %></h5>
-          <h6 class="card-price"><i class="fa-solid fa-tag"></i> <strong> Rs<%= meal.price %></strong></h6>
+<% if @starters.any? %>
+  <div class='info-menu'>
+    <h1>Choose your starter</h1>
+  </div>
+  <div class="container d-grid grid-3 gap-3 my-5">
+    <% @starters.each do |meal| %>
+      <div class="card card-meal">
+        <% if meal.photo.attached? %>
+        <div class="card-image" style="background-image: url( <%= cl_image_path(meal.photo.key) %>); height:212px;">
         </div>
-        <p><i><%= image_tag "logo.png", alt: "", width: 20, class: "img-logo" %></i> <%= meal.description %> </p>
-        <%= simple_form_for(@order_list) do |f| %>
-          <%= f.association :meal, as: :hidden, input_html: {value: meal.id}  %>
-          <%= f.association :cart, as: :hidden, input_html: {value: @cart.id}  %>
-          <%= f.button :submit,  'Add to Cart', class: 'btn-custom-y' %>
+        <% else %>
+        <div class="card-image" style="background-image: url(); height:212px;">
+        </div>
         <% end %>
-      </div>
-    </div>
-  <% end %>
-</div>
 
+        <div class="card-body card-meal-body">
+          <div class='d-flex justify-content-between'>
+            <h5 class="card-title"> <%= meal.name.upcase %></h5>
+            <h6 class="card-price"><i class="fa-solid fa-tag"></i> <strong> Rs<%= meal.price %></strong></h6>
+          </div>
+          <p><i><%= image_tag "logo.png", alt: "", width: 20, class: "img-logo" %></i> <%= meal.description %> </p>
+          <%= simple_form_for(@order_list) do |f| %>
+            <%= f.association :meal, as: :hidden, input_html: {value: meal.id}  %>
+            <%= f.association :cart, as: :hidden, input_html: {value: @cart.id}  %>
+            <%= f.button :submit,  'Add to Cart', class: 'btn-custom-y' %>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+<% end %>
+
+<% if @main.any? %>
+  <div class='info-menu'>
+    <h1>Choose your main</h1>
+  </div>
+  <div class="container d-grid grid-3 gap-3 my-5">
+    <% @main.each do |meal| %>
+      <div class="card card-meal">
+        <% if meal.photo.attached? %>
+        <div class="card-image" style="background-image: url( <%= cl_image_path(meal.photo.key) %>); height:212px;">
+        </div>
+        <% else %>
+        <div class="card-image" style="background-image: url(); height:212px;">
+        </div>
+        <% end %>
+
+        <div class="card-body card-meal-body">
+          <div class='d-flex justify-content-between'>
+            <h5 class="card-title"> <%= meal.name.upcase %></h5>
+            <h6 class="card-price"><i class="fa-solid fa-tag"></i> <strong> Rs<%= meal.price %></strong></h6>
+          </div>
+          <p><i><%= image_tag "logo.png", alt: "", width: 20, class: "img-logo" %></i> <%= meal.description %> </p>
+          <%= simple_form_for(@order_list) do |f| %>
+            <%= f.association :meal, as: :hidden, input_html: {value: meal.id}  %>
+            <%= f.association :cart, as: :hidden, input_html: {value: @cart.id}  %>
+            <%= f.button :submit,  'Add to Cart', class: 'btn-custom-y' %>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+<% end %>
+
+<% if @desert.any? %>
+  <div class='info-menu'>
+    <h1>Choose your desert</h1>
+  </div>
+  <div class="container d-grid grid-3 gap-3 my-5">
+    <% @desert.each do |meal| %>
+      <div class="card card-meal">
+        <% if meal.photo.attached? %>
+        <div class="card-image" style="background-image: url( <%= cl_image_path(meal.photo.key) %>); height:212px;">
+        </div>
+        <% else %>
+        <div class="card-image" style="background-image: url(); height:212px;">
+        </div>
+        <% end %>
+
+        <div class="card-body card-meal-body">
+          <div class='d-flex justify-content-between'>
+            <h5 class="card-title"> <%= meal.name.upcase %></h5>
+            <h6 class="card-price"><i class="fa-solid fa-tag"></i> <strong> Rs<%= meal.price %></strong></h6>
+          </div>
+          <p><i><%= image_tag "logo.png", alt: "", width: 20, class: "img-logo" %></i> <%= meal.description %> </p>
+          <%= simple_form_for(@order_list) do |f| %>
+            <%= f.association :meal, as: :hidden, input_html: {value: meal.id}  %>
+            <%= f.association :cart, as: :hidden, input_html: {value: @cart.id}  %>
+            <%= f.button :submit,  'Add to Cart', class: 'btn-custom-y' %>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+<% end %>
 <div class="display-container" style="margin-bottom: 50px;">
   <div class="inner-display" style="margin-left: 200px;">
     <div id="map" class="mapshow" data-controller="map" data-map-markers-value="<%= @markers.to_json %>" data-map-api-key-value="<%= ENV["MAPBOX_API_KEY"] %>"></div>

@@ -17,6 +17,9 @@ class RestaurantsController < ApplicationController
     @reviews = @restaurant.restaurant_reviews
     @restaurant_review = RestaurantReview.new
     @meals = @restaurant.meals
+    @starters = @meals.where(category: "starter")
+    @main = @meals.where(category: "main")
+    @desert = @meals.where(category: "desert")
     @order_list = OrderList.new
     if @restaurant.geocoded?
       @markers = [{

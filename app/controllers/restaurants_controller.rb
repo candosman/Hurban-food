@@ -17,6 +17,9 @@ class RestaurantsController < ApplicationController
     @reviews = @restaurant.restaurant_reviews
     @restaurant_review = RestaurantReview.new
     @meals = @restaurant.meals
+    @starters = @meals.where(category: "starter")
+    @main = @meals.where(category: "main")
+    @desert = @meals.where(category: "desert")
     @order_list = OrderList.new
     if @restaurant.geocoded?
       @markers = [{
@@ -70,6 +73,6 @@ class RestaurantsController < ApplicationController
   private
 
   def restaurant_params
-    params.require(:restaurant).permit(:name, :address, :phone, :photo)
+    params.require(:restaurant).permit(:name, :address, :phone, :photo, chef_photos: [])
   end
 end

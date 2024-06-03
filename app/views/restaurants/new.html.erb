@@ -11,7 +11,8 @@
           <%= f.input :name, placeholder:"Enter name" %>
           <%= f.input :address, placeholder: "Enter address" %>
           <%= f.input :phone, placeholder: "Enter phone number" %>
-          <%= f.input :photo, as: :file %>
+          <%= f.input :photo, label: "Restaurant's photo", as: :file %>
+          <%= f.input :chef_photos, label: "Chef's photos", as: :file, input_html: {multiple: true} %>
         </div>
 
         <%= f.submit class: 'btn btn-dark mt-4' %>

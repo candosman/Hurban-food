@@ -4,9 +4,9 @@ class OrderListsController < ApplicationController
   def create
     @order_list = OrderList.new(order_list_params)
     if @order_list.save
-      redirect_to restaurant_meals_path(@order_list.meal.restaurant), notice: 'Order was successfully created.'
+      redirect_to restaurant_path(@order_list.meal.restaurant), notice: 'Order was successfully created.'
     else
-      render restaurant_meals_path(@order_list.meal.restaurant), status: :unprocessable_entity
+      render restaurant_path(@order_list.meal.restaurant), status: :unprocessable_entity
     end
   end
 

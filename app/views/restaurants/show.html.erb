@@ -11,80 +11,66 @@
     </div>
 
     <div class='banner-restaurant-right'>
-      <div class="restaurant-info">
+      <div class="restaurant-info mb-5">
         <h2 class="card-title"><%= @restaurant.name %></h2>
         <br>
         <p><i class="fa-solid fa-phone" style="margin-right: 20px; color: #F6E9B2;"><b></i> <%= @restaurant.phone %></b></p>
         <p><i class="fa-solid fa-location-pin" style="margin-right: 20px; color: #F6E9B2;"><b></i> <%= @restaurant.address %></p>
+        <% if current_user == @restaurant.user %>
+          <%= link_to 'Add meal!', new_restaurant_meal_path(@restaurant), class: 'btn-custom-g' %>
+        <% end %>
+        <br>
       </div>
 
       <div class='d-grid grid-3 gap-2 chef-images-container'>
         <% if @restaurant.chef_photos.attached? %>
-          <% @restaurant.chef_photos.first(3) do |photo| %>
-
+          <% @restaurant.chef_photos.each do |photo| %>
+            <div class='img-chef' style='background-image:url(<%= cl_image_path photo.key %>)'></div>
           <% end %>
         <% else %>
-          <div class='img-chef' style='background-image:url(<%= image_path "homer.png", class: 'img-chef' %>)'></div>
-          <div class='img-chef' style='background-image:url(<%= image_path "homer.png", class: 'img-chef' %>)'></div>
-          <div class='img-chef' style='background-image:url(<%= image_path "homer.png", class: 'img-chef' %>)'></div>
+          <div class='img-chef' style='background-image:url(<%= image_path "white.png" %>)'></div>
+          <div class='img-chef' style='background-image:url(<%= image_path "black.png" %>)'></div>
+          <div class='img-chef' style='background-image:url(<%= image_path "red.png" %>)'></div>
         <% end %>
       </div>
     </div>
   </div>
+
 </div>
 
 <div class='info-menu'>
   <h1>Choose your meal</h1>
 </div>
+<div class="container d-grid grid-3 gap-3 my-5">
+  <% @meals.each do |meal| %>
+    <div class="card card-meal">
+      <% if meal.photo.attached? %>
+      <div class="card-image" style="background-image: url( <%= cl_image_path(meal.photo.key) %>); height:212px;">
+      </div>
+      <% else %>
+      <div class="card-image" style="background-image: url(); height:212px;">
+      </div>
+      <% end %>
 
-<div class="display-container" style="margin-bottom: 50px;">
-  <div class="inner-display" style="margin-left: 80px;">
-    <div id="map" class="mapshow" data-controller="map" data-map-markers-value="<%= @markers.to_json %>" data-map-api-key-value="<%= ENV["MAPBOX_API_KEY"] %>"></div>
-  </div>
-  <div id="mealCarousel" class="carousel slide" data-bs-ride="carousel">
-    <div class="carousel-inner">
-      <div class="container d-grid grid-3 gap-3" style="margin-right: 80px;">
-        <% @meals.each do |meal| %>
-          <div class="card card-meal">
-            <% if meal.photo.attached? %>
-              <div class="card-image" style="background-image: url(<%= cl_image_path(meal.photo.key) %>); height:212px;"></div>
-            <% else %>
-              <div class="card-image" style="background-image: url(); height:212px;"></div>
-            <% end %>
-
-            <div class="card-body card-meal-body">
-              <div class='d-flex justify-content-between'>
-                <h5 class="card-title"> <%= meal.name.upcase %></h5>
-                <h6 class="card-price"><i class="fa-solid fa-tag"></i> <strong> Rs<%= meal.price %></strong></h6>
-              </div>
-              <p><i><%= image_tag "logo.png", alt: "", width: 20, class: "img-logo" %></i> <%= meal.description %> </p>
-              <%= simple_form_for(@order_list) do |f| %>
-                <%= f.association :meal, as: :hidden, input_html: {value: meal.id}  %>
-                <%= f.association :cart, as: :hidden, input_html: {value: @cart.id}  %>
-                <%= f.button :submit,  'Add to Cart', class: 'btn-custom-y' %>
-              <% end %>
-            </div>
-          </div>
+      <div class="card-body card-meal-body">
+        <div class='d-flex justify-content-between'>
+          <h5 class="card-title"> <%= meal.name.upcase %></h5>
+          <h6 class="card-price"><i class="fa-solid fa-tag"></i> <strong> Rs<%= meal.price %></strong></h6>
+        </div>
+        <p><i><%= image_tag "logo.png", alt: "", width: 20, class: "img-logo" %></i> <%= meal.description %> </p>
+        <%= simple_form_for(@order_list) do |f| %>
+          <%= f.association :meal, as: :hidden, input_html: {value: meal.id}  %>
+          <%= f.association :cart, as: :hidden, input_html: {value: @cart.id}  %>
+          <%= f.button :submit,  'Add to Cart', class: 'btn-custom-y' %>
         <% end %>
       </div>
     </div>
-
-    <button class="carousel-control-prev" type="button" data-bs-target="#mealCarousel" data-bs-slide="prev">
-      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Previous</span>
-    </button>
-    <button class="carousel-control-next" type="button" data-bs-target="#mealCarousel" data-bs-slide="next">
-      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Next</span>
-    </button>
-  </div>
+  <% end %>
 </div>
 
-<div class="container-fluid col-md-6 review-section">
-  <% @reviews.each do |review| %>
-    <div class="mb-3">
-      <p class="mb-0"><%= review.content %></p>
-      <hr>
-    </div>
-  <% end %>
+<div class="display-container" style="margin-bottom: 50px;">
+  <div class="inner-display" style="margin-left: 200px;">
+    <div id="map" class="mapshow" data-controller="map" data-map-markers-value="<%= @markers.to_json %>" data-map-api-key-value="<%= ENV["MAPBOX_API_KEY"] %>"></div>
+  </div>
+
 </div>

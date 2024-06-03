@@ -14,8 +14,11 @@ class DashboardController < ApplicationController
   end
 
   def my_orders
-
+    @meals = current_user.restaurants.map(&:meals).flatten
+    @order_lists = @meals.map(&:order_lists).uniq.flatten.reject{ |order_list| order_list.order_id.nil? }
+    @orders = @order_lists.group_by(&:order_id)
   end
+
   def my_favourites
 
   end

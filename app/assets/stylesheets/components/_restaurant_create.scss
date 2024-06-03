@@ -26,13 +26,11 @@
 
    h1 {
      font-weight:bold;
-     font-family:'Times New Roman', Times, serif;
    }
 
    p {
      font-weight: bold;
      color: rgb(16, 0, 0);
-     font-family:'Times New Roman', Times, serif;
      text-align: center;
    }
  }
@@ -47,7 +45,6 @@
        border-radius: 10px;
        font-weight: bold;
        color: black!important;
-       font-family: 'Times New Roman', Times, serif;
        box-shadow: none;
      }
  }
@@ -57,12 +54,11 @@
   }
 
   .food-img {
-   img{
-     height: 235px;
-     width:  300px;
-     border-radius: 30px;
-     padding: 10px;
-     margin-bottom: 3rem;
+   img {
+     height: 240px;
+     border-radius: 40px;
+     padding: 30px;
+
 
   }
  }

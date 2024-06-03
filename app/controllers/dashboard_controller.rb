@@ -2,8 +2,11 @@ class DashboardController < ApplicationController
   before_action :hide, only: %i[my_dashboard create_orders]
 
   def my_dashboard
-
-
+    @meals = current_user.restaurants.map(&:meals).flatten
+    @meals_sold = 0
+    @meals.each do |meal|
+      @meals_sold += meal.order_lists.count
+    end
   end
 
   def create_orders
@@ -14,7 +17,7 @@ class DashboardController < ApplicationController
 
   end
   def my_favourites
-    
+
   end
 
 

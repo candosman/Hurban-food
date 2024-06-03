@@ -188,7 +188,7 @@ input:checked ~ .toggle span {
 .dashboard-container {
   transition: background-color .25s;
   color: #1e1e1e;
-  background: linear-gradient(to bottom right, #eefff4 25%, #a0ffd9 50%, #5c0095 75%, #01072a);
+  background: white;
   background-size: 400% 400%;
   background-position: top left;
   transition: background-position .5s;
@@ -200,10 +200,11 @@ input:checked ~ .toggle span {
 
 .dashboard-container:has(#darkmode-toggle:checked) {
   background-position: 100% 100%;
-  color: #d0d0d0;
+  color: white;
 }
 
 .mode-toggle {
+  background: white;
   display: flex;
   justify-content: flex-end;
   margin-left: 60px;
@@ -217,6 +218,7 @@ input:checked ~ .toggle span {
   min-width: 100%;
 }
 .grid {
+  background: white;
   display: grid;
   grid-gap: 30px;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));

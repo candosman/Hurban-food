@@ -10,7 +10,7 @@ class CartsController < ApplicationController
     @order.order_lists = @order_lists
     @order.save
     @cart.order_lists = []
-    redirect_to root_path, notice: "Thank for your order, it is on its way 👌"
+    redirect_to order_path(@order), notice: "Thank for your order, it is on its way 👌"
   end
 
   private

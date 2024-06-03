@@ -8,25 +8,8 @@
       designed to simplify
       <strong >your culinary adventures</strong>!
     </p>
-    <%= link_to "Create Restaurant", new_restaurant_path(@restaurant), class: "btn-banner" %>
   </div>
 </div>
-
-<div class="about-us-container">
-  <div class="container about-us-content">
-    <div class="about-us-text">
-      <h1 class="about-us-heading">About Us</h1>
-      <p>
-        "Hurban Food" is your go-to food app for urban cravings. Discover a diverse range of culinary delights from local eateries, trendy cafes, and hidden gems within your vicinity. Whether you're in the mood for a quick bite or a gourmet meal, Hurban Food makes ordering easy with seamless delivery or pickup options.
-      </p>
-    </div>
-
-    <div class="about-us-logo">
-      <%= image_tag('hf-round-vert.png', alt: 'Hurban Food Logo') %>
-    </div>
-  </div>
-</div>
-
 
 <div class="restaurant-container">
   <div class="container">
@@ -42,6 +25,21 @@
           </div>
         <% end %>
       <% end %>
+    </div>
+  </div>
+</div>
+
+<div class="about-us-container">
+  <div class="container about-us-content">
+    <div class="about-us-text">
+      <h1 class="about-us-heading">About Us</h1>
+      <p>
+        "Hurban Food" is your go-to food app for urban cravings. Discover a diverse range of culinary delights from local eateries, trendy cafes, and hidden gems within your vicinity. Whether you're in the mood for a quick bite or a gourmet meal, Hurban Food makes ordering easy with seamless delivery or pickup options.
+      </p>
+    </div>
+
+    <div class="about-us-logo">
+      <%= image_tag('hf-round-vert.png', alt: 'Hurban Food Logo') %>
     </div>
   </div>
 </div>

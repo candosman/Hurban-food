@@ -11,11 +11,15 @@
     </div>
 
     <div class='banner-restaurant-right'>
-      <div class="restaurant-info">
+      <div class="restaurant-info mb-5">
         <h2 class="card-title"><%= @restaurant.name %></h2>
         <br>
         <p><i class="fa-solid fa-phone" style="margin-right: 20px; color: #F6E9B2;"><b></i> <%= @restaurant.phone %></b></p>
         <p><i class="fa-solid fa-location-pin" style="margin-right: 20px; color: #F6E9B2;"><b></i> <%= @restaurant.address %></p>
+        <% if current_user == @restaurant.user %>
+          <%= link_to 'Add meal!', new_restaurant_meal_path(@restaurant), data: { turbo_method: :patch }, class: 'btn-custom-g' %>
+        <% end %>
+        <br>
       </div>
 
       <div class='d-grid grid-3 gap-2 chef-images-container'>
@@ -31,6 +35,7 @@
       </div>
     </div>
   </div>
+
 </div>
 
 <div class='info-menu'>

@@ -20,6 +20,10 @@
           <%= link_to 'Add meal!', new_restaurant_meal_path(@restaurant), class: 'btn-custom-g' %>
         <% end %>
         <br>
+        <div class="d-flex justify-content-around">
+        <%= link_to 'Edit', edit_restaurant_path(@restaurant), class: 'btn-o'%>
+        <%= link_to 'Delete', restaurant_path, data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: 'btn-h' %>
+        </div>
       </div>
 
       <div class='d-grid grid-3 gap-2 chef-images-container'>

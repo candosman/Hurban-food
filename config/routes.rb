@@ -23,9 +23,8 @@ Rails.application.routes.draw do
   resources :carts, only: %i[show update]
   resources :order_lists, only: %i[create]
   get "dashboard", to: "dashboard#my_dashboard"
-  get "dashboard", to: "dashboard#create_orders"
-  get "dashboard", to: "dashboard#my_orders"
-  get "customer", to: "customer#my_profile"
+  get "my_restaurants", to: "restaurants#my_restaurants"
+
 
 
 

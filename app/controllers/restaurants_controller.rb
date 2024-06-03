@@ -66,6 +66,8 @@ class RestaurantsController < ApplicationController
 
   def my_restaurants
     @restaurants = current_user.restaurants
+    @hide_nav_bar = true
+    @hide_footer = true
   end
 
   private

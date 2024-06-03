@@ -9,6 +9,6 @@ class User < ApplicationRecord
   has_many :meal_reviews
 
   def owner?
-    self.restaurant.present?
+    self.restaurants.present?
   end
 end

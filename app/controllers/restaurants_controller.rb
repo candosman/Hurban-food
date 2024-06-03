@@ -61,6 +61,10 @@ class RestaurantsController < ApplicationController
     redirect_to restaurants_path, status: :see_other
   end
 
+  def my_restaurants
+    @restaurants = current_user.restaurants
+  end
+
   private
 
   def restaurant_params

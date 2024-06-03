@@ -64,7 +64,38 @@
     background-color: #F3CA52;
 
   }
-
 }
 
+  .btn-o {
+    border-radius: 10px;
+    background-color: #F3CA52;
+    color: #ffffff;
+    font-weight: 700;
+    text-decoration: none;
+    padding: 10px 15px;
+    transition: all 300ms ease-in;
 
+    &:hover{
+      border: 2px solid $banner;
+      background-color: unset;
+      color: #F3CA52;
+    }
+
+  }
+
+  .btn-h {
+    border-radius: 10px;
+    background-color: #F3CA52;
+    color: #ffffff;
+    font-weight: 700;
+    text-decoration: none;
+    padding: 10px 15px;
+    transition: all 300ms ease-in;
+
+    &:hover{
+      border: 2px solid $banner;
+      background-color: unset;
+      color: #F3CA52;
+    }
+
+  }

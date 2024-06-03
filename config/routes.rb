@@ -10,12 +10,10 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "posts#index"
   resources :users, only: %i[index new show create]
-  resources :restaurants, only: %i[index show new create] do
+  resources :restaurants do
     resources :meals, only: %i[index new create edit update]
-
     resources :restaurant_reviews, only: %i[create]
   end
-  resources :restaurants, only: %i[destroy]
   resources :orders, only: %i[index show]
   resources :meals, only: %i[show destroy] do
     resources :meal_reviews, only: %i[create new]
@@ -25,8 +23,4 @@ Rails.application.routes.draw do
   get "dashboard", to: "dashboard#my_dashboard"
   get "my_orders", to: "dashboard#my_orders"
   get "my_restaurants", to: "restaurants#my_restaurants"
-
-
-
-
 end

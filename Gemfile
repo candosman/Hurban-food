@@ -77,3 +77,5 @@ group :test do
 end
 gem "devise"
 gem "geocoder"
+gem "chartkick"
+gem "groupdate"

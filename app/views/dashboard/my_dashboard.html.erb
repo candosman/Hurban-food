@@ -1,3 +1,6 @@
 <%= render 'layouts/top_dashboard' %>
   <h1><%= @meals_sold %></h1>
+  <%= line_chart OrderList.group_by_day(:created_at).count %>
+  <h1><%= @revenue %></h1>
+  <h1><%= @number_of_customers %></h1>
 <%= render 'layouts/btm_dashboard' %>

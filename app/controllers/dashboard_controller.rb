@@ -4,9 +4,17 @@ class DashboardController < ApplicationController
   def my_dashboard
     @meals = current_user.restaurants.map(&:meals).flatten
     @meals_sold = 0
+    @revenue = 0
+    @orders = []
     @meals.each do |meal|
-      @meals_sold += meal.order_lists.count{ |order_list| order_list.id != nil }
+      @order_list_number = meal.order_lists.count{ |order_list| order_list.id != nil }
+      @meals_sold += @order_list_number
+      @revenue += @order_list_number * meal.price
     end
+    current_user.restaurants.each do |restaurant|
+      @orders << Order.joins(:order_lists).where(order_lists: { meal_id: restaurant.meals.pluck(:id) }).distinct
+    end
+    @number_of_customers = @orders[1].map(&:user).uniq.count
   end
 
   def create_orders

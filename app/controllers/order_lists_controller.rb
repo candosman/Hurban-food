@@ -20,6 +20,12 @@ class OrderListsController < ApplicationController
     redirect_to orders_path(@order)
   end
 
+  def destroy
+    @order_list = OrderList.find(params[:id])
+    @order_list.destroy
+    redirect_to cart_path(@cart)
+  end
+
   private
 
   def order_list_params

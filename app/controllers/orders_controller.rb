@@ -12,4 +12,8 @@ class OrdersController < ApplicationController
     @meals = @order.meals
     @user = @order.user
   end
+
+  def mark_as_delivered
+    @order.delivered_status = true
+  end
 end

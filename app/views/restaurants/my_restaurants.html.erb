@@ -15,12 +15,12 @@
             </div>
             <% end %>
             <div class="btn-layout-restaurant">
-              <%= link_to 'Add meal!', new_restaurant_meal_path(restaurant), class: 'btn-custom-g' %>
+              <%= link_to 'Add meal!', restaurant_meals_path(restaurant), class: 'btn-custom-g' %>
               <%= link_to 'Edit', edit_restaurant_path(restaurant), class: 'btn-o'%>
               <%= link_to 'Delete', restaurant_path(restaurant), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: 'btn-h' %>
             </div>
-          <% end %>
         </div>
+          <% end %>
       </div>
   </div>
 </div>

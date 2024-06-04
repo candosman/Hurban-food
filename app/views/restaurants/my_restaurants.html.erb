@@ -4,20 +4,27 @@
   <div class="container">
     <div class="restaurant-cards d-flex justify-content-around">
       <% @restaurants.each do |restaurant| %>
-      <%= link_to restaurant_path(restaurant) do %>
-        <div class="card-scroll">
-          <div class="card-category"  style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= restaurant.photo.attached? ? cl_image_path(restaurant.photo.key, height: 300, crop: :fill) : asset_path('meat-skewer-with-vegetables-black-backgroundai-generative.jpg', height: 300, crop: :fill) %>')">
-            <p>
-            <%= restaurant.name %>
-            </p>
+        <div>
+          <%= link_to restaurant_path(restaurant) do %>
+            <div class="card-scroll">
+              <div class="card-category"  style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= restaurant.photo.attached? ? cl_image_path(restaurant.photo.key, height: 300, crop: :fill) : asset_path('meat-skewer-with-vegetables-black-backgroundai-generative.jpg', height: 300, crop: :fill) %>')">
+                <p>
+                  <%= restaurant.name %>
+                </p>
+              </div>
             </div>
-        </div>
+            <% end %>
+            <div class="btn-layout-restaurant">
+              <%= link_to 'Add meal!', new_restaurant_meal_path(restaurant), class: 'btn-custom-g' %>
+              <%= link_to 'Edit', edit_restaurant_path(restaurant), class: 'btn-o'%>
+              <%= link_to 'Delete', restaurant_path(restaurant), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: 'btn-h' %>
+            </div>
           <% end %>
-        <% end %>
+        </div>
       </div>
   </div>
 </div>
 <div class='d-flex justify-content-center mt-3'>
-  <%= link_to "Create Restaurant", new_restaurant_path, class: "btn-m"%>
+  <%= link_to "add Restaurant", new_restaurant_path, class: "btn-m"%>
 </div>
 <%= render 'layouts/btm_dashboard' %>

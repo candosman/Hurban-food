@@ -11,9 +11,32 @@
   </head>
 
   <body>
-    <%= render "shared/navbar" unless @hide_nav_bar %>
     <%= render "shared/flashes" %>
-    <%= yield %>
-    <%= render "shared/footer"  unless @hide_footer || controller_name == 'registrations' || controller_name == 'sessions' || controller_name == 'passwords' %>
+    <% if user_signed_in? %>
+      <% if current_user.owner? %>
+        <div class="sticky-top-dashboard">
+          <%= render 'layouts/top_dashboard' %>
+          <div class="dashboard-container">
+            <div class='mode-toggle'>
+              <input type="checkbox" class="sr-only" id="darkmode-toggle">
+              <label for="darkmode-toggle" class="toggle">
+                <span>Toggle dark mode</span>
+              </label>
+            </div>
+            <div class='dashboard-body'>
+            <%= yield %>
+            </div>
+          </div>
+        </div>
+      <% else %>
+        <%= render "shared/navbar" %>
+        <%= yield %>
+        <%= render "shared/footer"  unless controller_name == 'registrations' || controller_name == 'sessions' || controller_name == 'passwords' %>
+      <% end %>
+    <% else %>
+      <%= render "shared/navbar" %>
+      <%= yield %>
+      <%= render "shared/footer"  unless controller_name == 'registrations' || controller_name == 'sessions' || controller_name == 'passwords' %>
+    <% end %>
   </body>
 </html>

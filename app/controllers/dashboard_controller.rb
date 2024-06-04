@@ -14,12 +14,12 @@ class DashboardController < ApplicationController
   end
 
   def my_orders
+    @hide_nav_bar = true
     @meals = current_user.restaurants.map(&:meals).flatten
     @order_lists = @meals.map(&:order_lists).uniq.flatten.reject{ |order_list| order_list.order_id.nil? }
     @orders = @order_lists.group_by(&:order_id)
-
-
-
+    @orders = @orders.sort_by { |order_id, order_lists| order_lists.max_by(&:created_at) }.reverse.to_h
+    @hide_footer = true
   end
 
   def my_favourites

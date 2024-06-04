@@ -45,6 +45,7 @@
     background-size: cover;
   }
 
+
   .card-meal-body {
     display: flex;
     flex-direction: column;
@@ -52,6 +53,15 @@
   }
 
 
+}
+
+.image-round {
+  height: 100px;
+  width: 100px;
+  background-size: cover;
+  background-position: center;
+  border-radius: 50%;
+  border: 2px solid #F3CA52;
 }
 
 .cards {

@@ -13,6 +13,11 @@ class CartsController < ApplicationController
     redirect_to order_path(@order), notice: "Thank for your order, it is on its way 👌"
   end
 
+  def empty_cart
+    @cart.order_lists = []
+    redirect_to root_path
+  end
+
   private
 
   def order_number_generator

@@ -18,13 +18,14 @@
                         <h5 class="card-title mb-2 mt-0"><strong><%= order_list.meal.name %></strong></h5>
                         <p class="card-text text-muted mb-0">Rs <%= order_list.meal.price %></p>
                       </div>
-
                       <% total_price += order_list.meal.price %>
                     </div>
                   <% end %>
                 </div>
 
                 <div class="total-price">
+                    <% order = Order.find(order_lists[1][1][:order_id]) %>
+                    <div class='btn'>Delivered?</div>
                   <p>Total: <strong>RS <%= total_price %></strong></p>
                 </div>
               </div>

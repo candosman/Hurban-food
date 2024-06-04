@@ -14,13 +14,17 @@ Rails.application.routes.draw do
     resources :meals, only: %i[index new create edit update]
     resources :restaurant_reviews, only: %i[create]
   end
-  resources :orders, only: %i[index show]
+  resources :orders, only: %i[index show] do
+    member do
+      patch :mark_as_delivered
+    end
+  end
   resources :meals, only: %i[show destroy] do
     resources :meal_reviews, only: %i[create new]
   end
   resources :carts, only: %i[show update]
   resources :order_lists, only: %i[create]
   get "dashboard", to: "dashboard#my_dashboard"
-  get "my_orders", to: "dashboard#my_orders"
+  get "my_orders", to: "dashboard#my_orders", as: 'my_orders'
   get "my_restaurants", to: "restaurants#my_restaurants"
 end

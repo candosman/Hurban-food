@@ -24,7 +24,10 @@
                 <span class="badge bg-warning text-white">On the Way</span>
               <% end %>
             </td>
-            <td><%= link_to 'See Details', order_path(order), class: "btn btn-primary" %></td>
+            <td><%= link_to order_path(order) do %>
+              <i class="fa-solid fa-eye fa-lg" style="color: #000000;"></i>
+            <% end %>
+            </td>
           </tr>
       <% end %>
     </tbody>

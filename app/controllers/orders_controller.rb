@@ -12,4 +12,11 @@ class OrdersController < ApplicationController
     @meals = @order.meals
     @user = @order.user
   end
+
+  def mark_as_delivered
+    @order = Order.find(params[:id])
+    @order.delivered_status = true
+    @order.save
+    redirect_to my_orders_path
+  end
 end

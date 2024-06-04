@@ -32,12 +32,11 @@ file1 = URI.open("https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q
 filechef1 = URI.open("https://images.unsplash.com/photo-1577219491135-ce391730fb2c?q=80&w=1954&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D")
 filechef2 = URI.open("https://images.unsplash.com/photo-1600565193348-f74bd3c7ccdf?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8Y2hlZnxlbnwwfHwwfHx8MA%3D%3D")
 filechef3 =URI.open("https://images.unsplash.com/photo-1583394293214-28ded15ee548?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTh8fGNoZWZ8ZW58MHx8MHx8fDA%3D")
-restaurant1 = Restaurant.create(name: "Island Breeze Bistro", address: "Costal Road, Grand Baie, Mauritius", phone: "0602650362", user: user1)
+restaurant1 = Restaurant.create(name: "Island Breeze Bistro", address: "La Pointe Villas, Grand Baie, Mauritius", phone: "0602650362", user: user1)
 restaurant1.photo.attach(io: file1, filename: "Island Breeze Bistro.png", content_type: "image/png")
 restaurant1.chef_photos.attach(io: filechef1, filename: "chef_1.png", content_type: "image/png")
 restaurant1.chef_photos.attach(io: filechef2, filename: "chef_2.png", content_type: "image/png")
 restaurant1.chef_photos.attach(io: filechef3, filename: "chef_3.png", content_type: "image/png")
-
 restaurant1.save!
 
 file2 = URI.open("https://images.unsplash.com/photo-1551632436-cbf8dd35adfa?q=80&w=2942&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D")
@@ -52,12 +51,12 @@ restaurant2.photo.attach(io: file2, filename: "Lagoon's Seafood Grill.png", cont
 restaurant2.save!
 
 file3 = URI.open("https://images.unsplash.com/photo-1514933651103-005eec06c04b?q=80&w=2874&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D")
-restaurant3 = Restaurant.create(name: "Mountain Steakhouse", address: "JP's Resto Bar, Curepipe, Mauritius", phone: "0184729685", user: user2)
+restaurant3 = Restaurant.create(name: "Mountain Steakhouse", address: "Royal College Curepipe, Curepipe, Mauritius", phone: "0184729685", user: user2)
 restaurant3.photo.attach(io: file3, filename: "Mountain Steakhouse.png", content_type: "image/png")
 restaurant3.save!
 
 file4 = URI.open("https://plus.unsplash.com/premium_photo-1670984935550-5ce2e220977a?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D")
-restaurant4 = Restaurant.create(name: "Golden Bamboo Cuisine", address: "Triolet Main Road, Triolet, Mauritius", phone: "0184729685", user: user3)
+restaurant4 = Restaurant.create(name: "Golden Bamboo Cuisine", address: "Winners, Triolet, Mauritius", phone: "0184729685", user: user3)
 restaurant4.photo.attach(io: file4, filename: "Golden Bamboo Cuisine.png", content_type: "image/png")
 restaurant4.save!
 
@@ -78,7 +77,7 @@ restaurant7.photo.attach(io: file7, filename: "Le Café Parisien.png", content_t
 restaurant7.save!
 
 file8 = URI.open("https://images.unsplash.com/photo-1544148103-0773bf10d330?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D")
-restaurant8 = Restaurant.create(name: "Green Haven Vegan Cafe", address: "Botanical Garden Lane, Pamplemousses, Mauritius", phone: "0917234823", user: user6)
+restaurant8 = Restaurant.create(name: "Green Haven Vegan Cafe", address: "ValueMax, Pamplemousses, Mauritius", phone: "0917234823", user: user6)
 restaurant8.photo.attach(io: file8, filename: "Green Haven Vegan Cafe.png", content_type: "image/png")
 restaurant8.save!
 

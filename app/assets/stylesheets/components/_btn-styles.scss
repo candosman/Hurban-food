@@ -25,6 +25,7 @@
   text-decoration: none;
   padding: 10px 15px;
   transition: all 300ms ease-in;
+  width: none;
 
   &:hover{
     border: 2px solid #7ABA78;
@@ -85,7 +86,7 @@
 
   .btn-h {
     border-radius: 10px;
-    background-color: #F3CA52;
+    background-color: $red;
     color: #ffffff;
     font-weight: 700;
     text-decoration: none;
@@ -93,9 +94,9 @@
     transition: all 300ms ease-in;
 
     &:hover{
-      border: 2px solid $banner;
+      border: 2px solid $red;
       background-color: unset;
-      color: #F3CA52;
+      color: $red;
     }
 
   }

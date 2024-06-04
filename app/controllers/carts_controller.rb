@@ -8,9 +8,14 @@ class CartsController < ApplicationController
     @order_lists = @cart.order_lists
     @order = Order.create(user: current_user, amount: @cart.total_price, order_number: order_number_generator)
     @order.order_lists = @order_lists
-    @order.save
+    @order.save!
     @cart.order_lists = []
     redirect_to order_path(@order), notice: "Thank for your order, it is on its way 👌"
+  end
+
+  def empty_cart
+    @cart.order_lists = []
+    redirect_to root_path
   end
 
   private

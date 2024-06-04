@@ -22,8 +22,12 @@ Rails.application.routes.draw do
   resources :meals, only: %i[show destroy] do
     resources :meal_reviews, only: %i[create new]
   end
-  resources :carts, only: %i[show update]
-  resources :order_lists, only: %i[create]
+  resources :carts, only: %i[show update] do
+    member do
+      patch :empty_cart
+    end
+  end
+  resources :order_lists, only: %i[create destroy]
   get "dashboard", to: "dashboard#my_dashboard"
   get "my_orders", to: "dashboard#my_orders", as: 'my_orders'
   get "my_restaurants", to: "restaurants#my_restaurants"

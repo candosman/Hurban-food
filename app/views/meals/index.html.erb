@@ -1,9 +1,9 @@
-<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0),rgba(0,0,0,0)), url(<%= image_path('tcover.png') %>);">
-<div class="d-flex justify-content-center">
+<h1 class="text-center", style= "font-weight: bold; font-size: 100px; color: white;"><%= @restaurant.name %></h1>
+<div class="d-flex justify-content-around">
 <%= link_to 'Add meal!', new_restaurant_meal_path(@restaurant), class: 'btn-custom-g' %>
 <%= link_to 'Edit', edit_restaurant_path(@restaurant), class: 'btn-custom-g' %>
 </div>
-</div>
+
 
 
 
@@ -24,9 +24,11 @@
           <h6 class="card-price"><i class="fa-solid fa-tag"></i> <strong> Rs<%= meal.price %></strong></h6>
         </div>
         <p><i><%= image_tag "logo.png", alt: "", width: 20, class: "img-logo" %></i> <%= meal.description %> </p>
-        <%= link_to 'Edit Meal', edit_restaurant_meal_path(@restaurant, meal), class: 'btn-custom-y text-center' %>
-        <button class='btn-h'>Delete</button>
+        <div class= "d-flex justify-content-between">
+        <%= link_to 'Edit Meal', edit_restaurant_meal_path(@restaurant, meal), class: 'btn-custom-y text-center', style: 'width:100px;' %>
+       <button class='btn-h' style='width: 100px;'>Delete</button>
         </div>
+       </div>
     </div>
   <% end %>
 </div>

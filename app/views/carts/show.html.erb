@@ -23,8 +23,13 @@
             </div>
             <hr class="my-4">
             <div class="text-center check-btn-container ">
-              <a href="#" class="btn-custom-g">Continue Shopping</a>
-              <a href="#" class="btn-custom-k">Cancel</a>
+              <% if  @order_lists.empty? %>
+                <%= link_to 'Continue Shopping', root_path, class: "btn-custom-g" %>
+              <% else %>
+                <% restaurant = Meal.find(@order_lists[0][:meal_id]).restaurant %>
+              <%= link_to 'Continue Shopping', restaurant_path(restaurant), class: "btn-custom-g"  %>
+              <%= link_to "Cancel", empty_cart_cart_path(@cart) , class: "btn-custom-k", data: { turbo_method: :patch } %>
+              <% end %>
             </div>
           </div>
         </div>

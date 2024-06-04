@@ -1,34 +1,14 @@
 <nav class="main-menu">
   <ul>
-
-    <li>
-      <a href=<%= root_path %>>
-        <i class="fa fa-home fa-2x"></i>
-        <span class="nav-text">
-            Home
-        </span>
-      </a>
-    </li>
-
     <% if current_user.owner? %>
      <li>
       <a href= <%= my_restaurants_path %>>
-        <i class="fa fa-user"></i>
+        <i class="fa fa-utensils fa-2x"></i>
         <span class="nav-text">
             My restaurants
         </span>
       </a>
     </li>
-
-    <li class="has-subnav">
-      <a href= <%= new_restaurant_meal_path(current_user.restaurants) %>>
-        <i class="fa fa-utensils fa-2x"></i>
-        <span class="nav-text">
-            Create a meal
-        </span>
-      </a>
-    </li>
-
     <li class="has-subnav">
         <a href=<%= my_orders_path %> >
           <i class="fa fa-burger fa-2x"></i>
@@ -48,14 +28,6 @@
     </li>
 
 
-    <li>
-      <a href= <%= restaurant_meals_path(current_user.restaurants) %>>
-        <i class="fa fa-burger fa-2x"></i>
-        <span class="nav-text">
-            My meals
-        </span>
-      </a>
-    </li>
 
     <% else %>
 
@@ -90,12 +62,3 @@
     </ul>
   </ul>
 </nav>
-
-<div class="dashboard-container">
-  <div class='mode-toggle'>
-    <input type="checkbox" class="sr-only" id="darkmode-toggle">
-    <label for="darkmode-toggle" class="toggle">
-      <span>Toggle dark mode</span>
-    </label>
-  </div>
-  <div class='dashboard-body'>

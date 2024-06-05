@@ -119,10 +119,7 @@ background: #e2e2e2;
 width: 100%;
 height: 100%;
 }
-/*
-  📣 Note: all sizes are in ems, so change the .toggle font-size to
-  scale to whatever size you need.
-*/
+
 
 .toggle {
   border: .125em solid currentColor;
@@ -324,18 +321,23 @@ input:checked ~ .toggle span {
   text-decoration: underline;
 
 }
-.box-container {
+.box-stats-container {
   margin-left: 150px;
-  width: 500px;
-  border: 2px solid $customlightyellow;
+
+  height: auto;
 
 }
 .box-dashboard-container {
   box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
-  width: 500px;
-  border: 2px solid $customlightyellow;
   border-radius: 10px;
-}
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+
+  }
+
 .orderstime-container {
   display: flex;
   justify-content: center;
@@ -349,4 +351,145 @@ input:checked ~ .toggle span {
   align-items: center;
   color: #0A6847;
   text-decoration: underline;
+}
+.box-stats-container:hover, .box-dashboard-container:hover {
+  transform: scale(1.1);
+  transition: transform 0.3s ease-in-out;
+}
+.chart-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 30px;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border: 2px solid $customlightyellow;
+  transition: box-shadow 0.3s ease;
+}
+.chart-container:hover {
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+}
+.orderstime-container h3 {
+  font-size: 28px;
+  font-weight: 600;
+  color: #0A6847;
+  margin: 0;
+}
+
+
+.orderstime-container {
+  margin-bottom: 30px;
+}
+
+
+.chart {
+  width: 100%;
+  height: auto;
+}
+
+.stats-container {
+  gap: 5vw;
+  padding: 30px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  margin-left: 20px;
+  margin-right: 20px;
+  justify-content: space-between;
+  margin-top: 4px;
+}
+.stats-card {
+  display: inline-block;
+  vertical-align: top;
+  // margin-top: 50px;
+  // margin-bottom: 15px;
+  // width: 344px;
+  height: 200px;
+  border-radius: 15px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+  padding: 20px;
+  position: relative;
+  font-size: 28px;
+  border-top-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+  transition: all 1s;
+
+  &:after,
+  &:before {
+    content: " ";
+    width: 10px;
+    height: 10px;
+    position: absolute;
+    border: 0px solid #fff;
+    transition: all 1s;
+  }
+
+  &:after {
+    top: -1px;
+    left: -1px;
+    border-top: 5px solid $customlightyellow;
+    border-left: 5px solid $customlightyellow;
+  }
+
+  &:before {
+    bottom: -1px;
+    right: -1px;
+    border-bottom: 5px solid $customlightgreen;
+    border-right: 5px solid $customlightgreen;
+  }
+
+  &:hover {
+    border-top-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+    transform: scale(1.1);
+    transition: transform 0.3s ease-in-out;
+
+    &:before,
+    &:after {
+      width: 100%;
+      height: 100%;
+    }
+  }
+}
+
+
+
+
+.stats-card:hover {
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+}
+
+.revenue-info {
+  text-align: center;
+}
+
+.revenue-title {
+  font-size: 1.5rem;
+  color: #0A6847;;
+  margin-bottom: 10px;
+}
+
+.revenue-value {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #0A6847;;
+}
+
+
+.revenue-value.negative {
+  color: #f44336;
+}
+.box-stats-container {
+  padding: 30px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 106px;
+  margin-left: 20px;
+  margin-right: 20px;
+  justify-content: space-between;
+}
+.stats-card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

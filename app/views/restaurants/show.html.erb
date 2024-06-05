@@ -15,8 +15,10 @@
         <h2 class="card-title"><%= @restaurant.name %></h2>
         <br>
         <p><i class="fa-solid fa-phone" style="margin-right: 20px; color: #F6E9B2;"><b></i> <%= @restaurant.phone %></b></p>
-        <p><i class="fa-solid fa-location-pin" style="margin-right: 20px; color: #F6E9B2;"><b></i> <%= @restaurant.address %></p>
-        <%= link_to "Review" %>
+        <p><i class="fa-solid fa-location-pin" style="margin-right: 20px; color: #F6E9B2;"><b></i> <%= @restaurant.address %></b></p>
+        <button type="button" class="btn btn-custom-dg" data-bs-toggle="modal" data-bs-target="#exampleModal">
+          Review
+        </button>
         <% if current_user == @restaurant.user %>
         <div class="d-flex justify-content-around">
           <%= link_to 'Add meal!', new_restaurant_meal_path(@restaurant), class: 'btn-custom-g' %>
@@ -156,15 +158,37 @@
 
 
 
- <div class="d-flex login-form-container mx-3 gap-4">
-  <div class="form-details">
-    <%= simple_form_for [@restaurant, @restaurant_review] do |f| %>
-      <div class="form-inputs-new-restaurant">
-        <%= f.input :content, placeholder:"Enter content" %>
-        <%= f.input :rating, placeholder: "Enter rating" %>
-      </div>
 
-      <%= f.submit class: 'btn btn-dark mt-4' %>
-    <% end %>
+
+
+
+
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Add a review</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <%= simple_form_for [@restaurant, @restaurant_review] do |f| %>
+        <div class="modal-body">
+          <div class="mx-3 gap-4">
+
+                <%= f.input :content %>
+                  <%= f.input :rating, collection: (1..5).to_a, label: "Rate your experience", input_html: {data: {controller: "star-rating"}} %>
+
+
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <%= f.submit "Send your review", class:"btn btn-primary submit-review" %>
+        </div>
+      <% end %>
+    </div>
   </div>
 </div>

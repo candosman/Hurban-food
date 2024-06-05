@@ -1,4 +1,4 @@
-  <div class="container d-grid grid-3 gap-2">
+  <div class="container d-grid grid-3 gap-2 my-5">
     <div class="box-container flex-column">
       <h2 class="text-center">#<%= @order.order_number %></h2>
       <p><%= @order.created_at.strftime("%d %B, %Y") %></p>
@@ -27,7 +27,7 @@
     </div>
   </div>
 
-  <div class="container d-grid grid-3 gap-3">
+  <div class="container d-grid grid-3 gap-3 my-5">
     <% @meals.each do |meal| %>
       <div class="card card-meal">
         <div class="card-image" style="background-image: url( <%= cl_image_path(meal.photo.key) %>); height:212px;">
@@ -36,7 +36,7 @@
         <div class="card-body card-meal-body">
           <div class='d-flex justify-content-between'>
             <h5 class="card-title"> <%= meal.name.upcase %></h5>
-            <h6 class="card-price"><i class="fa-solid fa-tag"></i> Rs <%= meal.price %></h6>
+            <h6 class="card-price"><i class="fa-solid fa-tag"></i><%= number_to_currency(meal.price, :unit => "Rs ") %></h6>
           </div>
           <p><i><%= image_tag "logo.png", alt: "", width: 20, class: "img-logo" %></i> <%= meal.description %> </p>
         </div>

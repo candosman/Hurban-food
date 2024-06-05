@@ -7,6 +7,8 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
+require 'faker'
+
 puts 'Cleaning the database'
 Order.destroy_all if Rails.env.development?
 OrderList.destroy_all if Rails.env.development?
@@ -15,6 +17,18 @@ Restaurant.destroy_all if Rails.env.development?
 User.destroy_all if Rails.env.development?
 
 # USER
+puts 'Creating 50 fake users...'
+50.times do
+  user = User.new(
+    name:    Faker::Company.name,
+    email: Faker::Internet.email,
+    password:  "123456789"
+  )
+  user.save!
+end
+
+puts "User Seed completed"
+
 user1 = User.create(name: "john", email: "john420@test.com", password: "123456789")
 user2 = User.create(name: "Alex Johnson", email: "alexjohnson@test.com", password: "123456789")
 user3 = User.create(name: "Brittany Smith", email: "brittanysmith@test.com", password: "123456789")
@@ -383,3 +397,4 @@ meal54 = Meal.create(name: "Chocolate Mousse", price: "300", restaurant: restaur
 meal54.photo.attach(io: mealfile54, filename: "Chocolate Mousse.png", content_type: "image/png")
 meal54.save!
 puts 'Fifty-four meals created'
+

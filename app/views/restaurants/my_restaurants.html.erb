@@ -1,33 +1,31 @@
 <h1 class="text-center">Your Restaurants</h1>
+    <div class='d-flex justify-content-around  resto'>
+    <%= link_to "Add Restaurant", new_restaurant_path, class: "btn-m"%>
+    <p><%= pluralize( Restaurant.count, 'Restaurant' ) %></p>
+    </div>
 <div class="restaurant-container my-restaurants-container">
 
-  <div class="container">
-    <div class="restaurant-cards d-flex justify-content-around">
+  <div class="container my-restaurant-direction">
+    <div class="restaurant-cards restaurant-dashboard">
       <% @restaurants.each do |restaurant| %>
-        <div>
-          <%= link_to restaurant_path(restaurant) do %>
-            <div class="card-scroll">
-              <div class="card-category"  style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= restaurant.photo.attached? ? cl_image_path(restaurant.photo.key, height: 300, crop: :fill) : asset_path('meat-skewer-with-vegetables-black-backgroundai-generative.jpg', height: 300, crop: :fill) %>')">
+          <div class="card-body">
+            <%= link_to restaurant_path(restaurant) do %>
+              <div class="card-category card-category-imgs"  style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= restaurant.photo.attached? ? cl_image_path(restaurant.photo.key, height: 300, crop: :fill) : asset_path('meat-skewer-with-vegetables-black-backgroundai-generative.jpg', height: 300, crop: :fill) %>')">
                 <p>
                   <%= restaurant.name %>
                 </p>
               </div>
-            </div>
+
             <% end %>
-            <div class="btn-layout-restaurant">
+            <div class="btn-layout-restaurant restaurant-btn">
               <%= link_to 'Add meal!', restaurant_meals_path(restaurant), class: 'btn-custom-g' %>
               <%= link_to 'Edit', edit_restaurant_path(restaurant), class: 'btn-o'%>
               <%= link_to 'Delete', restaurant_path(restaurant), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: 'btn-h' %>
             </div>
-        </div>
+          </div>
+
           <% end %>
       </div>
-    <div class='d-flex justify-content-center mt-3'>
-    <%= link_to "Add Restaurant", new_restaurant_path, class: "btn-m"%>
-    </div>
+
   </div>
 </div>
-<div class='d-flex justify-content-center mt-3'>
-  <%= link_to "add Restaurant", new_restaurant_path, class: "btn-m"%>
-</div>
-

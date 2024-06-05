@@ -1,3 +1,4 @@
+
 <h1 class="text-center", style= "font-weight: bold; font-size: 100px; color: white;"><%= @restaurant.name %></h1>
 <div class="d-flex justify-content-around">
 <%= link_to 'Add meal!', new_restaurant_meal_path(@restaurant), class: 'btn-custom-g' %>
@@ -25,8 +26,11 @@
         </div>
         <p><i><%= image_tag "logo.png", alt: "", width: 20, class: "img-logo" %></i> <%= meal.description %> </p>
         <div class= "d-flex justify-content-between">
-        <%= link_to 'Edit Meal', edit_restaurant_meal_path(@restaurant, meal), class: 'btn-custom-y text-center', style: 'width:100px;' %>
-       <button class='btn-h' style='width: 100px;'>Delete</button>
+        <%= link_to edit_restaurant_meal_path(@restaurant, meal), class: 'btn-custom-y text-center', style: 'width:100px;' do %>
+          <i class="fa-solid fa-pencil"></i>
+        <% end %>
+
+       <button class='btn-h' style='width: 100px;'><i class="fa-solid fa-trash"></i></button>
         </div>
        </div>
     </div>

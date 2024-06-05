@@ -43,19 +43,30 @@ h1 {
   overflow-x: unset !important;
   overflow-y: unset !important;
   white-space: nowrap;
+
 }
 
-.card-category-imgs {
-  width: 380px;
+.card-resto-imgs {
+  width: 100%;
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+
 }
 
 .new-restaurant-card {
-
-  border-radius: 6px;
-  border: 3px solid $customyellow;
-  box-shadow: $customyellow 0px 1px 2px;
-  padding: 5px;
-
+  position: relative;
+    width: 27rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease;
+    overflow: hidden;
+}
+.new-restaurant-card:hover {
+  transform: translateY(-5px);
 }
 
 .restaurant-btn {

@@ -1,16 +1,16 @@
 <h1 class="text-center">Your Restaurants</h1>
     <div class='d-flex justify-content-around  resto'>
-    <%= link_to "Add Restaurant", new_restaurant_path, class: "btn-m"%>
-    <p><%= pluralize( Restaurant.count, 'Restaurant' ) %></p>
+      <%= link_to "Add Restaurant", new_restaurant_path, class: "btn-m"%>
+      <p><%= pluralize( @restaurants.count, 'Restaurant' ) %></p>
     </div>
 <div class="restaurant-container my-restaurants-container">
 
-  <div class="container my-restaurant-direction">
+  <div class=" my-restaurant-direction-card" style="width: 18rem;">
     <div class="restaurant-cards restaurant-dashboard">
       <% @restaurants.each do |restaurant| %>
           <div class="new-restaurant-card">
             <%= link_to restaurant_path(restaurant) do %>
-              <div class="card-category card-category-imgs"  style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= restaurant.photo.attached? ? cl_image_path(restaurant.photo.key, height: 300, crop: :fill) : asset_path('meat-skewer-with-vegetables-black-backgroundai-generative.jpg', height: 300, crop: :fill) %>')">
+              <div class="card-category card-resto-imgs"  style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= restaurant.photo.attached? ? cl_image_path(restaurant.photo.key, height: 300, crop: :fill) : asset_path('meat-skewer-with-vegetables-black-backgroundai-generative.jpg', height: 300, crop: :fill) %>')">
                 <p>
                   <%= restaurant.name %>
                 </p>
@@ -18,9 +18,13 @@
 
             <% end %>
             <div class="btn-layout-restaurant restaurant-btn">
-              <%= link_to 'Add meal!', restaurant_meals_path(restaurant), class: 'btn-custom-g' %>
-              <%= link_to 'Edit', edit_restaurant_path(restaurant), class: 'btn-o'%>
-              <%= link_to 'Delete', restaurant_path(restaurant), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: 'btn-h' %>
+              <%= link_to restaurant_meals_path(restaurant), class: 'btn-custom-g' do %> <i class="fa-solid fa-plus"></i>
+              <% end %>
+              <%= link_to edit_restaurant_path(restaurant), class: 'btn-o' do %><i class="fa-solid fa-pen"></i>
+              <% end %>
+              <%= link_to restaurant_path(restaurant), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: 'btn-h' do %><i class="fa-solid fa-trash"></i>
+              <% end %>
+
             </div>
           </div>
 

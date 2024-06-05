@@ -10,4 +10,8 @@ class Restaurant < ApplicationRecord
   validates :name, presence: true
   validates :phone, presence: true
   validates :address, presence: true
+
+  def average_rating
+    restaurant_reviews.average(:rating)
+  end
 end

@@ -13,6 +13,12 @@
     <div class='banner-restaurant-right'>
       <div class="restaurant-info mb-5">
         <h2 class="card-title"><%= @restaurant.name %></h2>
+        <% if @restaurant.restaurant_reviews.any? %>
+          <% average_rating = @restaurant.average_rating.round %>
+          <% average_rating.times do  %>
+            <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+          <% end %>
+        <% end %>
         <br>
         <p><i class="fa-solid fa-phone" style="margin-right: 20px; color: #F6E9B2;"><b></i> <%= @restaurant.phone %></b></p>
         <p><i class="fa-solid fa-location-pin" style="margin-right: 20px; color: #F6E9B2;"><b></i> <%= @restaurant.address %></b></p>

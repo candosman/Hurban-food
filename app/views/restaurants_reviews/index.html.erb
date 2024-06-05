@@ -1,0 +1,12 @@
+ <div class="d-flex login-form-container mx-3 gap-4">
+  <div class="form-details">
+    <%= simple_form_for [@restaurant, @restaurant_review] do |f| %>
+      <div class="form-inputs-new-restaurant">
+        <%= f.input :content, placeholder:"Enter content" %>
+        <%= f.input :rating, placeholder: "Enter rating" %>
+      </div>
+
+      <%= f.submit class: 'btn btn-dark mt-4' %>
+    <% end %>
+  </div>
+</div>

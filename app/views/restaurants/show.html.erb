@@ -16,6 +16,7 @@
         <br>
         <p><i class="fa-solid fa-phone" style="margin-right: 20px; color: #F6E9B2;"><b></i> <%= @restaurant.phone %></b></p>
         <p><i class="fa-solid fa-location-pin" style="margin-right: 20px; color: #F6E9B2;"><b></i> <%= @restaurant.address %></p>
+        <%= link_to "Review" %>
         <% if current_user == @restaurant.user %>
         <div class="d-flex justify-content-around">
           <%= link_to 'Add meal!', new_restaurant_meal_path(@restaurant), class: 'btn-custom-g' %>
@@ -148,4 +149,22 @@
     <div id="map" class="mapshow" data-controller="map" data-map-markers-value="<%= @markers.to_json %>" data-map-api-key-value="<%= ENV["MAPBOX_API_KEY"] %>"></div>
   </div>
 
+</div>
+
+
+
+
+
+
+ <div class="d-flex login-form-container mx-3 gap-4">
+  <div class="form-details">
+    <%= simple_form_for [@restaurant, @restaurant_review] do |f| %>
+      <div class="form-inputs-new-restaurant">
+        <%= f.input :content, placeholder:"Enter content" %>
+        <%= f.input :rating, placeholder: "Enter rating" %>
+      </div>
+
+      <%= f.submit class: 'btn btn-dark mt-4' %>
+    <% end %>
+  </div>
 </div>

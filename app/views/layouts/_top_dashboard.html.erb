@@ -2,16 +2,24 @@
   <ul>
     <% if current_user.owner? %>
 
-      <li>
-      <a href='/dashboard'>
+    <li>
+      <a href=<%= root_path %> >
         <i class="fa fa-home fa-2x"></i>
+        <span class="nav-text">
+            Home
+        </span>
+      </a>
+    </li>
+    <li>
+      <a href='/dashboard'>
+        <i class="fa fa-chart-line"></i>
         <span class="nav-text">
             My Dashboard
         </span>
       </a>
     </li>
 
-     <li>
+    <li>
       <a href= <%= my_restaurants_path %>>
         <i class="fa fa-utensils fa-2x"></i>
         <span class="nav-text">

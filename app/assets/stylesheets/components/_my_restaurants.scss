@@ -16,6 +16,7 @@ h1 {
   padding: 10px 15px;
   transition: all 300ms ease-in;
   width: none;
+  height: 43px;
 
   &:hover{
     border: 2px solid $banner;
@@ -33,4 +34,43 @@ h1 {
 
 .my-restaurants-container {
   background-color:white !important;
+}
+
+.restaurant-dashboard {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 3rem;
+  overflow-x: unset !important;
+  overflow-y: unset !important;
+  white-space: nowrap;
+}
+
+.card-category-imgs {
+  width: 380px;
+}
+
+.card-body {
+
+  border-radius: 6px;
+  border: 3px solid $customyellow;
+  box-shadow: $customyellow 0px 1px 2px;
+  padding: 5px;
+
+}
+
+.restaurant-btn {
+  display: flex;
+  justify-content: space-around;
+}
+
+.resto {
+  p {
+    font-weight: bold;
+    background-color: $orange;
+    border-radius: 10px;
+    padding: 10px 15px;
+    height: 43px;
+
+
+  }
 }

@@ -13,7 +13,7 @@
                       <div class="card-image image-round  mr-3" style="background-image: url(<%= cl_image_path(order_list.meal.photo.key) %>);"></div>
                       <div class="ms-3">
                         <h5 class="card-title mb-2 mt-0"><strong><%= order_list.meal.name %></strong></h5>
-                        <p class="card-text text-muted mb-0">Rs <%= order_list.meal.price %></p>
+                        <p class="card-text text-muted mb-0"><%= number_to_currency(order_list.meal.price, :unit => "Rs ") %></p>
                       </div>
                       <% total_price += order_list.meal.price %>
                     </div>
@@ -28,7 +28,7 @@
                       <%= link_to 'delivered ?', mark_as_delivered_order_path(order), class: 'badge bg-warning text-white text-decoration-none', data: { turbo_method: :patch } %>
                     <% end %>
 
-                  <p>Total: <strong>RS <%= total_price %></strong></p>
+                  <p>Total: <strong><%= number_to_currency(total_price, :unit => "Rs ") %></strong></p>
                 </div>
               </div>
               <hr>

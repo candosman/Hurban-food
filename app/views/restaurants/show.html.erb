@@ -60,7 +60,7 @@
         <div class="card-body card-meal-body">
           <div class='d-flex justify-content-between'>
             <h5 class="card-title"> <%= meal.name.upcase %></h5>
-            <h6 class="card-price"><i class="fa-solid fa-tag"></i> <strong> Rs<%= meal.price %></strong></h6>
+            <h6 class="card-price"><i class="fa-solid fa-tag"></i> <strong><%= number_to_currency(meal.price, :unit => "Rs ") %></strong></h6>
           </div>
           <p><i><%= image_tag "logo.png", alt: "", width: 20, class: "img-logo" %></i> <%= meal.description %> </p>
           <% unless current_user == @restaurant.user %>
@@ -94,7 +94,7 @@
          <div class="card-body card-meal-body">
           <div class='d-flex justify-content-between'>
             <h5 class="card-title"> <%= meal.name.upcase %></h5>
-            <h6 class="card-price"><i class="fa-solid fa-tag"></i> <strong> Rs<%= meal.price %></strong></h6>
+            <h6 class="card-price"><i class="fa-solid fa-tag"></i> <strong><%= number_to_currency(meal.price, :unit => "Rs ") %></strong></h6>
           </div>
           <p><i><%= image_tag "logo.png", alt: "", width: 20, class: "img-logo" %></i> <%= meal.description %> </p>
           <% unless current_user == @restaurant.user %>
@@ -128,7 +128,7 @@
         <div class="card-body card-meal-body">
           <div class='d-flex justify-content-between'>
             <h5 class="card-title"> <%= meal.name.upcase %></h5>
-            <h6 class="card-price"><i class="fa-solid fa-tag"></i> <strong> Rs<%= meal.price %></strong></h6>
+            <h6 class="card-price"><i class="fa-solid fa-tag"></i> <strong><%= number_to_currency(meal.price, :unit => "Rs ") %></strong></h6>
           </div>
           <p><i><%= image_tag "logo.png", alt: "", width: 20, class: "img-logo" %></i> <%= meal.description %> </p>
           <% unless current_user == @restaurant.user %>

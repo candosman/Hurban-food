@@ -17,7 +17,7 @@
   <div class="stats-card revenue-card flex-column bg-gray-200 p-4 rounded-lg">
       <h3 class="revenue-title">Total Revenue</h3>
       <div class="revenue-amount">
-        <p class="revenue-value"><%= @revenue %></p>
+        <p class="text-3xl font-bold"><%= number_to_currency(@revenue, :unit => "Rs ") %></p>
       </div>
   </div>
 </div>
@@ -35,3 +35,4 @@
   </div>
   <%= line_chart OrderList.group_by_day(:created_at).count, class: "chart" %>
 </div>
+

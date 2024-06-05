@@ -11,10 +11,11 @@ class DashboardController < ApplicationController
       @meals_sold += @order_list_number
       @revenue += @order_list_number * meal.price
     end
+
     current_user.restaurants.each do |restaurant|
       @orders << Order.joins(:order_lists).where(order_lists: { meal_id: restaurant.meals.pluck(:id) }).distinct
     end
-    @number_of_customers = @orders[1].map(&:user).uniq.count
+    @number_of_customers = @orders.flatten.map(&:user).uniq.count
   end
 
   def create_orders

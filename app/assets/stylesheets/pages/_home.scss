@@ -1,6 +1,5 @@
 // Specific CSS for your home-page
 .about-us-container {
-
   padding: 5% 0;
   background-color: #ffffff;
   text-align: center;
@@ -11,16 +10,19 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  width: 80%;
 }
 
 .about-us-heading {
   font-size: 24px;
   font-weight: bold;
   margin-bottom: 20px;
+  width: 112px;
+
 }
 
 .about-us-text {
-  text-align: justify;
+  text-align: center;
   width: 60%;
   color: #333;
 }
@@ -75,8 +77,6 @@
 .restaurant-container {
   background-color: #F6E9B2;
   padding: 100px 0;
-
-
 }
 
 

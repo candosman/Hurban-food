@@ -7,6 +7,8 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
+require 'faker'
+
 puts 'Cleaning the database'
 Order.destroy_all if Rails.env.development?
 OrderList.destroy_all if Rails.env.development?
@@ -15,6 +17,8 @@ Restaurant.destroy_all if Rails.env.development?
 User.destroy_all if Rails.env.development?
 
 # USER
+
+
 user1 = User.create(name: "john", email: "john420@test.com", password: "123456789")
 user2 = User.create(name: "Alex Johnson", email: "alexjohnson@test.com", password: "123456789")
 user3 = User.create(name: "Brittany Smith", email: "brittanysmith@test.com", password: "123456789")
@@ -383,3 +387,64 @@ meal54 = Meal.create(name: "Chocolate Mousse", price: "300", restaurant: restaur
 meal54.photo.attach(io: mealfile54, filename: "Chocolate Mousse.png", content_type: "image/png")
 meal54.save!
 puts 'Fifty-four meals created'
+
+# Create a starting number for the orders
+
+
+puts 'Creating 25 fake users...'
+25.times do
+  user = User.new(
+    name:    Faker::Company.name,
+    email: Faker::Internet.email,
+    password:  "123456789"
+  )
+  user.save!
+
+  num_orders = rand(10) + 1
+  puts "creating #{num_orders} orders"
+  today = DateTime.now
+
+  num_orders.times do
+    order_number = rand(10_000)
+    days_ago = 20 -(order_number / 500) # will give a number between 0 and 20
+    # Find a random restaurant
+    restaurant = Restaurant.order('RANDOM()').first
+    cart = Cart.new
+    cart.save!
+    order = Order.new
+    order.order_number = order_number
+    order.user = user
+    order.created_at = today.days_ago(days_ago)
+    order.delivered_status = (days_ago > 1)
+    order.save!
+
+    num_meals = rand(5) + 1
+    puts "creating #{num_meals} orders"
+
+    total_price = 0
+
+    num_meals.times do
+      list = OrderList.new
+      meal = restaurant.meals.sample
+      total_price += meal.price
+      list.meal = meal
+      list.cart = cart
+      list.order_number = order_number
+      list.save!
+
+      list.order_id = order.id
+      list.save!
+    end
+
+    order.update(amount: total_price)
+
+
+
+    # add 1 to the counter
+    order_number += 1
+  end
+
+
+end
+
+puts "User Seed completed"

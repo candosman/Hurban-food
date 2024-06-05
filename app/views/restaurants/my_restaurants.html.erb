@@ -8,7 +8,7 @@
   <div class="container my-restaurant-direction">
     <div class="restaurant-cards restaurant-dashboard">
       <% @restaurants.each do |restaurant| %>
-          <div class="card-body">
+          <div class="new-restaurant-card">
             <%= link_to restaurant_path(restaurant) do %>
               <div class="card-category card-category-imgs"  style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= restaurant.photo.attached? ? cl_image_path(restaurant.photo.key, height: 300, crop: :fill) : asset_path('meat-skewer-with-vegetables-black-backgroundai-generative.jpg', height: 300, crop: :fill) %>')">
                 <p>

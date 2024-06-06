@@ -1,4 +1,4 @@
-<h1 class="text-center">Your Restaurants</h1>
+<h1 class="text-center resto-title">Your Restaurants</h1>
     <div class='d-flex justify-content-around  resto'>
       <%= link_to "Add Restaurant", new_restaurant_path, class: "btn-m"%>
       <p><%= pluralize( @restaurants.count, 'Restaurant' ) %></p>
@@ -33,4 +33,3 @@
 
   </div>
 </div>
-

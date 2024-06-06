@@ -1,8 +1,6 @@
-
-<h1 class="text-center", style= "font-weight: bold; font-size: 100px; color: white;"><%= @restaurant.name %></h1>
-<div class="d-flex justify-content-around">
+<h1 class="text-center", style= "font-weight: bold;">Your Restaurant Menu</h1>
+<div class="d-flex justify-content-center mt-3">
 <%= link_to 'Add meal!', new_restaurant_meal_path(@restaurant), class: 'btn-custom-g' %>
-<%= link_to 'Edit', edit_restaurant_path(@restaurant), class: 'btn-custom-g' %>
 </div>
 
 

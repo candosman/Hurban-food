@@ -1,18 +1,17 @@
     <div class="container center-items">
       <div class="My-orders">
         <div class="card card-checkout py-3 border-0 rounded-3xl">
-          <h2 class="card-title text-center my-4">My orders</h2>
+          <h2 class="card-title text-center my-4">My Restaurant orders</h2>
           <hr>
           <div class="card-body">
             <% @orders.each do |order_lists| %>
               <% total_price = 0 %>
-              <div class="card mb-2 border-0 rounded-3xl">
-                <div class="card-body d-grid grid-3 gap-2 p-3">
+              <div class="order-card d-flex mb-2 border-0 rounded-3xl">
+                <div class="card-body order-names p-3">
                   <% order_lists[1].each do |order_list| %>
-                    <div class='d-flex'>
-                      <div class="card-image image-round  mr-3" style="background-image: url(<%= cl_image_path(order_list.meal.photo.key) %>);"></div>
-                      <div class="ms-3">
-                        <h5 class="card-title mb-2 mt-0"><strong><%= order_list.meal.name %></strong></h5>
+                    <div class=''>
+                      <div class="ms-3 mb-3">
+                        <h5 class="card-title mt-0"><strong><%= order_list.meal.name %></strong></h5>
                         <p class="card-text text-muted mb-0"><%= number_to_currency(order_list.meal.price, :unit => "Rs ") %></p>
                       </div>
                       <% total_price += order_list.meal.price %>
@@ -20,13 +19,22 @@
                   <% end %>
                 </div>
 
-                <div class="total-price pe-2">
-                    <% order = Order.find(order_lists[1][0][:order_id]) %>
+                <div class="total-price order-details pe-2">
+                  <% order = Order.find(order_lists[1][0][:order_id]) %>
+
+                  <div class="order-top">
+                    <div class="order-date">
+                      <td><%= order.created_at.strftime("%d %B, %Y") %></td>
+                    </div>
+                    <div>
+                      <td>order number: #<%= order.order_number %></td>
+                    </div>
                     <% if order.delivered_status %>
-                      <span class="badge bg-success">Delivered</span>
+                      <span class="badge bg-success delivered">Delivered</span>
                     <% else %>
-                      <%= link_to 'delivered ?', mark_as_delivered_order_path(order), class: 'badge bg-warning text-white text-decoration-none', data: { turbo_method: :patch } %>
+                      <%= link_to 'delivered ?', mark_as_delivered_order_path(order), class: 'badge bg-warning text-white text-decoration-none delivered', data: { turbo_method: :patch } %>
                     <% end %>
+                  </div>
 
                   <p>Total: <strong><%= number_to_currency(total_price, :unit => "Rs ") %></strong></p>
                 </div>

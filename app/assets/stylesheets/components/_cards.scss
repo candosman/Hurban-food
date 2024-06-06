@@ -27,6 +27,15 @@
   height: 405px;
   cursor: pointer;
 
+  &:hover {
+    transform: scale(1.05);
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 8px 20px;
+  }
+
+
+
+
+
   .card-price i {
     color: $customdarkgreen;
   }
@@ -54,6 +63,7 @@
 
 
 }
+
 
 .image-round {
   height: 100px;

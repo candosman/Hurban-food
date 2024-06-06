@@ -4,12 +4,75 @@
   <title>The page you were looking for doesn't exist (404)</title>
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <style>
+    @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap');
+    @import "bootstrap";
+    .btn-custom-g {
+      border-radius: 5px;
+      background-color: #7ABA78;
+      color: #ffffff;
+      font-weight: 700;
+      text-decoration: none;
+      padding: 10px 15px;
+      transition: all 300ms ease-in;
+      width: 80px;
+      display: flex;
+      justify-content: center;
 
+    }
+
+    .btn-custom-g:hover{
+      border: 2px solid #7ABA78;
+      background-color: unset;
+      color: #7ABA78;
+    }
+
+    .card-detail {
+      /* display: flex;
+      flex-direction: column;
+      border-top-left-radius: 15px;
+      border-top-right-radius: 15px;
+      border-bottom-left-radius: 15px;
+      border-bottom-right-radius: 15px;
+      transition: all ease-in-out 0.2s;
+      box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+      height: 405px;
+      cursor: pointer; */
+    }
+
+    p, a {
+      font-family:"Source Sans 3", sans-serif;
+      text-align: center;
+    }
+
+    h1 {
+      font-family:"Oswald", sans-serif;
+      text-align: center;
+    }
+
+    img {
+      width: 300px;
+      height: auto;
+    }
+
+    .full-body {
+      width: 70vw;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      margin-top: 10%;
+    }
   </style>
 </head>
 
 <body>
-  <!-- This file lives in public/404.html -->
+  <div class="container full-body">
+    <img src="https://res.cloudinary.com/dixxcjvdp/image/upload/v1717675108/hf-round-vert_mpok2a.png" alt="Hurban Food Logo">
+    <h1>This page was lost</h1>
+    <p>The page you are looking for isn't available</p>
+    <a href="http://127.0.0.1:3000/restaurants" class="btn-custom-g">Back Home</a>
 
-</body>
+  </div>
+ </body>
 </html>

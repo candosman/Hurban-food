@@ -8,6 +8,11 @@
       designed to simplify
       <strong >your culinary adventures</strong>!
     </p>
+    <% if current_user %>
+    <%= link_to "Create Restaurant", new_restaurant_path, class: "btn-custom-y"%>
+    <% else %>
+    <a href="#About-us" class="btn-custom-y" id="about-us">about us</a>
+    <% end %>
   </div>
 </div>
 
@@ -29,7 +34,7 @@
   </div>
 </div>
 
-<div class="about-us-container">
+<div class="about-us-container" id="About-us">
   <div class="container about-us-content">
     <div class="about-us-text">
       <h1 class="about-us-heading">About Us</h1>

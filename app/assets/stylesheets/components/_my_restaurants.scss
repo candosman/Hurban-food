@@ -7,6 +7,7 @@
 .card-restaurant-counts {
   display: grid;
   border: 1px solid $customlightyellow;
+}
 
 .resto-title {
   padding: 10px;
@@ -123,7 +124,7 @@
 
 }
 
-.card-resto-imgs {
+//.card-resto-imgs {
   // width: 100%;
   // position: relative;
   // background-size: cover;
@@ -131,9 +132,9 @@
   // border-top-left-radius: 10px;
   // border-top-right-radius: 10px;
 
-}
 
-.new-restaurant-card {
+
+//.new-restaurant-card {
   // position: relative;
   //   width: 27rem;
   //   border-radius: 10px;
@@ -141,7 +142,7 @@
   //   overflow: hidden;
   //   transition: transform 0.3s ease;
   //   overflow: hidden;
-}
+
 .new-restaurant-card:hover {
   transform: translateY(-5px);
 }

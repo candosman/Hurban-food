@@ -22,9 +22,12 @@
         <br>
         <p><i class="fa-solid fa-phone" style="margin-right: 20px; color: #F6E9B2;"><b></i> <%= @restaurant.phone %></b></p>
         <p><i class="fa-solid fa-location-pin" style="margin-right: 20px; color: #F6E9B2;"><b></i> <%= @restaurant.address %></b></p>
-        <button type="button" class="btn btn-custom-dg" data-bs-toggle="modal" data-bs-target="#exampleModal">
-          Review
-        </button>
+        <% if current_user.owner? %>
+        <% else %>
+          <button type="button" class="btn btn-custom-dg" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            Review
+          </button>
+        <% end %>
         <% if current_user == @restaurant.user %>
         <div class="d-flex justify-content-around">
           <%= link_to 'Add meal!', new_restaurant_meal_path(@restaurant), class: 'btn-custom-g' %>

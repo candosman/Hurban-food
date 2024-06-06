@@ -15,7 +15,7 @@
           <%= f.input :chef_photos, label: "Chef's photos", as: :file, input_html: {multiple: true} %>
         </div>
 
-        <%= f.submit class: 'btn btn-dark mt-4' %>
+        <%= f.submit class: 'btn-custom-g mt-4' %>
       <% end %>
     </div>
 
@@ -23,11 +23,9 @@
 
 <div class="container d-flex justify-content-center gap-3">
     <div class="form-infos-new-restaurant">
-      <h1 class="text-center">Hurban-Food</h1>
-      <p>With Hurban-Food, the entire culinary universe is at your fingertips.📱Seamlessly browse recipes on-the-go: Whether you're in the supermarket or relaxing at home, our user-friendly interface ensures effortless navigation and inspiration at your fingertips.🍴Discover top-rated restaurants nearby, read reviews from fellow foodies, and make reservations directly from the app. With Hurban-Food, every meal is an adventure waiting to be savored.</p>
-      <div class="food-img d-flex justify-content-center mb-5">
-          <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?q=80&w=1398&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="">
-      </div>
+      <div class="about-us-logo">
+      <%= image_tag('hf-round-vert.png', alt: 'Hurban Food Logo') %>
+    </div>
     </div>
     </div>
 </div>

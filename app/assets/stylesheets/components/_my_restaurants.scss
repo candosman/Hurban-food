@@ -1,3 +1,4 @@
+
 .Owners-restaurant-h1 {
   padding: 10px;
   text-align: center;
@@ -6,6 +7,12 @@
 .card-restaurant-counts {
   display: grid;
   border: 1px solid $customlightyellow;
+
+.resto-title {
+  padding: 10px;
+  box-shadow:rgba(48, 113, 4, 0.2);
+  font-weight: bold;
+
   border-radius: 10px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   width: 500px;

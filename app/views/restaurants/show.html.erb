@@ -1,6 +1,6 @@
 <div class="container mt-3 mb-3">
   <div class='container-centered d-flex gap-3 justify-content-between'>
-    <div style='width:50%;'>
+    <div style='width:53%;align-content: center;'>
       <div>
         <% if @restaurant.photo.attached? %>
           <%= cl_image_tag @restaurant.photo.key, class: 'img-fluid img-fluid-radius' %>
@@ -22,9 +22,9 @@
         <br>
         <p><i class="fa-solid fa-phone" style="margin-right: 20px; color: #F6E9B2;"><b></i> <%= @restaurant.phone %></b></p>
         <p><i class="fa-solid fa-location-pin" style="margin-right: 20px; color: #F6E9B2;"><b></i> <%= @restaurant.address %></b></p>
-        <% if current_user.owner? %>
+        <% if current_user == @restaurant.user %>
         <% else %>
-          <button type="button" class="btn btn-custom-dg" data-bs-toggle="modal" data-bs-target="#exampleModal">
+          <button type="button" class="btn btn-custom-y" data-bs-toggle="modal" data-bs-target="#exampleModal">
             Review
           </button>
         <% end %>
@@ -156,7 +156,7 @@
   </div>
 <% end %>
 <div class="display-container" style="margin-bottom: 50px;">
-  <div class="inner-display" style="margin-left: 200px;">
+  <div class="inner-display">
     <div id="map" class="mapshow" data-controller="map" data-map-markers-value="<%= @markers.to_json %>" data-map-api-key-value="<%= ENV["MAPBOX_API_KEY"] %>"></div>
   </div>
 
@@ -194,8 +194,8 @@
           </div>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          <%= f.submit "Send your review", class:"btn btn-primary submit-review" %>
+          <button type="button" class="btn btn-custom-g" data-bs-dismiss="modal">Close</button>
+          <%= f.submit "Send your review", class:"btn btn-custom-y submit-review" %>
         </div>
       <% end %>
     </div>
